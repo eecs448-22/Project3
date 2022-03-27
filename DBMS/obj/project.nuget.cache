@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "X61bX9mMUmHkqJVaTj486PvQUX84WJ0EsBhnkC8mTeHcbXjKgHX2isy7dmnXyqEf3DoxGHUr0V8KE1l0ESE9+g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\leejo\\OneDrive\\Desktop\\Homework\\EECS_448\\Projects\\Project_3\\SRMS\\DBMS\\DBMS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\leejo\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\leejo\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.115.5\\stub.system.data.sqlite.core.netstandard.1.0.115.5.nupkg.sha512",
+    "C:\\Users\\leejo\\.nuget\\packages\\system.data.sqlite.core\\1.0.115.5\\system.data.sqlite.core.1.0.115.5.nupkg.sha512"
+  ],
+  "logs": []
+}

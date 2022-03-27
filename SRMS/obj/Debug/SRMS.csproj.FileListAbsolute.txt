@@ -1,0 +1,12 @@
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\SRMS.exe.config
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\SRMS.exe
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\SRMS.pdb
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.csproj.AssemblyReference.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.csproj.SuggestedBindingRedirects.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.LoginUI.resources
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.MainUI.resources
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.Properties.Resources.resources
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.csproj.GenerateResource.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.csproj.CoreCompileInputs.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.exe
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.pdb

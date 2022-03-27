@@ -1,0 +1,16 @@
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\DBMS.csproj.AssemblyReference.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\DBMS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\DBMS.AssemblyInfoInputs.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\DBMS.AssemblyInfo.cs
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\DBMS.csproj.CoreCompileInputs.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\net6.0-windows\MainDb.db
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\net6.0-windows\DBMS.exe
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\net6.0-windows\DBMS.deps.json
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\net6.0-windows\DBMS.runtimeconfig.json
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\net6.0-windows\DBMS.dll
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\net6.0-windows\DBMS.pdb
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\DBMS.dll
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\refint\DBMS.dll
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\DBMS.pdb
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\DBMS.genruntimeconfig.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\net6.0-windows\ref\DBMS.dll
