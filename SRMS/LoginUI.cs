@@ -17,6 +17,12 @@ namespace SRMS
         public LoginUI()
         {
             InitializeComponent();
+            SqliteDataAccess.InitializeDatabase();
+            foreach (UserModel user in SqliteDataAccess.LoadUsers())
+            {
+                Console.WriteLine(user.Username);
+                Console.WriteLine(user.Password);
+            }
         }
 
         private void LoginUI_Load(object sender, EventArgs e)
@@ -29,6 +35,14 @@ namespace SRMS
             UserModel user = new UserModel();
             user.Username = UserInput.Text;
             user.Password = PassInput.Text;
+            if (SqliteDataAccess.ValidateUser(user))
+            {
+                Console.WriteLine("user is logged in");
+            }
+            else
+            {
+                Console.WriteLine("invalid user");
+            }
 
 
         }

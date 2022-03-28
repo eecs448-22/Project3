@@ -1,0 +1,15 @@
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\DBMS.csproj.AssemblyReference.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\DBMS.csproj.SuggestedBindingRedirects.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\DBMS.Properties.Resources.resources
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\DBMS.csproj.GenerateResource.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\DBMS.csproj.CoreCompileInputs.cache
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\DBMS.exe.config
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\DBMS.exe
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\DBMS.pdb
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\Dapper.dll
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\System.Data.SQLite.dll
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\Dapper.xml
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\bin\Debug\System.Data.SQLite.xml
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\DBMS.csproj.CopyComplete
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\DBMS.exe
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\DBMS\obj\Debug\DBMS.pdb

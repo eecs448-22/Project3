@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBMS\DBMS.csproj">
-      <Project>{b220e123-7bba-4f0f-bba4-5900c40c85b4}</Project>
+      <Project>{1a44314b-7512-4542-96a8-e4a2e85558f9}</Project>
       <Name>DBMS</Name>
     </ProjectReference>
   </ItemGroup>

@@ -10,3 +10,11 @@ C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\o
 C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.csproj.CoreCompileInputs.cache
 C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.exe
 C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.pdb
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\Dapper.dll
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\System.Data.SQLite.dll
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\Dapper.xml
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\System.Data.SQLite.xml
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\obj\Debug\SRMS.csproj.CopyComplete
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\DBMS.exe
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\DBMS.pdb
+C:\Users\leejo\OneDrive\Desktop\Homework\EECS_448\Projects\Project_3\SRMS\SRMS\bin\Debug\DBMS.exe.config
