@@ -100,7 +100,7 @@
             this.Controls.Add(this.UserInput);
             this.Name = "LoginUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginUI";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
