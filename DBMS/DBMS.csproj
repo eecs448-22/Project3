@@ -55,9 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignmentModel.cs" />
+    <Compile Include="CourseModel.cs" />
+    <Compile Include="FacultyModel.cs" />
+    <Compile Include="ManageAssignment.cs" />
+    <Compile Include="ManageCourse.cs" />
+    <Compile Include="ManageFaculty.cs" />
+    <Compile Include="ManageStudent.cs" />
+    <Compile Include="ManageUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqliteDataAccess.cs" />
+    <Compile Include="StudentModel.cs" />
     <Compile Include="UserModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

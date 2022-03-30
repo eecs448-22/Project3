@@ -8,15 +8,21 @@
 --CreatedOn marks the time which the data is entered on the current time (CURRENT_TIMESTAMP)
 --DATETIME format specifies YEAR:MONTH:DAY HOUR:MIN:SEC, i.e. "1900-01-01 00:00:00"
 
+CREATE TABLE IF NOT EXISTS Users (
+    Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Username NVARCHAR(64) NOT NULL,
+    Password NVARCHAR(128) NOT NULL
+)
+
 CREATE TABLE Student(
     Id INTEGER PRIMARY KEY NOT NULL,
+    UserId INTEGER NOT NULL,
     FirstName VARCHAR(60) NOT NULL,
     LastName VARCHAR(60) NOT NULL,
-    UserName VARCHAR(60) NOT NULL, --onlineID
     Email VARCHAR(255),
-    Password VARCHAR(128),
-    Major VARCHAR(60), --English, CS, Math, etc. 
-    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP --the day student was registered in system
+    Major VARCHAR(60), --English, CS, Math, etc.
+    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --the day student was registered in system
+    FOREIGN KEY(UserId) REFERENCES Users(Id)
 );
 
 CREATE TABLE Course(
@@ -42,14 +48,14 @@ CREATE TABLE Enrollment(
 
 CREATE TABLE Faculty(
     Id INTEGER PRIMARY KEY NOT NULL,
+    UserId INTEGER NOT NULL,
     FirstName VARCHAR(60) NOT NULL,
     LastName VARCHAR(60) NOT NULL,
-    UserName VARCHAR(60) NOT NULL,
     Email VARCHAR(255),
-    Password VARCHAR(128),
     Title VARCHAR(60),
     Dept VARCHAR(120),
-    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP --the day faculty was registered in system. 
+    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --the day faculty was registered in system. 
+    FOREIGN KEY(UserId) REFERENCES Users(Id)
 );
 
 CREATE TABLE Teaching(

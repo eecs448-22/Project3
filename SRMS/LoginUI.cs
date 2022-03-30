@@ -18,7 +18,7 @@ namespace SRMS
         {
             InitializeComponent();
             SqliteDataAccess.InitializeDatabase();
-            foreach (UserModel user in SqliteDataAccess.LoadUsers())
+            foreach (UserModel user in ManageUser.LoadUsers())
             {
                 Console.WriteLine(user.Username);
                 Console.WriteLine(user.Password);
@@ -35,7 +35,7 @@ namespace SRMS
             UserModel user = new UserModel();
             user.Username = UserInput.Text;
             user.Password = PassInput.Text;
-            if (SqliteDataAccess.ValidateUser(user))
+            if (ManageUser.ValidateUser(user))
             {
                 Console.WriteLine("user is logged in");
             }
