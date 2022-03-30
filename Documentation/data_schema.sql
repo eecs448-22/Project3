@@ -64,8 +64,8 @@ CREATE TABLE Teaching(
 
 CREATE TABLE Assignment(
     Id INTEGER PRIMARY KEY NOT NULL,
-    CourseId INTEGER NOT NULL, --i.e. 53562
-    Category VARCHAR(25) --Homework, Quiz, Discussion
+    CourseId INTEGER NOT NULL,            --i.e. 53562
+    Category VARCHAR(25),                 --Homework, Quiz, Discussion
     Description VARCHAR(128) NOT NULL,
     DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --time teacher created assignment online
     DueDate DATETIME, 

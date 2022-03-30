@@ -1,9 +1,10 @@
 To access SQL with command line, go to: https://www.sqlite.org/download.html
-(1) Download and Unzip the tool;
+(1) Download sqlite-tools-win32-x86-3380200.zip (A bundle of command-line tools for managing SQLite database ....)
+ and Unzip the tool
 (2) Verify the tool is on your path
 
 	> sqlite3 -version
-      3.38.2 2022-03-26 ...
+          3.38.2 2022-03-26 ...
 
 (3) Create your database in your current folder:
 
