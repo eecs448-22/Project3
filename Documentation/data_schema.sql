@@ -2,10 +2,10 @@
 
 --UNDERSTANDING SQL
 --VARCHAR is an array of characters, basically a string
---NOT NULL means user is required to specify file
+--NOT NULL means user is required to supply data
 --PRIMARY KEY is a reference to the row the data is in, it auto increments by one
 --FOREIGN KEY allows reference to another table's data (i.e. referencing their primary key)
---CreatedOn marks the time which the database is created based on the current time (CURRENT_TIMESTAMP)
+--CreatedOn marks the time which the data is entered on the current time (CURRENT_TIMESTAMP)
 --DATETIME format specifies YEAR:MONTH:DAY HOUR:MIN:SEC, i.e. "1900-01-01 00:00:00"
 
 CREATE TABLE Student(
@@ -21,8 +21,7 @@ CREATE TABLE Student(
 
 CREATE TABLE Course(
     Id INTEGER PRIMARY KEY NOT NULL,
-    Dept VARCHAR(8) NOT NULL, --i.e. EECS 
-    CourseAbbrev VARCHAR(8) NOT NULL, --i.e. EECS 448
+    Subject VARCHAR(8) NOT NULL,
     "Level" INTEGER NOT NULL,   --Upper/Lower Level
     Title VARCHAR(128) NOT NULL,--i.e. "Software Programming 1"
     Hours INTEGER NOT NULL,     --Credit Hours
