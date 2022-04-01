@@ -8,6 +8,7 @@ namespace DBMS
 {
     public class UserModel
     {
+        //Getters and setters for the user model.
         public string Username { get; set; }
         public string Password { get; set; }
 

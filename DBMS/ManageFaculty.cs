@@ -14,8 +14,10 @@ namespace DBMS
     {
         public static List<FacultyModel> LoadFaculty()
         {
+             //Create a new connection to the local server
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
+                //Select all DB elements from Faculty DB and return as a list
                 var output = cnn.Query<FacultyModel>("select * from Faculty", new DynamicParameters());
                 return output.ToList();
             }
@@ -23,8 +25,10 @@ namespace DBMS
 
         public static void SaveStudent(FacultyModel faculty)
         {
+             //Create a new connection to the local server
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
+                //Insert a new entry into the Faculty DB
                 cnn.Execute("insert into Faculty (Username, Password) values (@Username, @Password)", faculty);
             }
         }

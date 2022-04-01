@@ -8,6 +8,7 @@ namespace DBMS
 {
     public class StudentModel
     {
+        //Getters and setters for the student model
         public int Id { get; set; }
         public string UserId { get; set; }
         public string FirstName { get; set; }

@@ -1,4 +1,8 @@
-﻿namespace SRMS
+﻿/* =============================================================================
+ * Code in this file is generated from the visual studio .NET C# winForms framework. 
+ * ============================================================================= */
+
+namespace SRMS
 {
     partial class MainUI
     {

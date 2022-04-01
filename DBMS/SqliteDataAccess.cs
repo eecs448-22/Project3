@@ -18,19 +18,25 @@ namespace DBMS
             var dbFilePath = @".\MainDb.db";
             if (!File.Exists(dbFilePath))
             {
+                 //Create a new connection to the local server
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
                 {
+                    //Create Users table
                     cnn.Execute(@"
                     CREATE TABLE IF NOT EXISTS Users (
                         Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                         Username NVARCHAR(64) NOT NULL,
                         Password NVARCHAR(128) NOT NULL
                     )");
+
+                    //Insert into Users table
                     cnn.Execute(@"
                         INSERT INTO Users
                             (Username, Password)
                         VALUES
                             ('admin', 'test')");
+
+                    //Create Student table
                     cnn.Execute(@"
                         CREATE TABLE Student(
                             Id INTEGER PRIMARY KEY NOT NULL,
@@ -42,6 +48,8 @@ namespace DBMS
                             CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
                             FOREIGN KEY(UserId) REFERENCES Users(Id)
                     )");
+
+                    //Create course table
                     cnn.Execute(@"
                         CREATE TABLE Course(
                             Id INTEGER PRIMARY KEY NOT NULL,
@@ -53,6 +61,8 @@ namespace DBMS
                             Semester VARCHAR(9),
                             Notes VARCHAR(255)
                     )");
+
+                    //Create enrollment table
                     cnn.Execute(@"
                         CREATE TABLE Enrollment(
                             StudentId INTEGER NOT NULL,
@@ -63,6 +73,8 @@ namespace DBMS
                             FOREIGN KEY(StudentId) REFERENCES Student(Id), --studentID retreived from Primary Key of Student table
                             FOREIGN KEY(CourseId) REFERENCES Course(Id)
                     )");
+                    
+                    //Create Faculty Table
                     cnn.Execute(@"
                         CREATE TABLE Faculty(
                             Id INTEGER PRIMARY KEY NOT NULL,
@@ -75,6 +87,8 @@ namespace DBMS
                             CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --the day faculty was registered in system. 
                             FOREIGN KEY(UserId) REFERENCES Users(Id)
                     )");
+
+                    //Create Teaching table
                     cnn.Execute(@"
                         CREATE TABLE Teaching(
                             FacultyId INTEGER NOT NULL,
@@ -85,6 +99,8 @@ namespace DBMS
                             FOREIGN KEY(FacultyId) REFERENCES Faculty(Id), --FacultyId retreived from Primary Key of Faculty table
                             FOREIGN KEY(CourseId) REFERENCES Course(Id)
                     )");
+
+                    //Create assignment table
                     cnn.Execute(@"
                         CREATE TABLE Assignment(
                             Id INTEGER PRIMARY KEY NOT NULL,
@@ -95,6 +111,8 @@ namespace DBMS
                             DueDate DATETIME, 
                             FOREIGN KEY(CourseId) REFERENCES Course(Id)
                     )");
+
+                    //Create Grading table
                     cnn.Execute(@"
                         CREATE TABLE Grading(
                             StudentId INTEGER NOT NULL,

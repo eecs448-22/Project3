@@ -8,6 +8,7 @@ namespace DBMS
 {
     public class CourseModel
     {
+        //Getters and setters for the Courses model
         public int Id { get; set; }
         public string Subject { get; set; }
         public int Level { get; set; }

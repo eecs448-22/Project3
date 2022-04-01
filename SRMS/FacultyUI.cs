@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* =============================================================================
+ * Code in this file is generated from the visual studio .NET C# winForms framework. 
+ * ============================================================================= */
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

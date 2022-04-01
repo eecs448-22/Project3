@@ -8,6 +8,7 @@ namespace DBMS
 {
     public class FacultyModel
     {
+        //Getters and setters for the faculty model.
         public int Id { get; set; }
         public int UserId { get; set; }
         public string FirstName { get; set; }

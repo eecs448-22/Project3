@@ -14,8 +14,10 @@ namespace DBMS
     {
         public static List<UserModel> LoadUsers()
         {
+             //Create a new connection to the local server
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
+                //Select all elements from the Users table and return as a list 
                 var output = cnn.Query<UserModel>("select * from Users", new DynamicParameters());
                 return output.ToList();
             }
@@ -23,17 +25,20 @@ namespace DBMS
 
         public static void SaveUser(UserModel user)
         {
+             //Create a new connection to the local server
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
+                //Insert a new entry into the Users table
                 cnn.Execute("insert into Users (Username, Password) values (@Username, @Password)", user);
             }
         }
 
         public static bool ValidateUser(UserModel user)
         {
-
+            //Check each user in the table
             foreach (UserModel otherUser in LoadUsers())
             {
+                //If the username nad password exist, return true. Otherwise, return false 
                 if (otherUser.Username == user.Username && otherUser.Password == user.Password)
                 {
                     return true;

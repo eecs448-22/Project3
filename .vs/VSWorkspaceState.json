@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DBMS",
     "\\SRMS"
   ],
-  "SelectedNode": "\\DBMS\\CourseModel.cs",
+  "SelectedNode": "\\SRMS\\LoginUI.cs",
   "PreviewInSolutionExplorer": false
 }
