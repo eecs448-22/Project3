@@ -17,7 +17,7 @@ Extract relevant data from the Enrollment and Course tables by matching the stud
 foreign key in the tables and JOIN them to the original table
 
 -- Student View (1): Show student with 30002's enrolled courses and grades
--- || is the or operator 
+-- || is the concatenate operator like "+" in SQL Server
 -- Order by organizes a given field in ascending/ descending order
 
 SELECT s.Id, s.FirstName, s.LastName
