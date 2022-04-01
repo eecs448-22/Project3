@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateAccountUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAccountUI.Designer.cs">
+      <DependentUpon>CreateAccountUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="FacultyUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateAccountUI.resx">
+      <DependentUpon>CreateAccountUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FacultyUI.resx">
       <DependentUpon>FacultyUI.cs</DependentUpon>
     </EmbeddedResource>

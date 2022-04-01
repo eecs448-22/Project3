@@ -46,5 +46,12 @@ namespace SRMS
 
 
         }
+
+        private void createAccountBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            newPassWordLabel newAcc = new newPassWordLabel();
+            newAcc.Show();
+        }
     }
 }
