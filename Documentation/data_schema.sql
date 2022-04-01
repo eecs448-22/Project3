@@ -32,7 +32,7 @@ CREATE TABLE Course(
     Title VARCHAR(128) NOT NULL,--i.e. "Software Programming 1"
     Hours INTEGER NOT NULL,     --Credit Hours
     Room VARCHAR(60),           -- Classroom # or online
-    Semester VARCHAR(9),        -- i.e. Spring 2022
+    Semester VARCHAR(20),        -- i.e. Spring 2022
     Notes VARCHAR(255)          --brief course description
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE Faculty(
 
 CREATE TABLE Teaching(
     FacultyId INTEGER NOT NULL,
-    CourseId INTEGER NOT NULL, --i.e. 53562
+    CourseId INTEGER NOT NULL, --i.e. 1001
     LectureTime VARCHAR(64), --Write the lecture time as a sting, i.e. MWF 6pm
     OfficeHour VARCHAR(128), --Write the office hour availability as a string, i.e. TR 1pm
     DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -70,7 +70,7 @@ CREATE TABLE Teaching(
 
 CREATE TABLE Assignment(
     Id INTEGER PRIMARY KEY NOT NULL,
-    CourseId INTEGER NOT NULL,            --i.e. 53562
+    CourseId INTEGER NOT NULL,            --i.e. 1001
     Category VARCHAR(25),                 --Homework, Quiz, Discussion
     Description VARCHAR(128) NOT NULL,
     DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --time teacher created assignment online
