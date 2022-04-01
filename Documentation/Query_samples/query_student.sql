@@ -1,5 +1,5 @@
 -- Student View (1) Show enrolled courses
--- || is the or operator 
+-- || is the concatenate operator like "+" in SQL Server
 SELECT s.Id, s.FirstName, s.LastName
      , c.Subject || ' ' || c.Level AS "Class"
   FROM Student AS s
