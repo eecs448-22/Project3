@@ -34,9 +34,10 @@ namespace SRMS
         {
             this.studentViewControl = new System.Windows.Forms.TabControl();
             this.AcctInfoPage = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.CoursePage = new System.Windows.Forms.TabPage();
             this.EnrollPage = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.logOutBtn = new System.Windows.Forms.Button();
             this.studentViewControl.SuspendLayout();
             this.AcctInfoPage.SuspendLayout();
             this.SuspendLayout();
@@ -46,57 +47,75 @@ namespace SRMS
             this.studentViewControl.Controls.Add(this.AcctInfoPage);
             this.studentViewControl.Controls.Add(this.CoursePage);
             this.studentViewControl.Controls.Add(this.EnrollPage);
-            this.studentViewControl.Location = new System.Drawing.Point(12, 12);
+            this.studentViewControl.Location = new System.Drawing.Point(16, 15);
+            this.studentViewControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.studentViewControl.Name = "studentViewControl";
             this.studentViewControl.SelectedIndex = 0;
-            this.studentViewControl.Size = new System.Drawing.Size(648, 337);
+            this.studentViewControl.Size = new System.Drawing.Size(864, 415);
             this.studentViewControl.TabIndex = 0;
             // 
             // AcctInfoPage
             // 
+            this.AcctInfoPage.Controls.Add(this.logOutBtn);
             this.AcctInfoPage.Controls.Add(this.listBox1);
-            this.AcctInfoPage.Location = new System.Drawing.Point(4, 22);
+            this.AcctInfoPage.Location = new System.Drawing.Point(4, 25);
+            this.AcctInfoPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AcctInfoPage.Name = "AcctInfoPage";
-            this.AcctInfoPage.Padding = new System.Windows.Forms.Padding(3);
-            this.AcctInfoPage.Size = new System.Drawing.Size(640, 311);
+            this.AcctInfoPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AcctInfoPage.Size = new System.Drawing.Size(856, 386);
             this.AcctInfoPage.TabIndex = 0;
             this.AcctInfoPage.Text = "Account Info";
             this.AcctInfoPage.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(53, 48);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(159, 116);
+            this.listBox1.TabIndex = 0;
+            // 
             // CoursePage
             // 
-            this.CoursePage.Location = new System.Drawing.Point(4, 22);
+            this.CoursePage.Location = new System.Drawing.Point(4, 25);
+            this.CoursePage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CoursePage.Name = "CoursePage";
-            this.CoursePage.Padding = new System.Windows.Forms.Padding(3);
-            this.CoursePage.Size = new System.Drawing.Size(640, 311);
+            this.CoursePage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CoursePage.Size = new System.Drawing.Size(856, 386);
             this.CoursePage.TabIndex = 1;
             this.CoursePage.Text = "Courses";
             this.CoursePage.UseVisualStyleBackColor = true;
             // 
             // EnrollPage
             // 
-            this.EnrollPage.Location = new System.Drawing.Point(4, 22);
+            this.EnrollPage.Location = new System.Drawing.Point(4, 25);
+            this.EnrollPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EnrollPage.Name = "EnrollPage";
-            this.EnrollPage.Padding = new System.Windows.Forms.Padding(3);
-            this.EnrollPage.Size = new System.Drawing.Size(640, 311);
+            this.EnrollPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnrollPage.Size = new System.Drawing.Size(856, 386);
             this.EnrollPage.TabIndex = 2;
             this.EnrollPage.Text = "Enrollment";
             this.EnrollPage.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // logOutBtn
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(40, 39);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 0;
+            this.logOutBtn.Location = new System.Drawing.Point(760, 7);
+            this.logOutBtn.Name = "logOutBtn";
+            this.logOutBtn.Size = new System.Drawing.Size(89, 31);
+            this.logOutBtn.TabIndex = 1;
+            this.logOutBtn.Text = "Log Out\r\n";
+            this.logOutBtn.UseVisualStyleBackColor = true;
+            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
             // MainUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.studentViewControl);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainUI";
             this.Text = "Student Information";
             this.Load += new System.EventHandler(this.MainUI_Load);
@@ -113,6 +132,7 @@ namespace SRMS
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TabPage CoursePage;
         private System.Windows.Forms.TabPage EnrollPage;
+        private System.Windows.Forms.Button logOutBtn;
     }
 }
 

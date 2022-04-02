@@ -52,7 +52,7 @@ namespace SRMS
             // 
             // goBackBtn
             // 
-            this.goBackBtn.Location = new System.Drawing.Point(401, 380);
+            this.goBackBtn.Location = new System.Drawing.Point(414, 379);
             this.goBackBtn.Name = "goBackBtn";
             this.goBackBtn.Size = new System.Drawing.Size(114, 23);
             this.goBackBtn.TabIndex = 0;
@@ -184,19 +184,20 @@ namespace SRMS
             // 
             // submitBtn
             // 
-            this.submitBtn.Location = new System.Drawing.Point(266, 380);
+            this.submitBtn.Location = new System.Drawing.Point(265, 379);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(114, 23);
-            this.submitBtn.TabIndex = 0;
+            this.submitBtn.TabIndex = 11;
             this.submitBtn.Text = "Submit";
             this.submitBtn.UseVisualStyleBackColor = true;
-            this.submitBtn.Click += new System.EventHandler(this.goBackBtn_Click);
+            this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
             // newPassWordLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.birthdayInput);
             this.Controls.Add(this.createTitle);
@@ -210,7 +211,6 @@ namespace SRMS
             this.Controls.Add(this.emailInput);
             this.Controls.Add(this.createPassInput);
             this.Controls.Add(this.createUserInput);
-            this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.goBackBtn);
             this.Name = "newPassWordLabel";
             this.Text = "CreateAccountUI";

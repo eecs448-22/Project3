@@ -26,5 +26,12 @@ namespace SRMS
         {
 
         }
+
+        private void logOutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginUI newLogin = new LoginUI();
+            newLogin.Show();
+        }
     }
 }

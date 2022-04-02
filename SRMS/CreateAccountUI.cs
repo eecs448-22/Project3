@@ -34,5 +34,13 @@ namespace SRMS
         {
 
         }
+
+        private void submitBtn_Click(object sender, EventArgs e)
+        {
+            //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
+            this.Hide();
+            LoginUI goBack = new LoginUI();
+            goBack.Show();
+        }
     }
 }
