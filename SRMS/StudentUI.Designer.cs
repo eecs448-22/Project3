@@ -46,9 +46,14 @@
             this.label_email = new System.Windows.Forms.Label();
             this.textBox_major = new System.Windows.Forms.TextBox();
             this.label_major = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button_logOut = new System.Windows.Forms.Button();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
+            this.tabPage_classes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_studentInfo
@@ -59,7 +64,7 @@
             this.tabControl_studentInfo.Controls.Add(this.tabPage_welcome);
             this.tabControl_studentInfo.Controls.Add(this.tabPage_accInfo);
             this.tabControl_studentInfo.Controls.Add(this.tabPage_classes);
-            this.tabControl_studentInfo.Location = new System.Drawing.Point(197, 63);
+            this.tabControl_studentInfo.Location = new System.Drawing.Point(193, 63);
             this.tabControl_studentInfo.Name = "tabControl_studentInfo";
             this.tabControl_studentInfo.SelectedIndex = 0;
             this.tabControl_studentInfo.Size = new System.Drawing.Size(622, 378);
@@ -110,6 +115,7 @@
             // 
             // tabPage_accInfo
             // 
+            this.tabPage_accInfo.Controls.Add(this.button1);
             this.tabPage_accInfo.Controls.Add(this.textBox_major);
             this.tabPage_accInfo.Controls.Add(this.label_major);
             this.tabPage_accInfo.Controls.Add(this.textBox_email);
@@ -178,6 +184,7 @@
             // 
             // tabPage_classes
             // 
+            this.tabPage_classes.Controls.Add(this.dataGridView1);
             this.tabPage_classes.Location = new System.Drawing.Point(4, 25);
             this.tabPage_classes.Name = "tabPage_classes";
             this.tabPage_classes.Padding = new System.Windows.Forms.Padding(3);
@@ -225,22 +232,54 @@
             this.label_major.TabIndex = 8;
             this.label_major.Text = "Major";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(61, 47);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(507, 246);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(118, 294);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Edit";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button_logOut
+            // 
+            this.button_logOut.Location = new System.Drawing.Point(723, 21);
+            this.button_logOut.Name = "button_logOut";
+            this.button_logOut.Size = new System.Drawing.Size(92, 36);
+            this.button_logOut.TabIndex = 3;
+            this.button_logOut.Text = "Log Out";
+            this.button_logOut.UseVisualStyleBackColor = true;
+            this.button_logOut.Click += new System.EventHandler(this.button_logOut_Click);
+            // 
             // StudentUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(846, 487);
+            this.Controls.Add(this.button_logOut);
             this.Controls.Add(this.tabControl_studentInfo);
             this.Controls.Add(this.textBox1);
             this.Name = "StudentUI";
-            this.Text = "Form1";
+            this.Text = "Student";
             this.Load += new System.EventHandler(this.StudentUI_Load);
             this.tabControl_studentInfo.ResumeLayout(false);
             this.tabPage_welcome.ResumeLayout(false);
             this.tabPage_welcome.PerformLayout();
             this.tabPage_accInfo.ResumeLayout(false);
             this.tabPage_accInfo.PerformLayout();
+            this.tabPage_classes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,5 +305,8 @@
         private System.Windows.Forms.Label label_email;
         private System.Windows.Forms.TextBox textBox_major;
         private System.Windows.Forms.Label label_major;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button_logOut;
     }
 }

@@ -67,6 +67,12 @@
     <Compile Include="FacultyUI.Designer.cs">
       <DependentUpon>FacultyUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentUI.Designer.cs">
+      <DependentUpon>StudentUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StudentUI.resx">
+      <DependentUpon>StudentUI.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

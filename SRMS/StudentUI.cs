@@ -36,5 +36,10 @@ namespace SRMS
         {
 
         }
+
+        private void button_logOut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
