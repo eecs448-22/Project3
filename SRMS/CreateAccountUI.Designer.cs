@@ -47,11 +47,12 @@ namespace SRMS
             this.birthdayLabel = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.accountTypeCB = new System.Windows.Forms.Label();
+            this.submitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // goBackBtn
             // 
-            this.goBackBtn.Location = new System.Drawing.Point(329, 386);
+            this.goBackBtn.Location = new System.Drawing.Point(401, 380);
             this.goBackBtn.Name = "goBackBtn";
             this.goBackBtn.Size = new System.Drawing.Size(114, 23);
             this.goBackBtn.TabIndex = 0;
@@ -181,6 +182,16 @@ namespace SRMS
             this.accountTypeCB.TabIndex = 6;
             this.accountTypeCB.Text = "Account Type:";
             // 
+            // submitBtn
+            // 
+            this.submitBtn.Location = new System.Drawing.Point(266, 380);
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.Size = new System.Drawing.Size(114, 23);
+            this.submitBtn.TabIndex = 0;
+            this.submitBtn.Text = "Submit";
+            this.submitBtn.UseVisualStyleBackColor = true;
+            this.submitBtn.Click += new System.EventHandler(this.goBackBtn_Click);
+            // 
             // newPassWordLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,6 +210,7 @@ namespace SRMS
             this.Controls.Add(this.emailInput);
             this.Controls.Add(this.createPassInput);
             this.Controls.Add(this.createUserInput);
+            this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.goBackBtn);
             this.Name = "newPassWordLabel";
             this.Text = "CreateAccountUI";
@@ -223,5 +235,6 @@ namespace SRMS
         private System.Windows.Forms.Label birthdayLabel;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label accountTypeCB;
+        private System.Windows.Forms.Button submitBtn;
     }
 }

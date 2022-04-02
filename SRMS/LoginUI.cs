@@ -46,16 +46,36 @@ namespace SRMS
             {
                 Console.WriteLine("user is logged in");
                 //If the user is valid, switch the the next form. Found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-                this.Hide();
-                MainUI mainView = new MainUI();
-                mainView.Show();
+                if(signInCB.Text == "Student")
+                {
+                    this.Hide();
+                    MainUI mainView = new MainUI();
+                    mainView.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    FacultyUI teacherView = new FacultyUI();
+                    teacherView.Show();
+                }
             }
             else
             {
                 //Error message for invalid user.
                 Console.WriteLine("invalid user");
             }
-
+            if (signInCB.Text == "Student")
+            {
+                this.Hide();
+                MainUI mainView = new MainUI();
+                mainView.Show();
+            }
+            else
+            {
+                this.Hide();
+                FacultyUI teacherView = new FacultyUI();
+                teacherView.Show();
+            }
 
         }
 
@@ -65,6 +85,11 @@ namespace SRMS
             this.Hide();
             newPassWordLabel newAcc = new newPassWordLabel();
             newAcc.Show();
+        }
+
+        private void signInCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
