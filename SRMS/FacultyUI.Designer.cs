@@ -38,6 +38,7 @@ namespace SRMS
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Gradebook");
             this.tabControl = new System.Windows.Forms.TabControl();
             this.personalInfoTab = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.QuickRefLabel = new System.Windows.Forms.Label();
             this.welcomeLbl = new System.Windows.Forms.Label();
@@ -52,10 +53,10 @@ namespace SRMS
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Courselbl = new System.Windows.Forms.Label();
             this.CourseCboBox = new System.Windows.Forms.ComboBox();
+            this.logOutBtn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.quickAccessTree = new System.Windows.Forms.TreeView();
-            this.logOutBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.tabControl.SuspendLayout();
             this.personalInfoTab.SuspendLayout();
             this.CourseTab.SuspendLayout();
@@ -70,33 +71,41 @@ namespace SRMS
             this.tabControl.Controls.Add(this.CourseTab);
             this.tabControl.Controls.Add(this.GradeTab);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tabControl.Location = new System.Drawing.Point(203, 30);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl.Location = new System.Drawing.Point(203, 59);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(816, 457);
+            this.tabControl.Size = new System.Drawing.Size(816, 428);
             this.tabControl.TabIndex = 1;
             // 
             // personalInfoTab
             // 
             this.personalInfoTab.Controls.Add(this.button2);
-            this.personalInfoTab.Controls.Add(this.logOutBtn);
             this.personalInfoTab.Controls.Add(this.textBox1);
             this.personalInfoTab.Controls.Add(this.QuickRefLabel);
             this.personalInfoTab.Controls.Add(this.welcomeLbl);
             this.personalInfoTab.Location = new System.Drawing.Point(4, 29);
-            this.personalInfoTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.personalInfoTab.Margin = new System.Windows.Forms.Padding(4);
             this.personalInfoTab.Name = "personalInfoTab";
-            this.personalInfoTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.personalInfoTab.Size = new System.Drawing.Size(808, 424);
+            this.personalInfoTab.Padding = new System.Windows.Forms.Padding(4);
+            this.personalInfoTab.Size = new System.Drawing.Size(808, 395);
             this.personalInfoTab.TabIndex = 0;
             this.personalInfoTab.Text = "Home";
             this.personalInfoTab.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(736, 39);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(13, 11);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(53, 177);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(833, 26);
             this.textBox1.TabIndex = 2;
@@ -131,10 +140,10 @@ namespace SRMS
             this.CourseTab.Controls.Add(this.CourseLabel);
             this.CourseTab.Controls.Add(this.dataGridView2);
             this.CourseTab.Location = new System.Drawing.Point(4, 29);
-            this.CourseTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseTab.Margin = new System.Windows.Forms.Padding(4);
             this.CourseTab.Name = "CourseTab";
-            this.CourseTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CourseTab.Size = new System.Drawing.Size(808, 424);
+            this.CourseTab.Padding = new System.Windows.Forms.Padding(4);
+            this.CourseTab.Size = new System.Drawing.Size(808, 410);
             this.CourseTab.TabIndex = 1;
             this.CourseTab.Text = "Courses";
             this.CourseTab.UseVisualStyleBackColor = true;
@@ -164,7 +173,7 @@ namespace SRMS
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(52, 153);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.Size = new System.Drawing.Size(709, 174);
@@ -179,9 +188,9 @@ namespace SRMS
             this.GradeTab.Controls.Add(this.Courselbl);
             this.GradeTab.Controls.Add(this.CourseCboBox);
             this.GradeTab.Location = new System.Drawing.Point(4, 29);
-            this.GradeTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GradeTab.Margin = new System.Windows.Forms.Padding(4);
             this.GradeTab.Name = "GradeTab";
-            this.GradeTab.Size = new System.Drawing.Size(808, 424);
+            this.GradeTab.Size = new System.Drawing.Size(808, 410);
             this.GradeTab.TabIndex = 3;
             this.GradeTab.Text = "Gradebook";
             this.GradeTab.UseVisualStyleBackColor = true;
@@ -209,7 +218,7 @@ namespace SRMS
             // submitDataBtn
             // 
             this.submitDataBtn.Location = new System.Drawing.Point(617, 367);
-            this.submitDataBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.submitDataBtn.Margin = new System.Windows.Forms.Padding(4);
             this.submitDataBtn.Name = "submitDataBtn";
             this.submitDataBtn.Size = new System.Drawing.Size(145, 36);
             this.submitDataBtn.TabIndex = 3;
@@ -220,7 +229,7 @@ namespace SRMS
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(60, 128);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(703, 220);
@@ -240,10 +249,21 @@ namespace SRMS
             // 
             this.CourseCboBox.FormattingEnabled = true;
             this.CourseCboBox.Location = new System.Drawing.Point(145, 38);
-            this.CourseCboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseCboBox.Margin = new System.Windows.Forms.Padding(4);
             this.CourseCboBox.Name = "CourseCboBox";
             this.CourseCboBox.Size = new System.Drawing.Size(264, 28);
             this.CourseCboBox.TabIndex = 0;
+            // 
+            // logOutBtn
+            // 
+            this.logOutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutBtn.Location = new System.Drawing.Point(921, 28);
+            this.logOutBtn.Name = "logOutBtn";
+            this.logOutBtn.Size = new System.Drawing.Size(98, 40);
+            this.logOutBtn.TabIndex = 3;
+            this.logOutBtn.Text = "Log Out";
+            this.logOutBtn.UseVisualStyleBackColor = true;
+            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
             // contextMenuStrip1
             // 
@@ -253,8 +273,8 @@ namespace SRMS
             // 
             // quickAccessTree
             // 
-            this.quickAccessTree.Location = new System.Drawing.Point(16, 98);
-            this.quickAccessTree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.quickAccessTree.Location = new System.Drawing.Point(16, 127);
+            this.quickAccessTree.Margin = new System.Windows.Forms.Padding(4);
             this.quickAccessTree.Name = "quickAccessTree";
             treeNode1.Name = "Node0";
             treeNode1.Text = "Personal Info";
@@ -266,28 +286,12 @@ namespace SRMS
             treeNode1,
             treeNode2,
             treeNode3});
-            this.quickAccessTree.Size = new System.Drawing.Size(163, 143);
+            this.quickAccessTree.Size = new System.Drawing.Size(163, 114);
             this.quickAccessTree.TabIndex = 2;
             // 
-            // logOutBtn
+            // sqLiteCommand1
             // 
-            this.logOutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOutBtn.Location = new System.Drawing.Point(713, 7);
-            this.logOutBtn.Name = "logOutBtn";
-            this.logOutBtn.Size = new System.Drawing.Size(88, 26);
-            this.logOutBtn.TabIndex = 3;
-            this.logOutBtn.Text = "Log Out";
-            this.logOutBtn.UseVisualStyleBackColor = true;
-            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(736, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(13, 11);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.sqLiteCommand1.CommandText = null;
             // 
             // FacultyUI
             // 
@@ -295,9 +299,10 @@ namespace SRMS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.logOutBtn);
             this.Controls.Add(this.quickAccessTree);
             this.Controls.Add(this.tabControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FacultyUI";
             this.Text = "Faculty";
             this.tabControl.ResumeLayout(false);
@@ -334,5 +339,6 @@ namespace SRMS
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button logOutBtn;
+        private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }
