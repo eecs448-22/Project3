@@ -89,7 +89,6 @@
             this.tabPage_welcome.TabIndex = 2;
             this.tabPage_welcome.Text = "Welcome";
             this.tabPage_welcome.UseVisualStyleBackColor = true;
-            this.tabPage_welcome.Click += new System.EventHandler(this.tabPage_welcome_Click);
             // 
             // label_classes
             // 
@@ -118,7 +117,6 @@
             this.label_welcome.Size = new System.Drawing.Size(170, 38);
             this.label_welcome.TabIndex = 0;
             this.label_welcome.Text = "Welcome!";
-            this.label_welcome.Click += new System.EventHandler(this.label1_Click);
             // 
             // tabPage_accInfo
             // 
@@ -167,7 +165,6 @@
             this.textBox_major.Name = "textBox_major";
             this.textBox_major.Size = new System.Drawing.Size(100, 22);
             this.textBox_major.TabIndex = 9;
-            this.textBox_major.TextChanged += new System.EventHandler(this.textBox_major_TextChanged);
             // 
             // label_major
             // 
@@ -177,7 +174,6 @@
             this.label_major.Size = new System.Drawing.Size(41, 16);
             this.label_major.TabIndex = 8;
             this.label_major.Text = "Major";
-            this.label_major.Click += new System.EventHandler(this.label_major_Click);
             // 
             // textBox_email
             // 
@@ -185,7 +181,6 @@
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(100, 22);
             this.textBox_email.TabIndex = 7;
-            this.textBox_email.TextChanged += new System.EventHandler(this.textBox_email_TextChanged);
             // 
             // label_email
             // 
@@ -195,7 +190,6 @@
             this.label_email.Size = new System.Drawing.Size(41, 16);
             this.label_email.TabIndex = 6;
             this.label_email.Text = "Email";
-            this.label_email.Click += new System.EventHandler(this.label_email_Click);
             // 
             // textBox_id
             // 
@@ -203,7 +197,6 @@
             this.textBox_id.Name = "textBox_id";
             this.textBox_id.Size = new System.Drawing.Size(100, 22);
             this.textBox_id.TabIndex = 5;
-            this.textBox_id.TextChanged += new System.EventHandler(this.textBox_id_TextChanged);
             // 
             // textBox_lastName
             // 
@@ -211,7 +204,6 @@
             this.textBox_lastName.Name = "textBox_lastName";
             this.textBox_lastName.Size = new System.Drawing.Size(100, 22);
             this.textBox_lastName.TabIndex = 4;
-            this.textBox_lastName.TextChanged += new System.EventHandler(this.textBox_lastName_TextChanged);
             // 
             // textBox_firstName
             // 
@@ -219,7 +211,6 @@
             this.textBox_firstName.Name = "textBox_firstName";
             this.textBox_firstName.Size = new System.Drawing.Size(100, 22);
             this.textBox_firstName.TabIndex = 3;
-            this.textBox_firstName.TextChanged += new System.EventHandler(this.textBox_firstName_TextChanged);
             // 
             // label_id
             // 
@@ -229,7 +220,6 @@
             this.label_id.Size = new System.Drawing.Size(68, 16);
             this.label_id.TabIndex = 2;
             this.label_id.Text = "Student ID";
-            this.label_id.Click += new System.EventHandler(this.label_id_Click);
             // 
             // label_lastName
             // 
@@ -239,7 +229,6 @@
             this.label_lastName.Size = new System.Drawing.Size(72, 16);
             this.label_lastName.TabIndex = 1;
             this.label_lastName.Text = "Last Name";
-            this.label_lastName.Click += new System.EventHandler(this.label_lastName_Click);
             // 
             // label_firstName
             // 
@@ -249,7 +238,6 @@
             this.label_firstName.Size = new System.Drawing.Size(72, 16);
             this.label_firstName.TabIndex = 0;
             this.label_firstName.Text = "First Name";
-            this.label_firstName.Click += new System.EventHandler(this.label_firstName_Click);
             // 
             // tabPage_classes
             // 
@@ -272,7 +260,6 @@
             this.label1.Size = new System.Drawing.Size(142, 38);
             this.label1.TabIndex = 12;
             this.label1.Text = "Classes";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // dataGridView1
             // 
@@ -344,7 +331,6 @@
             this.Controls.Add(this.tabControl_studentInfo);
             this.Controls.Add(this.textBox1);
             this.Name = "StudentUI";
-            this.Load += new System.EventHandler(this.StudentUI_Load);
             this.tabControl_studentInfo.ResumeLayout(false);
             this.tabPage_welcome.ResumeLayout(false);
             this.tabPage_welcome.PerformLayout();
