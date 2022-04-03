@@ -25,5 +25,9 @@ namespace SRMS
             logOut.Show();
         }
 
+        private void label_welcome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
