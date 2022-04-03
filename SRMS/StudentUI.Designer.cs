@@ -57,6 +57,7 @@
             this.treeView_tabs = new System.Windows.Forms.TreeView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage_enrollment = new System.Windows.Forms.TabPage();
+            this.label_enrollment = new System.Windows.Forms.Label();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
@@ -83,6 +84,7 @@
             // 
             // tabPage_welcome
             // 
+            this.tabPage_welcome.Controls.Add(this.label_enrollment);
             this.tabPage_welcome.Controls.Add(this.label_classes);
             this.tabPage_welcome.Controls.Add(this.label_accInfo);
             this.tabPage_welcome.Controls.Add(this.label_welcome);
@@ -97,7 +99,7 @@
             // label_classes
             // 
             this.label_classes.AutoSize = true;
-            this.label_classes.Location = new System.Drawing.Point(30, 126);
+            this.label_classes.Location = new System.Drawing.Point(30, 124);
             this.label_classes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_classes.Name = "label_classes";
             this.label_classes.Size = new System.Drawing.Size(322, 13);
@@ -357,6 +359,15 @@
             this.tabPage_enrollment.Text = "Enrollment";
             this.tabPage_enrollment.UseVisualStyleBackColor = true;
             // 
+            // label_enrollment
+            // 
+            this.label_enrollment.AutoSize = true;
+            this.label_enrollment.Location = new System.Drawing.Point(30, 153);
+            this.label_enrollment.Name = "label_enrollment";
+            this.label_enrollment.Size = new System.Drawing.Size(305, 13);
+            this.label_enrollment.TabIndex = 3;
+            this.label_enrollment.Text = "Select the \"Enrollment\" tab to enroll in classes for the semester.";
+            // 
             // StudentUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,5 +423,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabPage_enrollment;
+        private System.Windows.Forms.Label label_enrollment;
     }
 }
