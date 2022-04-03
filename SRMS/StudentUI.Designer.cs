@@ -58,12 +58,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage_enrollment = new System.Windows.Forms.TabPage();
             this.label_enrollment = new System.Windows.Forms.Label();
+            this.label_enrollmentScreen = new System.Windows.Forms.Label();
+            this.label_classesPlaceholder = new System.Windows.Forms.Label();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
             this.tabPage_classes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage_enrollment.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_studentInfo
@@ -264,6 +267,7 @@
             // 
             // tabPage_classes
             // 
+            this.tabPage_classes.Controls.Add(this.label_classesPlaceholder);
             this.tabPage_classes.Controls.Add(this.label1);
             this.tabPage_classes.Controls.Add(this.dataGridView1);
             this.tabPage_classes.Location = new System.Drawing.Point(4, 22);
@@ -351,6 +355,7 @@
             // 
             // tabPage_enrollment
             // 
+            this.tabPage_enrollment.Controls.Add(this.label_enrollmentScreen);
             this.tabPage_enrollment.Location = new System.Drawing.Point(4, 22);
             this.tabPage_enrollment.Name = "tabPage_enrollment";
             this.tabPage_enrollment.Padding = new System.Windows.Forms.Padding(3);
@@ -367,6 +372,27 @@
             this.label_enrollment.Size = new System.Drawing.Size(305, 13);
             this.label_enrollment.TabIndex = 3;
             this.label_enrollment.Text = "Select the \"Enrollment\" tab to enroll in classes for the semester.";
+            // 
+            // label_enrollmentScreen
+            // 
+            this.label_enrollmentScreen.AutoSize = true;
+            this.label_enrollmentScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_enrollmentScreen.Location = new System.Drawing.Point(28, 24);
+            this.label_enrollmentScreen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_enrollmentScreen.Name = "label_enrollmentScreen";
+            this.label_enrollmentScreen.Size = new System.Drawing.Size(153, 31);
+            this.label_enrollmentScreen.TabIndex = 12;
+            this.label_enrollmentScreen.Text = "Enrollment";
+            this.label_enrollmentScreen.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label_classesPlaceholder
+            // 
+            this.label_classesPlaceholder.AutoSize = true;
+            this.label_classesPlaceholder.Location = new System.Drawing.Point(120, 144);
+            this.label_classesPlaceholder.Name = "label_classesPlaceholder";
+            this.label_classesPlaceholder.Size = new System.Drawing.Size(309, 13);
+            this.label_classesPlaceholder.TabIndex = 13;
+            this.label_classesPlaceholder.Text = "{Placeholder} query info on enrolled classes for selected student";
             // 
             // StudentUI
             // 
@@ -390,6 +416,8 @@
             this.tabPage_classes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage_enrollment.ResumeLayout(false);
+            this.tabPage_enrollment.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +452,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabPage_enrollment;
         private System.Windows.Forms.Label label_enrollment;
+        private System.Windows.Forms.Label label_enrollmentScreen;
+        private System.Windows.Forms.Label label_classesPlaceholder;
     }
 }
