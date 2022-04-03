@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Welcome");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Account Information");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Classes");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Welcome");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Account Information");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Classes");
             this.tabControl_studentInfo = new System.Windows.Forms.TabControl();
             this.tabPage_welcome = new System.Windows.Forms.TabPage();
             this.label_classes = new System.Windows.Forms.Label();
             this.label_accInfo = new System.Windows.Forms.Label();
             this.label_welcome = new System.Windows.Forms.Label();
             this.tabPage_accInfo = new System.Windows.Forms.TabPage();
+            this.label_heading = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox_major = new System.Windows.Forms.TextBox();
             this.label_major = new System.Windows.Forms.Label();
@@ -49,17 +50,18 @@
             this.label_lastName = new System.Windows.Forms.Label();
             this.label_firstName = new System.Windows.Forms.Label();
             this.tabPage_classes = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button_logOut = new System.Windows.Forms.Button();
             this.treeView_tabs = new System.Windows.Forms.TreeView();
-            this.label_heading = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
             this.tabPage_classes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_studentInfo
@@ -139,6 +141,16 @@
             this.tabPage_accInfo.TabIndex = 0;
             this.tabPage_accInfo.Text = "Account Information";
             this.tabPage_accInfo.UseVisualStyleBackColor = true;
+            // 
+            // label_heading
+            // 
+            this.label_heading.AutoSize = true;
+            this.label_heading.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_heading.Location = new System.Drawing.Point(36, 31);
+            this.label_heading.Name = "label_heading";
+            this.label_heading.Size = new System.Drawing.Size(325, 38);
+            this.label_heading.TabIndex = 11;
+            this.label_heading.Text = "Account Information";
             // 
             // button1
             // 
@@ -251,6 +263,17 @@
             this.tabPage_classes.Text = "Classes";
             this.tabPage_classes.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(36, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 38);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Classes";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -283,41 +306,31 @@
             // 
             // treeView_tabs
             // 
-            this.treeView_tabs.Location = new System.Drawing.Point(33, 119);
+            this.treeView_tabs.Location = new System.Drawing.Point(41, 254);
             this.treeView_tabs.Name = "treeView_tabs";
-            treeNode13.Name = "Node_Welcome";
-            treeNode13.Text = "Welcome";
-            treeNode14.Name = "Node_accInfo";
-            treeNode14.Text = "Account Information";
-            treeNode15.Name = "Node_classes";
-            treeNode15.Text = "Classes";
+            treeNode1.Name = "Node_Welcome";
+            treeNode1.Text = "Welcome";
+            treeNode2.Name = "Node_accInfo";
+            treeNode2.Text = "Account Information";
+            treeNode3.Name = "Node_classes";
+            treeNode3.Text = "Classes";
             this.treeView_tabs.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14,
-            treeNode15});
-            this.treeView_tabs.Size = new System.Drawing.Size(216, 105);
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            this.treeView_tabs.Size = new System.Drawing.Size(216, 66);
             this.treeView_tabs.TabIndex = 4;
             // 
-            // label_heading
+            // pictureBox1
             // 
-            this.label_heading.AutoSize = true;
-            this.label_heading.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_heading.Location = new System.Drawing.Point(36, 31);
-            this.label_heading.Name = "label_heading";
-            this.label_heading.Size = new System.Drawing.Size(325, 38);
-            this.label_heading.TabIndex = 11;
-            this.label_heading.Text = "Account Information";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 38);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Classes";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.BackgroundImage = global::SRMS.Properties.Resources.Kansas_Jayhawks_logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(41, 88);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(216, 144);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // StudentUI
             // 
@@ -325,6 +338,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(1043, 487);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.treeView_tabs);
             this.Controls.Add(this.button_logOut);
             this.Controls.Add(this.tabControl_studentInfo);
@@ -340,6 +354,7 @@
             this.tabPage_classes.ResumeLayout(false);
             this.tabPage_classes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,5 +386,6 @@
         private System.Windows.Forms.TreeView treeView_tabs;
         private System.Windows.Forms.Label label_heading;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
