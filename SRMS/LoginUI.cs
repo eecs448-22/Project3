@@ -66,12 +66,14 @@ namespace SRMS
             }
             if (signInCB.Text == "Student")
             {
+                //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
                 this.Hide();
-                MainUI mainView = new MainUI();
-                mainView.Show();
+                StudentUI studentView = new StudentUI();
+                studentView.Show();
             }
             else
             {
+                //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
                 this.Hide();
                 FacultyUI teacherView = new FacultyUI();
                 teacherView.Show();

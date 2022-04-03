@@ -63,3 +63,4 @@ D:\GitHub\EECS_448\Project3\SRMS\obj\Debug\SRMS.csproj.CoreCompileInputs.cache
 D:\GitHub\EECS_448\Project3\SRMS\obj\Debug\SRMS.csproj.CopyComplete
 D:\GitHub\EECS_448\Project3\SRMS\obj\Debug\SRMS.exe
 D:\GitHub\EECS_448\Project3\SRMS\obj\Debug\SRMS.pdb
+C:\Users\Justin\OneDrive\Documents\GitHub\Project3\SRMS\obj\Debug\SRMS.StudentUI.resources
