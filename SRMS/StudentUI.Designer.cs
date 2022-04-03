@@ -306,7 +306,7 @@
             // 
             // treeView_tabs
             // 
-            this.treeView_tabs.Location = new System.Drawing.Point(41, 254);
+            this.treeView_tabs.Location = new System.Drawing.Point(41, 243);
             this.treeView_tabs.Name = "treeView_tabs";
             treeNode1.Name = "Node_Welcome";
             treeNode1.Text = "Welcome";
@@ -318,7 +318,7 @@
             treeNode1,
             treeNode2,
             treeNode3});
-            this.treeView_tabs.Size = new System.Drawing.Size(216, 66);
+            this.treeView_tabs.Size = new System.Drawing.Size(216, 73);
             this.treeView_tabs.TabIndex = 4;
             // 
             // pictureBox1
@@ -328,7 +328,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(41, 88);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(216, 144);
+            this.pictureBox1.Size = new System.Drawing.Size(216, 136);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -344,7 +344,6 @@
             this.Controls.Add(this.tabControl_studentInfo);
             this.Controls.Add(this.textBox1);
             this.Name = "StudentUI";
-            this.Text = "Student";
             this.Load += new System.EventHandler(this.StudentUI_Load);
             this.tabControl_studentInfo.ResumeLayout(false);
             this.tabPage_welcome.ResumeLayout(false);
