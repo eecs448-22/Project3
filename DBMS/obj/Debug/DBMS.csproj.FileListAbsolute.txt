@@ -43,3 +43,17 @@ D:\GitHub\EECS_448\Project3\DBMS\obj\Debug\DBMS.csproj.CoreCompileInputs.cache
 D:\GitHub\EECS_448\Project3\DBMS\obj\Debug\DBMS.csproj.CopyComplete
 D:\GitHub\EECS_448\Project3\DBMS\obj\Debug\DBMS.exe
 D:\GitHub\EECS_448\Project3\DBMS\obj\Debug\DBMS.pdb
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\bin\Debug\DBMS.exe.config
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\bin\Debug\DBMS.exe
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\bin\Debug\DBMS.pdb
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\bin\Debug\Dapper.dll
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\bin\Debug\System.Data.SQLite.dll
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\bin\Debug\Dapper.xml
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\bin\Debug\System.Data.SQLite.xml
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\obj\Debug\DBMS.csproj.AssemblyReference.cache
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\obj\Debug\DBMS.Properties.Resources.resources
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\obj\Debug\DBMS.csproj.GenerateResource.cache
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\obj\Debug\DBMS.csproj.CoreCompileInputs.cache
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\obj\Debug\DBMS.csproj.CopyComplete
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\obj\Debug\DBMS.exe
+C:\Users\m544s911\Source\Repos\Maggie_Project_3\DBMS\obj\Debug\DBMS.pdb
