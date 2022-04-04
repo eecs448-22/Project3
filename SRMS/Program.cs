@@ -20,6 +20,7 @@ namespace SRMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Run login form
             Application.Run(new LoginUI());
         }
     }

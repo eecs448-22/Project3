@@ -21,6 +21,7 @@ namespace SRMS
     {
         public LoginUI()
         {
+            //Initialize component and database
             InitializeComponent();
             SqliteDataAccess.InitializeDatabase();
             foreach (UserModel user in ManageUser.LoadUsers())
