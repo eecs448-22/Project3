@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Documentation",
     "\\SRMS"
   ],
-  "SelectedNode": "\\SRMS.sln",
+  "SelectedNode": "\\SRMS\\StudentUI.cs",
   "PreviewInSolutionExplorer": false
 }

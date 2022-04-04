@@ -12,34 +12,12 @@ namespace SRMS
 {
     public partial class StudentUI : Form
     {
-        public StudentUI()
-        {
-            InitializeComponent();
-        }
-
-        private void StudentUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage_welcome_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_logOut_Click(object sender, EventArgs e)
         {
-
+            //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
+            this.Hide();
+            LoginUI logOut = new LoginUI();
+            logOut.Show();
         }
     }
 }
