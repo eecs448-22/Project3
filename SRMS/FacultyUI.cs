@@ -34,5 +34,10 @@ namespace SRMS
             LoginUI newLogin = new LoginUI();
             newLogin.Show();
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = listBox1.SelectedIndex;
+        }
     }
 }

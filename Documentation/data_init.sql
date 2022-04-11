@@ -1,14 +1,25 @@
 -- Initialize the database
+INSERT INTO Users(Username, Password)
+VALUES ('tom.smith', 'password'),       -- 2
+       ('bob.jones', 'password'),       -- 3
+       ('emma.davis', 'password'),      -- 4
+       ('emily.brown', 'password'),     -- 5
+       ('jim.glass', 'password'),       -- 6
+       ('ashley.johnson', 'password'),  -- 7
+       ('charles.clark', 'password'),   -- 8
+       ('david.miller', 'password'),    -- 9
+       ('michael.lewis', 'password'),   -- 10
+       ('samantha.nelson', 'password'); -- 11
 
 -- Seed the first record
-INSERT INTO Student(Id, FirstName, LastName, UserName)
-VALUES (30001, 'Tom', 'Smith', 'tom.smith');
+INSERT INTO Student(Id, UserId, FirstName, LastName)
+VALUES (30001, 2, 'Tom', 'Smith');
 
-INSERT INTO Student(FirstName, LastName, UserName)
-VALUES ('Bob', 'Jones', 'bob.jones'),
-       ('Emma', 'Davis', 'emma.davis'),
-       ('Emily', 'Brown', 'emily.brown'),
-       ('Jim', 'Glass', 'jim.glass');
+INSERT INTO Student(UserId, FirstName, LastName)
+VALUES (3, 'Bob', 'Jones'),
+       (4, 'Emma', 'Davis'),
+       (5, 'Emily', 'Brown'),
+       (6, 'Jim', 'Glass');
 
 -- Seed the first record
 INSERT INTO Course(Id, Subject, Level, Title, Hours)
@@ -30,14 +41,14 @@ VALUES (30001, 1001),
        (30002, 1006);
 
 -- Faculty
-INSERT INTO Faculty(Id, FirstName, LastName, UserName)
-VALUES (10001, 'Ashley', 'Johnson', 'ashley.johnson');
+INSERT INTO Faculty(Id, UserId, FirstName, LastName)
+VALUES (10001, 7, 'Ashley', 'Johnson');
 
-INSERT INTO Faculty(FirstName, LastName, UserName)
-VALUES ('Charles', 'Clark', 'charles.clark'),
-       ('David', 'Miller', 'david.miller'),
-       ('Michael', 'Lewis', 'michael.lewis'),
-       ('Samantha', 'Nelson', 'samantha.nelson');
+INSERT INTO Faculty(UserId, FirstName, LastName)
+VALUES (8, 'Charles', 'Clark'),
+       (9, 'David', 'Miller'),
+       (10, 'Michael', 'Lewis'),
+       (11, 'Samantha', 'Nelson');
 
 INSERT INTO Teaching(FacultyId, CourseId)
 VALUES (10001, 1001),

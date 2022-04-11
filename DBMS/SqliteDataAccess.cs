@@ -25,8 +25,8 @@ namespace DBMS
                     cnn.Execute(@"
                     CREATE TABLE IF NOT EXISTS Users (
                         Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                        Username NVARCHAR(64) NOT NULL,
-                        Password NVARCHAR(128) NOT NULL
+                        Username VARCHAR(64) NOT NULL,
+                        Password VARCHAR(128) NOT NULL
                     )");
 
                     //Insert into Users table
