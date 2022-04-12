@@ -10,6 +10,7 @@ SELECT f.Id, f.FirstName, f.LastName
 SELECT f.Id, f.FirstName || ' ' || f.LastName AS Professor
      , c.Subject || ' ' || c.Level AS "Course Desc"
      , s.Id AS StudentId, s.FirstName || ' ' || s.LastName AS Student
+     , e.Grade
   FROM Faculty AS f
   JOIN Teaching AS t ON f.Id = t.FacultyId
   JOIN Course AS c ON t.CourseId = c.Id

@@ -49,19 +49,17 @@ namespace SRMS
             this.CourseLabel = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.personalInfoTab = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.QuickRefLabel = new System.Windows.Forms.Label();
             this.welcomeLbl = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GradeTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.CourseTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.personalInfoTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -207,9 +205,8 @@ namespace SRMS
             // 
             // personalInfoTab
             // 
-            this.personalInfoTab.Controls.Add(this.dataGridView3);
-            this.personalInfoTab.Controls.Add(this.button2);
-            this.personalInfoTab.Controls.Add(this.QuickRefLabel);
+            this.personalInfoTab.Controls.Add(this.label5);
+            this.personalInfoTab.Controls.Add(this.label4);
             this.personalInfoTab.Controls.Add(this.welcomeLbl);
             this.personalInfoTab.Location = new System.Drawing.Point(4, 25);
             this.personalInfoTab.Name = "personalInfoTab";
@@ -219,42 +216,15 @@ namespace SRMS
             this.personalInfoTab.Text = "Home";
             this.personalInfoTab.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(49, 114);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(478, 138);
-            this.dataGridView3.TabIndex = 5;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(552, 32);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(10, 9);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // QuickRefLabel
-            // 
-            this.QuickRefLabel.AutoSize = true;
-            this.QuickRefLabel.Location = new System.Drawing.Point(46, 94);
-            this.QuickRefLabel.Name = "QuickRefLabel";
-            this.QuickRefLabel.Size = new System.Drawing.Size(114, 17);
-            this.QuickRefLabel.TabIndex = 1;
-            this.QuickRefLabel.Text = "Quick Reference";
-            // 
             // welcomeLbl
             // 
             this.welcomeLbl.AutoSize = true;
-            this.welcomeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLbl.Location = new System.Drawing.Point(45, 41);
+            this.welcomeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Bold);
+            this.welcomeLbl.Location = new System.Drawing.Point(44, 48);
             this.welcomeLbl.Name = "welcomeLbl";
-            this.welcomeLbl.Size = new System.Drawing.Size(211, 24);
+            this.welcomeLbl.Size = new System.Drawing.Size(135, 29);
             this.welcomeLbl.TabIndex = 0;
-            this.welcomeLbl.Text = "Welcome {firstName}!";
+            this.welcomeLbl.Text = "Welcome!";
             // 
             // tabControl
             // 
@@ -281,6 +251,24 @@ namespace SRMS
             this.listBox1.TabIndex = 7;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(46, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(274, 17);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Select \"Courses\" tab to view your courses.";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(46, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(449, 17);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Select \"Gradebook\" tab to view class roster and edit semester grades.";
+            // 
             // FacultyUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,7 +290,6 @@ namespace SRMS
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.personalInfoTab.ResumeLayout(false);
             this.personalInfoTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -325,11 +312,10 @@ namespace SRMS
         private System.Windows.Forms.Label CourseLabel;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TabPage personalInfoTab;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label QuickRefLabel;
         private System.Windows.Forms.Label welcomeLbl;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

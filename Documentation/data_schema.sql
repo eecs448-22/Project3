@@ -1,4 +1,4 @@
---The following will create the dataTable in Sql with the specified variables as columns. 
+--The following will create the dataTable in Sql with the specified variables as columns.
 
 --UNDERSTANDING SQL
 --VARCHAR is an array of characters, basically a string
@@ -8,21 +8,23 @@
 --CreatedOn marks the time which the data is entered on the current time (CURRENT_TIMESTAMP)
 --DATETIME format specifies YEAR:MONTH:DAY HOUR:MIN:SEC, i.e. "1900-01-01 00:00:00"
 
-CREATE TABLE IF NOT EXISTS Users (
-    Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    Username NVARCHAR(64) NOT NULL,
-    Password NVARCHAR(128) NOT NULL
-)
+-- For system administrators
+CREATE TABLE IF NOT EXISTS Administrator (
+    Id INTEGER PRIMARY KEY NOT NULL,
+    UserName VARCHAR(60) NOT NULL,        --Login name
+    Password VARCHAR(128),
+    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
 
 CREATE TABLE Student(
     Id INTEGER PRIMARY KEY NOT NULL,
-    UserId INTEGER NOT NULL,
     FirstName VARCHAR(60) NOT NULL,
     LastName VARCHAR(60) NOT NULL,
+    UserName VARCHAR(60) NOT NULL,        --Login name
     Email VARCHAR(255),
+    Password VARCHAR(128),
     Major VARCHAR(60), --English, CS, Math, etc.
-    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --the day student was registered in system
-    FOREIGN KEY(UserId) REFERENCES Users(Id)
+    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP --the day student was registered in system
 );
 
 CREATE TABLE Course(
@@ -48,14 +50,14 @@ CREATE TABLE Enrollment(
 
 CREATE TABLE Faculty(
     Id INTEGER PRIMARY KEY NOT NULL,
-    UserId INTEGER NOT NULL,
     FirstName VARCHAR(60) NOT NULL,
     LastName VARCHAR(60) NOT NULL,
+    UserName VARCHAR(60) NOT NULL,        --Login name
     Email VARCHAR(255),
+    Password VARCHAR(128),
     Title VARCHAR(60),
     Dept VARCHAR(120),
-    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --the day faculty was registered in system. 
-    FOREIGN KEY(UserId) REFERENCES Users(Id)
+    CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP --the day faculty was registered in system.
 );
 
 CREATE TABLE Teaching(
@@ -66,25 +68,4 @@ CREATE TABLE Teaching(
     DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(FacultyId) REFERENCES Faculty(Id), --FacultyId retreived from Primary Key of Faculty table
     FOREIGN KEY(CourseId) REFERENCES Course(Id) --same for courseID
-);
-
-CREATE TABLE Assignment(
-    Id INTEGER PRIMARY KEY NOT NULL,
-    CourseId INTEGER NOT NULL,            --i.e. 1001
-    Category VARCHAR(25),                 --Homework, Quiz, Discussion
-    Description VARCHAR(128) NOT NULL,
-    DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --time teacher created assignment online
-    DueDate DATETIME, 
-    FOREIGN KEY(CourseId) REFERENCES Course(Id)
-);
-
-CREATE TABLE Grading(
-    StudentId INTEGER NOT NULL,
-    CourseId INTEGER NOT NULL,
-    AssignmentId INTEGER NOT NULL,
-    Score REAL, --i.e. 96.8%
-    DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --time teacher entered grades 
-    FOREIGN KEY(StudentId) REFERENCES Student(Id),
-    FOREIGN KEY(CourseId) REFERENCES Course(Id),
-    FOREIGN KEY(AssignmentId) REFERENCES Assignment(Id)
 );

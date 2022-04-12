@@ -19,6 +19,10 @@ namespace SRMS
         public newPassWordLabel()
         {
             InitializeComponent();
+            emailLabel.Visible = false;
+            emailInput.Visible = false;
+            comboBox1.SelectedIndex = 0;
+            comboBox1.Enabled = false;
         }
 
         //Switches back to the login page if go Back button is clicked. 

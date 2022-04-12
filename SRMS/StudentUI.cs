@@ -19,5 +19,12 @@ namespace SRMS
             LoginUI logOut = new LoginUI();
             logOut.Show();
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tabControl_studentInfo.SelectedIndex = listBox1.SelectedIndex;
+        }
+
+
     }
 }

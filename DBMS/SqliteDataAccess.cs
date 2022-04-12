@@ -21,17 +21,18 @@ namespace DBMS
                  //Create a new connection to the local server
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
                 {
-                    //Create Users table
+                    //Create Administrator table
                     cnn.Execute(@"
-                    CREATE TABLE IF NOT EXISTS Users (
-                        Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                        Username VARCHAR(64) NOT NULL,
-                        Password VARCHAR(128) NOT NULL
-                    )");
+                    CREATE TABLE IF NOT EXISTS Administrator (
+                        Id INTEGER PRIMARY KEY NOT NULL,
+                        UserName VARCHAR(60) NOT NULL,        --Login name
+                        Password VARCHAR(128),
+                        CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                     ");
 
-                    //Insert into Users table
+                    //Insert into Administrator table
                     cnn.Execute(@"
-                        INSERT INTO Users
+                        INSERT INTO Administrator
                             (Username, Password)
                         VALUES
                             ('admin', 'test')");
@@ -40,14 +41,14 @@ namespace DBMS
                     cnn.Execute(@"
                         CREATE TABLE Student(
                             Id INTEGER PRIMARY KEY NOT NULL,
-                            UserId INTEGER NOT NULL,
                             FirstName VARCHAR(60) NOT NULL,
                             LastName VARCHAR(60) NOT NULL,
+                            UserName VARCHAR(60) NOT NULL,        --Login name
                             Email VARCHAR(255),
-                            Major VARCHAR(60),
-                            CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                            FOREIGN KEY(UserId) REFERENCES Users(Id)
-                    )");
+                            Password VARCHAR(128),
+                            Major VARCHAR(60), --English, CS, Math, etc.
+                            CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP --the day student was registered in system
+                        )");
 
                     //Create course table
                     cnn.Execute(@"
@@ -78,15 +79,15 @@ namespace DBMS
                     cnn.Execute(@"
                         CREATE TABLE Faculty(
                             Id INTEGER PRIMARY KEY NOT NULL,
-                            UserId INTEGER NOT NULL,
                             FirstName VARCHAR(60) NOT NULL,
                             LastName VARCHAR(60) NOT NULL,
+                            UserName VARCHAR(60) NOT NULL,        --Login name
                             Email VARCHAR(255),
+                            Password VARCHAR(128),
                             Title VARCHAR(60),
                             Dept VARCHAR(120),
-                            CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --the day faculty was registered in system. 
-                            FOREIGN KEY(UserId) REFERENCES Users(Id)
-                    )");
+                            CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP --the day faculty was registered in system.
+                        )");
 
                     //Create Teaching table
                     cnn.Execute(@"

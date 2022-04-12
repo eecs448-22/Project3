@@ -56,6 +56,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage_enrollment = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label_selectSemester = new System.Windows.Forms.Label();
             this.comboBox_selectSemester = new System.Windows.Forms.ComboBox();
             this.label_enrollmentScreen = new System.Windows.Forms.Label();
@@ -63,16 +65,15 @@
             this.button_logOut = new System.Windows.Forms.Button();
             this.treeView_tabs = new System.Windows.Forms.TreeView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
             this.tabPage_classes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage_enrollment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_studentInfo
@@ -85,7 +86,7 @@
             this.tabControl_studentInfo.Controls.Add(this.tabPage_classes);
             this.tabControl_studentInfo.Controls.Add(this.tabPage_enrollment);
             this.tabControl_studentInfo.Location = new System.Drawing.Point(218, 51);
-            this.tabControl_studentInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl_studentInfo.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl_studentInfo.Name = "tabControl_studentInfo";
             this.tabControl_studentInfo.SelectedIndex = 0;
             this.tabControl_studentInfo.Size = new System.Drawing.Size(542, 307);
@@ -98,7 +99,7 @@
             this.tabPage_welcome.Controls.Add(this.label_accInfo);
             this.tabPage_welcome.Controls.Add(this.label_welcome);
             this.tabPage_welcome.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_welcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_welcome.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage_welcome.Name = "tabPage_welcome";
             this.tabPage_welcome.Size = new System.Drawing.Size(534, 281);
             this.tabPage_welcome.TabIndex = 2;
@@ -141,9 +142,9 @@
             this.label_welcome.Location = new System.Drawing.Point(27, 25);
             this.label_welcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_welcome.Name = "label_welcome";
-            this.label_welcome.Size = new System.Drawing.Size(296, 31);
+            this.label_welcome.Size = new System.Drawing.Size(142, 31);
             this.label_welcome.TabIndex = 0;
-            this.label_welcome.Text = "Welcome {firstName}!\r\n";
+            this.label_welcome.Text = "Welcome!\r\n";
             // 
             // tabPage_accInfo
             // 
@@ -160,9 +161,9 @@
             this.tabPage_accInfo.Controls.Add(this.label_lastName);
             this.tabPage_accInfo.Controls.Add(this.label_firstName);
             this.tabPage_accInfo.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_accInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_accInfo.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage_accInfo.Name = "tabPage_accInfo";
-            this.tabPage_accInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_accInfo.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage_accInfo.Size = new System.Drawing.Size(534, 281);
             this.tabPage_accInfo.TabIndex = 0;
             this.tabPage_accInfo.Text = "Account Information";
@@ -182,7 +183,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(88, 239);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 19);
             this.button1.TabIndex = 10;
@@ -192,7 +193,7 @@
             // textBox_major
             // 
             this.textBox_major.Location = new System.Drawing.Point(88, 167);
-            this.textBox_major.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_major.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_major.Name = "textBox_major";
             this.textBox_major.Size = new System.Drawing.Size(76, 20);
             this.textBox_major.TabIndex = 9;
@@ -210,7 +211,7 @@
             // textBox_email
             // 
             this.textBox_email.Location = new System.Drawing.Point(88, 145);
-            this.textBox_email.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_email.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(76, 20);
             this.textBox_email.TabIndex = 7;
@@ -228,7 +229,7 @@
             // textBox_id
             // 
             this.textBox_id.Location = new System.Drawing.Point(88, 122);
-            this.textBox_id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_id.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_id.Name = "textBox_id";
             this.textBox_id.Size = new System.Drawing.Size(76, 20);
             this.textBox_id.TabIndex = 5;
@@ -236,7 +237,7 @@
             // textBox_lastName
             // 
             this.textBox_lastName.Location = new System.Drawing.Point(88, 99);
-            this.textBox_lastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_lastName.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_lastName.Name = "textBox_lastName";
             this.textBox_lastName.Size = new System.Drawing.Size(76, 20);
             this.textBox_lastName.TabIndex = 4;
@@ -244,7 +245,7 @@
             // textBox_firstName
             // 
             this.textBox_firstName.Location = new System.Drawing.Point(88, 76);
-            this.textBox_firstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_firstName.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_firstName.Name = "textBox_firstName";
             this.textBox_firstName.Size = new System.Drawing.Size(76, 20);
             this.textBox_firstName.TabIndex = 3;
@@ -285,9 +286,9 @@
             this.tabPage_classes.Controls.Add(this.label1);
             this.tabPage_classes.Controls.Add(this.dataGridView1);
             this.tabPage_classes.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_classes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_classes.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage_classes.Name = "tabPage_classes";
-            this.tabPage_classes.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_classes.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage_classes.Size = new System.Drawing.Size(534, 281);
             this.tabPage_classes.TabIndex = 1;
             this.tabPage_classes.Text = "Classes";
@@ -319,7 +320,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(32, 79);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -335,12 +336,29 @@
             this.tabPage_enrollment.Controls.Add(this.label_enrollmentScreen);
             this.tabPage_enrollment.Location = new System.Drawing.Point(4, 22);
             this.tabPage_enrollment.Name = "tabPage_enrollment";
-            this.tabPage_enrollment.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage_enrollment.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_enrollment.Size = new System.Drawing.Size(534, 281);
             this.tabPage_enrollment.TabIndex = 3;
             this.tabPage_enrollment.Tag = "Maggie";
             this.tabPage_enrollment.Text = "Enrollment";
             this.tabPage_enrollment.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(181, 177);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "query classes for given semester";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(34, 116);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(463, 126);
+            this.dataGridView2.TabIndex = 15;
             // 
             // label_selectSemester
             // 
@@ -379,7 +397,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(364, 265);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(76, 20);
             this.textBox1.TabIndex = 2;
@@ -388,7 +406,7 @@
             // 
             this.button_logOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_logOut.Location = new System.Drawing.Point(690, 17);
-            this.button_logOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_logOut.Margin = new System.Windows.Forms.Padding(2);
             this.button_logOut.Name = "button_logOut";
             this.button_logOut.Size = new System.Drawing.Size(69, 29);
             this.button_logOut.TabIndex = 3;
@@ -398,8 +416,8 @@
             // 
             // treeView_tabs
             // 
-            this.treeView_tabs.Location = new System.Drawing.Point(31, 197);
-            this.treeView_tabs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView_tabs.Location = new System.Drawing.Point(31, 258);
+            this.treeView_tabs.Margin = new System.Windows.Forms.Padding(2);
             this.treeView_tabs.Name = "treeView_tabs";
             treeNode1.Name = "Node_Welcome";
             treeNode1.Text = "Welcome";
@@ -423,28 +441,25 @@
             this.pictureBox1.BackgroundImage = global::SRMS.Properties.Resources.Kansas_Jayhawks_logo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(31, 72);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(162, 110);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView2
+            // listBox1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(34, 116);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(463, 126);
-            this.dataGridView2.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(181, 177);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "query classes for given semester";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "■ Welcome",
+            "■ Account Information",
+            "■ Classes",
+            "■ Enrollment"});
+            this.listBox1.Location = new System.Drawing.Point(31, 197);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(163, 56);
+            this.listBox1.TabIndex = 8;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // StudentUI
             // 
@@ -452,12 +467,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(782, 396);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.treeView_tabs);
             this.Controls.Add(this.button_logOut);
             this.Controls.Add(this.tabControl_studentInfo);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StudentUI";
             this.Text = "Student";
             this.tabControl_studentInfo.ResumeLayout(false);
@@ -470,8 +486,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage_enrollment.ResumeLayout(false);
             this.tabPage_enrollment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,5 +528,6 @@
         private System.Windows.Forms.Label label_selectSemester;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

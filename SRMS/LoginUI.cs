@@ -23,7 +23,7 @@ namespace SRMS
         {
             //Initialize component and database
             InitializeComponent();
-            SqliteDataAccess.InitializeDatabase();
+            //SqliteDataAccess.InitializeDatabase();
             foreach (UserModel user in ManageUser.LoadUsers())
             {
                 //Write each user into console.
