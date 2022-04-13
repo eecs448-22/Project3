@@ -21,7 +21,17 @@ namespace SRMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Run login form
-            Application.Run(new LoginUI());
+            //Application.Run(new LoginUI());
+            var frmLogin = new LoginUI();
+            if (frmLogin.ShowDialog() == DialogResult.OK)
+            {
+                //if (frmLogin.Login as Admin)
+                   // Application.Run(new Admin());
+                //else if (frmLogin.Login as Faculty)
+                //    Application.Run(new FacultyForm());
+                //else
+                //    Application.Run(new StudentForm());
+            }
         }
     }
 }

@@ -98,7 +98,7 @@ namespace SRMS
             // createAccountBtn
             // 
             this.createAccountBtn.Location = new System.Drawing.Point(331, 320);
-            this.createAccountBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.createAccountBtn.Margin = new System.Windows.Forms.Padding(2);
             this.createAccountBtn.Name = "createAccountBtn";
             this.createAccountBtn.Size = new System.Drawing.Size(139, 19);
             this.createAccountBtn.TabIndex = 6;
@@ -120,10 +120,10 @@ namespace SRMS
             this.signInCB.FormattingEnabled = true;
             this.signInCB.Items.AddRange(new object[] {
             "Student",
-            "Teacher",
+            "Faculty",
             "Administrator"});
             this.signInCB.Location = new System.Drawing.Point(370, 158);
-            this.signInCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.signInCB.Margin = new System.Windows.Forms.Padding(2);
             this.signInCB.Name = "signInCB";
             this.signInCB.Size = new System.Drawing.Size(100, 21);
             this.signInCB.TabIndex = 7;
