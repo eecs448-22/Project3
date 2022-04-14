@@ -1,15 +1,24 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Helper
 {
     public static class Utils
     {
+        /// <summary>
+        /// Default SQLite connection string
+        /// </summary>
+        public static string defaultConn = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+
         /// <summary>
         /// SQLite connection string is rather simple
         /// </summary>
@@ -22,22 +31,6 @@ namespace Helper
             return builder.ConnectionString;
         }
 
-        /// <summary>
-        /// Hash usr and pwd with a constant salt
-        /// </summary>
-        /// <param name="usr"></param>
-        /// <param name="pwd"></param>
-        /// <returns></returns>
-        public static string HashPassword(string usr, string pwd)
-        {
-            using (var sha1 = SHA1Managed.Create())
-            {
-                var input = usr + "bracki$h" + pwd;
-                var inputBytes = Encoding.UTF8.GetBytes(input);
-                var outputBytes = sha1.ComputeHash(inputBytes);
-                return BitConverter.ToString(outputBytes).Replace("-", "").ToLower();
-            }
-        }
 
         /// <summary>
         /// Extension method to convert dynamic data to a DataTable. Useful for databinding.
@@ -60,6 +53,32 @@ namespace Helper
                 dt.Rows.Add(((IDictionary<string, object>)d).Values.ToArray());
             }
             return dt;
+        }
+
+        public static void DisplayData(DataGridView dgv, string sql)
+        {
+            using (var conn = new SQLiteConnection(defaultConn))
+            {
+                dgv.DataSource = null;
+                var result = conn.Query(sql);
+                dgv.DataSource = result.ToDataTable();
+
+                dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue;
+
+                // disable sorting
+                foreach (DataGridViewColumn column in dgv.Columns)
+                {
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+
+                // display row number
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    row.HeaderCell.Value = (row.Index + 1).ToString();
+                    row.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+                dgv.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
+            }
         }
     }
 }

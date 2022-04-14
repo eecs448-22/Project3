@@ -31,12 +31,12 @@ namespace SRMS
         {
             this.tabControlAdmin = new System.Windows.Forms.TabControl();
             this.tabAdmin = new System.Windows.Forms.TabPage();
-            this.tabFaculty = new System.Windows.Forms.TabPage();
-            this.tabStudent = new System.Windows.Forms.TabPage();
-            this.tabCourse = new System.Windows.Forms.TabPage();
             this.dgvAdmin = new System.Windows.Forms.DataGridView();
+            this.tabFaculty = new System.Windows.Forms.TabPage();
             this.dgvFaculty = new System.Windows.Forms.DataGridView();
+            this.tabStudent = new System.Windows.Forms.TabPage();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
+            this.tabCourse = new System.Windows.Forms.TabPage();
             this.dgvCourse = new System.Windows.Forms.DataGridView();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -44,12 +44,12 @@ namespace SRMS
             this.btnLogout = new System.Windows.Forms.Button();
             this.tabControlAdmin.SuspendLayout();
             this.tabAdmin.SuspendLayout();
-            this.tabFaculty.SuspendLayout();
-            this.tabStudent.SuspendLayout();
-            this.tabCourse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
+            this.tabFaculty.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaculty)).BeginInit();
+            this.tabStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
+            this.tabCourse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +67,7 @@ namespace SRMS
             this.tabControlAdmin.SelectedIndex = 0;
             this.tabControlAdmin.Size = new System.Drawing.Size(747, 370);
             this.tabControlAdmin.TabIndex = 0;
+            this.tabControlAdmin.SelectedIndexChanged += new System.EventHandler(this.tabControlAdmin_SelectedIndexChanged);
             // 
             // tabAdmin
             // 
@@ -79,39 +80,6 @@ namespace SRMS
             this.tabAdmin.Text = "Administrator";
             this.tabAdmin.UseVisualStyleBackColor = true;
             // 
-            // tabFaculty
-            // 
-            this.tabFaculty.Controls.Add(this.dgvFaculty);
-            this.tabFaculty.Location = new System.Drawing.Point(4, 22);
-            this.tabFaculty.Name = "tabFaculty";
-            this.tabFaculty.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFaculty.Size = new System.Drawing.Size(739, 344);
-            this.tabFaculty.TabIndex = 1;
-            this.tabFaculty.Text = "Faculty";
-            this.tabFaculty.UseVisualStyleBackColor = true;
-            // 
-            // tabStudent
-            // 
-            this.tabStudent.Controls.Add(this.dgvStudent);
-            this.tabStudent.Location = new System.Drawing.Point(4, 22);
-            this.tabStudent.Name = "tabStudent";
-            this.tabStudent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStudent.Size = new System.Drawing.Size(739, 344);
-            this.tabStudent.TabIndex = 2;
-            this.tabStudent.Text = "Student";
-            this.tabStudent.UseVisualStyleBackColor = true;
-            // 
-            // tabCourse
-            // 
-            this.tabCourse.Controls.Add(this.dgvCourse);
-            this.tabCourse.Location = new System.Drawing.Point(4, 22);
-            this.tabCourse.Name = "tabCourse";
-            this.tabCourse.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCourse.Size = new System.Drawing.Size(739, 344);
-            this.tabCourse.TabIndex = 3;
-            this.tabCourse.Text = "Course";
-            this.tabCourse.UseVisualStyleBackColor = true;
-            // 
             // dgvAdmin
             // 
             this.dgvAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -122,6 +90,17 @@ namespace SRMS
             this.dgvAdmin.Name = "dgvAdmin";
             this.dgvAdmin.Size = new System.Drawing.Size(736, 340);
             this.dgvAdmin.TabIndex = 0;
+            // 
+            // tabFaculty
+            // 
+            this.tabFaculty.Controls.Add(this.dgvFaculty);
+            this.tabFaculty.Location = new System.Drawing.Point(4, 22);
+            this.tabFaculty.Name = "tabFaculty";
+            this.tabFaculty.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFaculty.Size = new System.Drawing.Size(739, 344);
+            this.tabFaculty.TabIndex = 1;
+            this.tabFaculty.Text = "Faculty";
+            this.tabFaculty.UseVisualStyleBackColor = true;
             // 
             // dgvFaculty
             // 
@@ -134,6 +113,17 @@ namespace SRMS
             this.dgvFaculty.Size = new System.Drawing.Size(740, 341);
             this.dgvFaculty.TabIndex = 0;
             // 
+            // tabStudent
+            // 
+            this.tabStudent.Controls.Add(this.dgvStudent);
+            this.tabStudent.Location = new System.Drawing.Point(4, 22);
+            this.tabStudent.Name = "tabStudent";
+            this.tabStudent.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStudent.Size = new System.Drawing.Size(739, 344);
+            this.tabStudent.TabIndex = 2;
+            this.tabStudent.Text = "Student";
+            this.tabStudent.UseVisualStyleBackColor = true;
+            // 
             // dgvStudent
             // 
             this.dgvStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -144,6 +134,17 @@ namespace SRMS
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.Size = new System.Drawing.Size(740, 341);
             this.dgvStudent.TabIndex = 1;
+            // 
+            // tabCourse
+            // 
+            this.tabCourse.Controls.Add(this.dgvCourse);
+            this.tabCourse.Location = new System.Drawing.Point(4, 22);
+            this.tabCourse.Name = "tabCourse";
+            this.tabCourse.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCourse.Size = new System.Drawing.Size(739, 344);
+            this.tabCourse.TabIndex = 3;
+            this.tabCourse.Text = "Course";
+            this.tabCourse.UseVisualStyleBackColor = true;
             // 
             // dgvCourse
             // 
@@ -165,6 +166,7 @@ namespace SRMS
             this.btnCreate.TabIndex = 1;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnDelete
             // 
@@ -175,6 +177,7 @@ namespace SRMS
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -185,6 +188,7 @@ namespace SRMS
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnLogout
             // 
@@ -195,6 +199,7 @@ namespace SRMS
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // AdminUI
             // 
@@ -208,14 +213,15 @@ namespace SRMS
             this.Controls.Add(this.tabControlAdmin);
             this.Name = "AdminUI";
             this.Text = "AdminUI";
+            this.Load += new System.EventHandler(this.AdminUI_Load);
             this.tabControlAdmin.ResumeLayout(false);
             this.tabAdmin.ResumeLayout(false);
-            this.tabFaculty.ResumeLayout(false);
-            this.tabStudent.ResumeLayout(false);
-            this.tabCourse.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).EndInit();
+            this.tabFaculty.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaculty)).EndInit();
+            this.tabStudent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
+            this.tabCourse.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).EndInit();
             this.ResumeLayout(false);
 

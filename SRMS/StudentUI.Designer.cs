@@ -301,7 +301,7 @@
             this.label_classesPlaceholder.Name = "label_classesPlaceholder";
             this.label_classesPlaceholder.Size = new System.Drawing.Size(309, 13);
             this.label_classesPlaceholder.TabIndex = 13;
-            this.label_classesPlaceholder.Text = "{Placeholder} query info on enrolled classes for selected student";
+            this.label_classesPlaceholder.Text = "{Placeholder} query info on enrolled classes for selected faculty";
             // 
             // label1
             // 

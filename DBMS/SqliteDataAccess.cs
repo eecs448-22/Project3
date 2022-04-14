@@ -15,7 +15,7 @@ namespace DBMS
     {
         public static void InitializeDatabase()
         {
-            var dbFilePath = @".\MainDb.db";
+            var dbFilePath = @"..\..\..\MainDb.db";
             if (!File.Exists(dbFilePath))
             {
                  //Create a new connection to the local server
@@ -23,12 +23,14 @@ namespace DBMS
                 {
                     //Create Administrator table
                     cnn.Execute(@"
-                    CREATE TABLE IF NOT EXISTS Administrator (
-                        Id INTEGER PRIMARY KEY NOT NULL,
-                        UserName VARCHAR(60) NOT NULL,        --Login name
-                        Password VARCHAR(128),
-                        CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-                     ");
+                        CREATE TABLE IF NOT EXISTS Administrator (
+                           FirstName VARCHAR(60),
+                           LastName VARCHAR(60),
+                           UserName VARCHAR(60) NOT NULL UNIQUE,   --Login name
+                           Email VARCHAR(255),
+                           Password VARCHAR(128),
+                           CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                       )");
 
                     //Insert into Administrator table
                     cnn.Execute(@"
@@ -41,9 +43,9 @@ namespace DBMS
                     cnn.Execute(@"
                         CREATE TABLE Student(
                             Id INTEGER PRIMARY KEY NOT NULL,
-                            FirstName VARCHAR(60) NOT NULL,
-                            LastName VARCHAR(60) NOT NULL,
-                            UserName VARCHAR(60) NOT NULL,        --Login name
+                            FirstName VARCHAR(60),
+                            LastName VARCHAR(60),
+                            UserName VARCHAR(60) NOT NULL UNIQUE,        --Login name
                             Email VARCHAR(255),
                             Password VARCHAR(128),
                             Major VARCHAR(60), --English, CS, Math, etc.
@@ -79,9 +81,9 @@ namespace DBMS
                     cnn.Execute(@"
                         CREATE TABLE Faculty(
                             Id INTEGER PRIMARY KEY NOT NULL,
-                            FirstName VARCHAR(60) NOT NULL,
-                            LastName VARCHAR(60) NOT NULL,
-                            UserName VARCHAR(60) NOT NULL,        --Login name
+                            FirstName VARCHAR(60),
+                            LastName VARCHAR(60),
+                            UserName VARCHAR(60) NOT NULL UNIQUE,        --Login name
                             Email VARCHAR(255),
                             Password VARCHAR(128),
                             Title VARCHAR(60),
@@ -100,32 +102,6 @@ namespace DBMS
                             FOREIGN KEY(FacultyId) REFERENCES Faculty(Id), --FacultyId retreived from Primary Key of Faculty table
                             FOREIGN KEY(CourseId) REFERENCES Course(Id)
                     )");
-
-                    //Create assignment table
-                    cnn.Execute(@"
-                        CREATE TABLE Assignment(
-                            Id INTEGER PRIMARY KEY NOT NULL,
-                            CourseId INTEGER NOT NULL,            --i.e. 53562
-                            Category VARCHAR(25),                 --Homework, Quiz, Discussion
-                            Description VARCHAR(128) NOT NULL,
-                            DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --time teacher created assignment online
-                            DueDate DATETIME, 
-                            FOREIGN KEY(CourseId) REFERENCES Course(Id)
-                    )");
-
-                    //Create Grading table
-                    cnn.Execute(@"
-                        CREATE TABLE Grading(
-                            StudentId INTEGER NOT NULL,
-                            CourseId INTEGER NOT NULL,
-                            AssignmentId INTEGER NOT NULL,
-                            Score REAL, --i.e. 96.8%
-                            DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, --time teacher entered grades 
-                            FOREIGN KEY(StudentId) REFERENCES Student(Id),
-                            FOREIGN KEY(CourseId) REFERENCES Course(Id),
-                            FOREIGN KEY(AssignmentId) REFERENCES Assignment(Id)
-                    )");
-
                 }
             }
         }

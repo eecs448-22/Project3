@@ -22,16 +22,16 @@ namespace SRMS
             Application.SetCompatibleTextRenderingDefault(false);
             //Run login form
             //Application.Run(new LoginUI());
-            var frmLogin = new LoginUI();
-            if (frmLogin.ShowDialog() == DialogResult.OK)
-            {
-                //if (frmLogin.Login as Admin)
-                   // Application.Run(new Admin());
-                //else if (frmLogin.Login as Faculty)
-                //    Application.Run(new FacultyForm());
-                //else
-                //    Application.Run(new StudentForm());
-            }
+            //var frmLogin = new LoginUI();
+            //if (frmLogin.ShowDialog() == DialogResult.OK)
+            //{
+            //if (frmLogin.Login as Admin)
+            Application.Run(new AdminUI());
+            //else if (frmLogin.Login as Faculty)
+            //    Application.Run(new FacultyForm());
+            //else
+            //    Application.Run(new FacultyForm());
+        //}
         }
     }
 }

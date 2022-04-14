@@ -1,4 +1,4 @@
---The following will create the dataTable in Sql with the specified variables as columns.
+--The following will create tables in Sqlite database with the specified columns.
 
 --UNDERSTANDING SQL
 --VARCHAR is an array of characters, basically a string
@@ -9,50 +9,53 @@
 --DATETIME format specifies YEAR:MONTH:DAY HOUR:MIN:SEC, i.e. "1900-01-01 00:00:00"
 
 -- For system administrators
-CREATE TABLE IF NOT EXISTS Administrator (
+CREATE TABLE Administrator(
     Id INTEGER PRIMARY KEY NOT NULL,
-    UserName VARCHAR(60) NOT NULL,        --Login name
+    FirstName VARCHAR(60),
+    LastName VARCHAR(60),
+    UserName VARCHAR(60) NOT NULL UNIQUE,   --Login name
+    Email VARCHAR(255),
     Password VARCHAR(128),
     CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Student(
     Id INTEGER PRIMARY KEY NOT NULL,
-    FirstName VARCHAR(60) NOT NULL,
-    LastName VARCHAR(60) NOT NULL,
-    UserName VARCHAR(60) NOT NULL,        --Login name
+    FirstName VARCHAR(60),
+    LastName VARCHAR(60),
+    UserName VARCHAR(60) NOT NULL UNIQUE,   --Login name
     Email VARCHAR(255),
     Password VARCHAR(128),
-    Major VARCHAR(60), --English, CS, Math, etc.
+    Major VARCHAR(60),          --English, CS, Math, etc.
     CreatedOn DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP --the day student was registered in system
 );
 
 CREATE TABLE Course(
     Id INTEGER PRIMARY KEY NOT NULL,
     Subject VARCHAR(8) NOT NULL,
-    "Level" INTEGER NOT NULL,   --Upper/Lower Level
-    Title VARCHAR(128) NOT NULL,--i.e. "Software Programming 1"
-    Hours INTEGER NOT NULL,     --Credit Hours
-    Room VARCHAR(60),           -- Classroom # or online
-    Semester VARCHAR(20),        -- i.e. Spring 2022
-    Notes VARCHAR(255)          --brief course description
+    "Level" INTEGER NOT NULL,    --Upper/Lower Level
+    Title VARCHAR(128) NOT NULL, --i.e. "Software Programming 1"
+    Hours INTEGER NOT NULL,      --Credit Hours
+    Room VARCHAR(60),            --Classroom # or online
+    Semester VARCHAR(20),        --i.e. Spring 2022
+    Notes VARCHAR(255)           --brief course description
 );
 
 CREATE TABLE Enrollment(
     StudentId INTEGER NOT NULL,
     CourseId INTEGER NOT NULL,
-    Grade CHAR(2),              -- Final grade
+    Grade CHAR(2),                                 --Final grade
     DateEntered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    Status INTEGER NOT NULL DEFAULT (1),    -- 1) Active 0) Dropped
+    Status INTEGER NOT NULL DEFAULT (1),           --1) Active 0) Dropped
     FOREIGN KEY(StudentId) REFERENCES Student(Id), --studentID retreived from Primary Key of Student table
-    FOREIGN KEY(CourseId) REFERENCES Course(Id) --same for courseID
+    FOREIGN KEY(CourseId) REFERENCES Course(Id)    --same for courseID
 );
 
 CREATE TABLE Faculty(
     Id INTEGER PRIMARY KEY NOT NULL,
-    FirstName VARCHAR(60) NOT NULL,
-    LastName VARCHAR(60) NOT NULL,
-    UserName VARCHAR(60) NOT NULL,        --Login name
+    FirstName VARCHAR(60),
+    LastName VARCHAR(60),
+    UserName VARCHAR(60) NOT NULL UNIQUE,   --Login name
     Email VARCHAR(255),
     Password VARCHAR(128),
     Title VARCHAR(60),

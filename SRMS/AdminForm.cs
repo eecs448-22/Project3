@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace SRMS
 {
-    public partial class PersonForm : Form
+    public partial class AdminForm : Form
     {
-        public PersonForm()
+        public AdminForm(int id = 0)
         {
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
