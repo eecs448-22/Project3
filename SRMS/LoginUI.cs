@@ -43,6 +43,12 @@ namespace SRMS
             UserModel user = new UserModel();
             user.Username = UserInput.Text;
             user.Password = PassInput.Text;
+            this.Hide();
+            StudentUI mainView = new StudentUI(UserInput.Text);
+            mainView.Show();
+
+
+            /*
             if (ManageUser.ValidateUser(user))
             {
                 Console.WriteLine("user is logged in");
@@ -50,7 +56,7 @@ namespace SRMS
                 if(signInCB.Text == "Student")
                 {
                     this.Hide();
-                    MainUI mainView = new MainUI();
+                    StudentUI mainView = new StudentUI();
                     mainView.Show();
                 }
                 else
@@ -64,21 +70,9 @@ namespace SRMS
             {
                 //Error message for invalid user.
                 Console.WriteLine("invalid user");
+                MessageBox.Show("Error! Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (signInCB.Text == "Student")
-            {
-                //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-                this.Hide();
-                StudentUI studentView = new StudentUI();
-                studentView.Show();
-            }
-            else
-            {
-                //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-                this.Hide();
-                FacultyUI teacherView = new FacultyUI();
-                teacherView.Show();
-            }
+            */
 
         }
 

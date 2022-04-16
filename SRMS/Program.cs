@@ -27,6 +27,10 @@ namespace SRMS
             //{
             //if (frmLogin.Login as Admin)
             Application.Run(new AdminUI());
+
+            //Application.Run(new StudentUI());
+            //Application.Run(new LoginUI());
+
             //else if (frmLogin.Login as Faculty)
             //    Application.Run(new FacultyForm());
             //else
