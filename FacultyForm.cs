@@ -8,35 +8,34 @@ using DBMS;
 
 namespace SRMS
 {
-    //this is the faculty form
+    //this is the student form
     public partial class FacultyForm : Form
     {
         private string connString = SqliteDataAccess.LoadConnectionString();
         public FacultyForm(int id = 0)
         {
             InitializeComponent();
-            txtFacultyId.ReadOnly = true;
+            txtStudentId.ReadOnly = true;
 
-            this.Text = "Create New Faculty";
+            this.Text = "Create New Student";
             txtCreatedOn.ReadOnly = true;
 
             if (id > 0)
             {
-                this.Text = "Update Faculty Profile";
+                this.Text = "Update Student Profile";
 
                 using (var conn = new SQLiteConnection(Utils.defaultConn))
                 {
-                    var f = conn.Get<Faculty>(id);
-                    txtFacultyId.Text = f.Id.ToString();
-                    txtFirstName.Text = f.FirstName;
-                    txtLastName.Text = f.LastName;
-                    txtUsername.Text = f.UserName;
+                    var s = conn.Get<Student>(id);
+                    txtStudentId.Text = s.Id.ToString();
+                    txtFirstName.Text = s.FirstName;
+                    txtLastName.Text = s.LastName;
+                    txtUsername.Text = s.UserName;
                     txtUsername.ReadOnly = true;
-                    txtPassword.Text = f.Password;
-                    txtEmail.Text = f.Email;
-                    txtTitle.Text = f.Title;
-                    txtDept.Text = f.Dept;
-                    txtCreatedOn.Text = f.CreatedOn.ToString("yyyy-MM-dd HH:mm:ss");
+                    txtPassword.Text = s.Password;
+                    txtEmail.Text = s.Email;
+                    txtMajor.Text = s.Major;
+                    txtCreatedOn.Text = s.CreatedOn.ToString("yyyy-MM-dd HH:mm:ss");
                 }
             }
             else
@@ -49,17 +48,16 @@ namespace SRMS
         {
             try
             {
-                //create a faculty object
-                var f = new Faculty
+                //create a student object
+                var s = new Student
                 {
-                    Id = txtFacultyId.Text.Length == 0 ? 0 : Convert.ToInt32(txtFacultyId.Text),
+                    Id = txtStudentId.Text.Length == 0 ? 0 : Convert.ToInt32(txtStudentId.Text),
                     FirstName = txtFirstName.Text,
                     LastName = txtLastName.Text,
                     UserName = txtUsername.Text,
                     Password = txtPassword.Text,
                     Email = txtEmail.Text,
-                    Title = txtTitle.Text,
-                    Dept = txtDept.Text,
+                    Major = txtMajor.Text,
                     CreatedOn = Convert.ToDateTime(txtCreatedOn.Text)
                 };
 
@@ -67,15 +65,15 @@ namespace SRMS
                 {
                     // SQLiteConnection exposes an Update event that clashes with
                     // the Update extension provided by Dapper.Contrib.
-                    if (f.Id > 0)
-                        conn.Update<Faculty>(f);
+                    if (s.Id > 0)
+                        conn.Update<Student>(s);
                     else
-                        conn.Insert(f);
+                        conn.Insert(s);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Exception caught when saving to Faculty table");
+                MessageBox.Show(ex.Message, "Exception caught when saving to Student table");
             }
         }
     }

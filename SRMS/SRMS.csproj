@@ -60,12 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +78,12 @@
     <Compile Include="CreateAccountUI.Designer.cs">
       <DependentUpon>CreateAccountUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="FacultyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacultyForm.designer.cs">
+      <DependentUpon>FacultyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FacultyUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +92,12 @@
     </Compile>
     <Compile Include="helper.cs" />
     <Compile Include="models.cs" />
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,9 +124,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminUI.resx">
       <DependentUpon>AdminUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +133,9 @@
     <EmbeddedResource Include="CreateAccountUI.resx">
       <DependentUpon>CreateAccountUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FacultyForm.resx">
+      <DependentUpon>FacultyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FacultyUI.resx">
       <DependentUpon>FacultyUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>

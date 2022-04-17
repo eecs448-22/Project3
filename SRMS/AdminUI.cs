@@ -132,8 +132,8 @@ namespace SRMS
                     break;
 
                 case 1:
-                    //var prof = new FacultyForm(id);
-                    //retval = prof.ShowDialog();
+                    var prof = new FacultyForm(id);
+                    retval = prof.ShowDialog();
                     break;
 
                 case 2:

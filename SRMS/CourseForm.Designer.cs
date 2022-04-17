@@ -40,14 +40,14 @@ namespace SRMS
             this.txtHours = new System.Windows.Forms.TextBox();
             this.lblHours = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
-            this.lblSubject = new System.Windows.Forms.Label();
             this.txtLevel = new System.Windows.Forms.TextBox();
-            this.txtSubject = new System.Windows.Forms.TextBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClsoe = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblSubject = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtSubject = new System.Windows.Forms.TextBox();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,13 +67,13 @@ namespace SRMS
             this.tableLayoutPanel1.Controls.Add(this.txtHours, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblHours, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblLevel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lblSubject, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtLevel, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtSubject, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtTitle, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblTitle, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Id, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 12);
+            this.tableLayoutPanel1.Controls.Add(this.lblTitle, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblSubject, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtTitle, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtSubject, 1, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(33, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -189,16 +189,6 @@ namespace SRMS
             this.lblLevel.TabIndex = 5;
             this.lblLevel.Text = "Level";
             // 
-            // lblSubject
-            // 
-            this.lblSubject.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblSubject.AutoSize = true;
-            this.lblSubject.Location = new System.Drawing.Point(3, 62);
-            this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(43, 13);
-            this.lblSubject.TabIndex = 2;
-            this.lblSubject.Text = "Subject";
-            // 
             // txtLevel
             // 
             this.txtLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -208,36 +198,6 @@ namespace SRMS
             this.txtLevel.Name = "txtLevel";
             this.txtLevel.Size = new System.Drawing.Size(156, 20);
             this.txtLevel.TabIndex = 3;
-            // 
-            // txtSubject
-            // 
-            this.txtSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSubject.Location = new System.Drawing.Point(96, 57);
-            this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(156, 20);
-            this.txtSubject.TabIndex = 2;
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.Location = new System.Drawing.Point(96, 30);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(156, 20);
-            this.txtTitle.TabIndex = 1;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(3, 34);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(27, 13);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Title";
             // 
             // Id
             // 
@@ -250,34 +210,74 @@ namespace SRMS
             this.Id.Text = "Id";
             this.Id.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnSave
+            // lblTitle
             // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(31, 250);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(117, 19);
-            this.btnSave.TabIndex = 21;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(3, 62);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(27, 13);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Title";
             // 
-            // btnClsoe
+            // lblSubject
             // 
-            this.btnClsoe.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClsoe.Location = new System.Drawing.Point(166, 250);
-            this.btnClsoe.Name = "btnClsoe";
-            this.btnClsoe.Size = new System.Drawing.Size(117, 19);
-            this.btnClsoe.TabIndex = 22;
-            this.btnClsoe.Text = "Cancel";
-            this.btnClsoe.UseVisualStyleBackColor = true;
+            this.lblSubject.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Location = new System.Drawing.Point(3, 34);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(43, 13);
+            this.lblSubject.TabIndex = 2;
+            this.lblSubject.Text = "Subject";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTitle.Location = new System.Drawing.Point(96, 57);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(156, 20);
+            this.txtTitle.TabIndex = 2;
+            // 
+            // txtSubject
+            // 
+            this.txtSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSubject.Location = new System.Drawing.Point(96, 30);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.Size = new System.Drawing.Size(156, 20);
+            this.txtSubject.TabIndex = 1;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSubmit.Location = new System.Drawing.Point(70, 275);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 21;
+            this.btnSubmit.Text = "Save";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(176, 275);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 22;
+            this.btnClose.Text = "Cancel";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // CourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 292);
-            this.Controls.Add(this.btnClsoe);
-            this.Controls.Add(this.btnSave);
+            this.ClientSize = new System.Drawing.Size(322, 314);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CourseForm";
             this.Text = "CourseForm";
@@ -303,8 +303,8 @@ namespace SRMS
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.TextBox txtNotes;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnClsoe;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txtCourseId;
         private System.Windows.Forms.Label Id;
     }

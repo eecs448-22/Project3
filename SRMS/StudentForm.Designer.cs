@@ -57,7 +57,7 @@ namespace SRMS
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.5F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.5F));
-            this.tableLayoutPanel1.Controls.Add(this.lblCreated, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.lblCreated, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.txtMajor, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtPassword, 1, 4);
@@ -71,28 +71,27 @@ namespace SRMS
             this.tableLayoutPanel1.Controls.Add(this.lblEmail, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblStudentId, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblMajor, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.txtCreatedOn, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.txtCreatedOn, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.lblUsername, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(25, 26);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.12281F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.87719F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(247, 238);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(247, 216);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblCreated
             // 
             this.lblCreated.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCreated.AutoSize = true;
-            this.lblCreated.Location = new System.Drawing.Point(3, 217);
+            this.lblCreated.Location = new System.Drawing.Point(3, 195);
             this.lblCreated.Name = "lblCreated";
             this.lblCreated.Size = new System.Drawing.Size(59, 13);
             this.lblCreated.TabIndex = 23;
@@ -103,7 +102,7 @@ namespace SRMS
             this.txtMajor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMajor.Location = new System.Drawing.Point(83, 160);
+            this.txtMajor.Location = new System.Drawing.Point(83, 164);
             this.txtMajor.Name = "txtMajor";
             this.txtMajor.Size = new System.Drawing.Size(161, 20);
             this.txtMajor.TabIndex = 6;
@@ -113,7 +112,7 @@ namespace SRMS
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(83, 134);
+            this.txtEmail.Location = new System.Drawing.Point(83, 136);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(161, 20);
             this.txtEmail.TabIndex = 5;
@@ -123,7 +122,7 @@ namespace SRMS
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(83, 110);
+            this.txtPassword.Location = new System.Drawing.Point(83, 108);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(161, 20);
             this.txtPassword.TabIndex = 4;
@@ -133,7 +132,7 @@ namespace SRMS
             this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.Location = new System.Drawing.Point(83, 84);
+            this.txtUsername.Location = new System.Drawing.Point(83, 79);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(161, 20);
             this.txtUsername.TabIndex = 3;
@@ -152,7 +151,7 @@ namespace SRMS
             // 
             this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(3, 60);
+            this.lblLastName.Location = new System.Drawing.Point(3, 56);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(58, 13);
             this.lblLastName.TabIndex = 5;
@@ -162,7 +161,7 @@ namespace SRMS
             // 
             this.lblFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(3, 32);
+            this.lblFirstName.Location = new System.Drawing.Point(3, 31);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(57, 13);
             this.lblFirstName.TabIndex = 2;
@@ -185,7 +184,7 @@ namespace SRMS
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Location = new System.Drawing.Point(83, 29);
+            this.txtFirstName.Location = new System.Drawing.Point(83, 28);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(161, 20);
             this.txtFirstName.TabIndex = 1;
@@ -195,7 +194,7 @@ namespace SRMS
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Location = new System.Drawing.Point(83, 55);
+            this.txtLastName.Location = new System.Drawing.Point(83, 53);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(161, 20);
             this.txtLastName.TabIndex = 2;
@@ -204,7 +203,7 @@ namespace SRMS
             // 
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(3, 137);
+            this.lblEmail.Location = new System.Drawing.Point(3, 140);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 10;
@@ -224,7 +223,7 @@ namespace SRMS
             // 
             this.lblMajor.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMajor.AutoSize = true;
-            this.lblMajor.Location = new System.Drawing.Point(3, 164);
+            this.lblMajor.Location = new System.Drawing.Point(3, 168);
             this.lblMajor.Name = "lblMajor";
             this.lblMajor.Size = new System.Drawing.Size(33, 13);
             this.lblMajor.TabIndex = 0;
@@ -235,7 +234,7 @@ namespace SRMS
             this.txtCreatedOn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCreatedOn.Location = new System.Drawing.Point(83, 212);
+            this.txtCreatedOn.Location = new System.Drawing.Point(83, 191);
             this.txtCreatedOn.Name = "txtCreatedOn";
             this.txtCreatedOn.ReadOnly = true;
             this.txtCreatedOn.Size = new System.Drawing.Size(161, 20);
@@ -246,7 +245,7 @@ namespace SRMS
             // 
             this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(3, 87);
+            this.lblUsername.Location = new System.Drawing.Point(3, 84);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(55, 13);
             this.lblUsername.TabIndex = 6;
@@ -255,9 +254,9 @@ namespace SRMS
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(25, 291);
+            this.btnSave.Location = new System.Drawing.Point(49, 266);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(110, 23);
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -266,9 +265,9 @@ namespace SRMS
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(162, 291);
+            this.btnCancel.Location = new System.Drawing.Point(163, 266);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -277,7 +276,7 @@ namespace SRMS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 341);
+            this.ClientSize = new System.Drawing.Size(304, 316);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tableLayoutPanel1);

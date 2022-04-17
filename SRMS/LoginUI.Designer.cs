@@ -48,14 +48,14 @@ namespace SRMS
             // 
             // UserInput
             // 
-            this.UserInput.Location = new System.Drawing.Point(314, 163);
+            this.UserInput.Location = new System.Drawing.Point(312, 169);
             this.UserInput.Name = "UserInput";
             this.UserInput.Size = new System.Drawing.Size(100, 20);
             this.UserInput.TabIndex = 2;
             // 
             // PassInput
             // 
-            this.PassInput.Location = new System.Drawing.Point(314, 202);
+            this.PassInput.Location = new System.Drawing.Point(312, 208);
             this.PassInput.Name = "PassInput";
             this.PassInput.PasswordChar = '*';
             this.PassInput.Size = new System.Drawing.Size(100, 20);
@@ -64,7 +64,7 @@ namespace SRMS
             // UserLabel
             // 
             this.UserLabel.AutoSize = true;
-            this.UserLabel.Location = new System.Drawing.Point(252, 166);
+            this.UserLabel.Location = new System.Drawing.Point(250, 172);
             this.UserLabel.Name = "UserLabel";
             this.UserLabel.Size = new System.Drawing.Size(55, 13);
             this.UserLabel.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace SRMS
             // PassLabel
             // 
             this.PassLabel.AutoSize = true;
-            this.PassLabel.Location = new System.Drawing.Point(254, 205);
+            this.PassLabel.Location = new System.Drawing.Point(252, 211);
             this.PassLabel.Name = "PassLabel";
             this.PassLabel.Size = new System.Drawing.Size(53, 13);
             this.PassLabel.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace SRMS
             // LoginButton
             // 
             this.LoginButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.LoginButton.Location = new System.Drawing.Point(314, 256);
+            this.LoginButton.Location = new System.Drawing.Point(312, 277);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(100, 23);
             this.LoginButton.TabIndex = 4;
@@ -94,7 +94,7 @@ namespace SRMS
             // 
             this.ProgTitle.AutoSize = true;
             this.ProgTitle.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProgTitle.Location = new System.Drawing.Point(229, 53);
+            this.ProgTitle.Location = new System.Drawing.Point(227, 59);
             this.ProgTitle.Name = "ProgTitle";
             this.ProgTitle.Size = new System.Drawing.Size(228, 31);
             this.ProgTitle.TabIndex = 5;
@@ -102,7 +102,7 @@ namespace SRMS
             // 
             // createAccountBtn
             // 
-            this.createAccountBtn.Location = new System.Drawing.Point(299, 299);
+            this.createAccountBtn.Location = new System.Drawing.Point(297, 305);
             this.createAccountBtn.Margin = new System.Windows.Forms.Padding(2);
             this.createAccountBtn.Name = "createAccountBtn";
             this.createAccountBtn.Size = new System.Drawing.Size(139, 28);
@@ -114,7 +114,7 @@ namespace SRMS
             // signInLabel
             // 
             this.signInLabel.AutoSize = true;
-            this.signInLabel.Location = new System.Drawing.Point(252, 132);
+            this.signInLabel.Location = new System.Drawing.Point(250, 138);
             this.signInLabel.Name = "signInLabel";
             this.signInLabel.Size = new System.Drawing.Size(56, 13);
             this.signInLabel.TabIndex = 2;
@@ -127,7 +127,7 @@ namespace SRMS
             "Administrator",
             "Faculty",
             "Student"});
-            this.signInCB.Location = new System.Drawing.Point(314, 129);
+            this.signInCB.Location = new System.Drawing.Point(312, 135);
             this.signInCB.Margin = new System.Windows.Forms.Padding(2);
             this.signInCB.Name = "signInCB";
             this.signInCB.Size = new System.Drawing.Size(100, 21);
@@ -151,7 +151,7 @@ namespace SRMS
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.BackColor = System.Drawing.Color.Pink;
-            this.lblStatus.Location = new System.Drawing.Point(417, 187);
+            this.lblStatus.Location = new System.Drawing.Point(278, 246);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(40, 13);
             this.lblStatus.TabIndex = 8;
