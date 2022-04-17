@@ -30,20 +30,20 @@ namespace SRMS
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCreated = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
             this.txtAdminId = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblStudentId = new System.Windows.Forms.Label();
-            this.txtCreatedOn = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.lblCreated = new System.Windows.Forms.Label();
+            this.txtCreatedOn = new System.Windows.Forms.TextBox();
+            this.lblFirstName = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -81,16 +81,6 @@ namespace SRMS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(247, 192);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // lblCreated
-            // 
-            this.lblCreated.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCreated.AutoSize = true;
-            this.lblCreated.Location = new System.Drawing.Point(3, 170);
-            this.lblCreated.Name = "lblCreated";
-            this.lblCreated.Size = new System.Drawing.Size(59, 13);
-            this.lblCreated.TabIndex = 23;
-            this.lblCreated.Text = "Created on";
             // 
             // txtEmail
             // 
@@ -141,16 +131,6 @@ namespace SRMS
             this.lblLastName.Size = new System.Drawing.Size(58, 13);
             this.lblLastName.TabIndex = 5;
             this.lblLastName.Text = "Last Name";
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(3, 32);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(57, 13);
-            this.lblFirstName.TabIndex = 2;
-            this.lblFirstName.Text = "First Name";
             // 
             // txtAdminId
             // 
@@ -204,6 +184,26 @@ namespace SRMS
             this.lblStudentId.TabIndex = 1;
             this.lblStudentId.Text = "Id";
             // 
+            // lblUsername
+            // 
+            this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(3, 86);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.TabIndex = 6;
+            this.lblUsername.Text = "Username";
+            // 
+            // lblCreated
+            // 
+            this.lblCreated.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCreated.AutoSize = true;
+            this.lblCreated.Location = new System.Drawing.Point(3, 170);
+            this.lblCreated.Name = "lblCreated";
+            this.lblCreated.Size = new System.Drawing.Size(59, 13);
+            this.lblCreated.TabIndex = 23;
+            this.lblCreated.Text = "Created on";
+            // 
             // txtCreatedOn
             // 
             this.txtCreatedOn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -216,15 +216,15 @@ namespace SRMS
             this.txtCreatedOn.TabIndex = 25;
             this.txtCreatedOn.TabStop = false;
             // 
-            // lblUsername
+            // lblFirstName
             // 
-            this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(3, 86);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
-            this.lblUsername.TabIndex = 6;
-            this.lblUsername.Text = "Username";
+            this.lblFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Location = new System.Drawing.Point(3, 32);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(57, 13);
+            this.lblFirstName.TabIndex = 2;
+            this.lblFirstName.Text = "First Name";
             // 
             // btnSave
             // 

@@ -73,27 +73,13 @@ namespace SRMS
         private int Authenticate(string usr, string pwd, int role, out string status)
         {
             status = String.Empty;
-            string tblName = String.Empty;
-            switch (role)
-            {
-                case 0:
-                    tblName = "Administrator";
-                    break;
+            var tblNames = new string[] { "Administrator", "Faculty", "Student" };
 
-                case 1:
-                    tblName = "Faculty";
-                    break;
-
-                case 2:
-                    tblName = "Student";
-                    break;
-            }
-
-            if (tblName.Length > 0)
+            if (role >= 0 && role < tblNames.Length)
             {
                 using (var conn = new SQLiteConnection(Utils.defaultConn))
                 {
-                    var sql = $"SELECT Id, Password FROM {tblName} WHERE UserName = '{usr}'";
+                    var sql = $"SELECT Id, Password FROM {tblNames[role]} WHERE UserName = '{usr}'";
                     var user = conn.QueryFirstOrDefault(sql);
                     if (user == null)
                     {
