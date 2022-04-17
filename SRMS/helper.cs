@@ -63,6 +63,10 @@ namespace Helper
                 var result = conn.Query(sql);
                 dgv.DataSource = result.ToDataTable();
 
+                //autoResize columns
+                dgv.AutoResizeColumns();
+                dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                
                 dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue;
 
                 // disable sorting
