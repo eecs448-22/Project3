@@ -9,10 +9,12 @@ namespace SRMS
 {
     public partial class AdminUI : Form
     {
+        private int adminId = 0;
         private string[] tblNames = null;
         private DataGridView[] tblGrids = null; //dataGridViews 
-        public AdminUI()
+        public AdminUI(int id)
         {
+            adminId = id;
             InitializeComponent();
 
             tblNames = new string[] { "Administrator", "Faculty", "Student", "Course" };

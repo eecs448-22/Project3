@@ -41,26 +41,30 @@ namespace SRMS
             this.createAccountBtn = new System.Windows.Forms.Button();
             this.signInLabel = new System.Windows.Forms.Label();
             this.signInCB = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // UserInput
             // 
-            this.UserInput.Location = new System.Drawing.Point(370, 192);
+            this.UserInput.Location = new System.Drawing.Point(314, 163);
             this.UserInput.Name = "UserInput";
             this.UserInput.Size = new System.Drawing.Size(100, 20);
-            this.UserInput.TabIndex = 0;
+            this.UserInput.TabIndex = 2;
             // 
             // PassInput
             // 
-            this.PassInput.Location = new System.Drawing.Point(370, 231);
+            this.PassInput.Location = new System.Drawing.Point(314, 202);
             this.PassInput.Name = "PassInput";
+            this.PassInput.PasswordChar = '*';
             this.PassInput.Size = new System.Drawing.Size(100, 20);
-            this.PassInput.TabIndex = 1;
+            this.PassInput.TabIndex = 3;
             // 
             // UserLabel
             // 
             this.UserLabel.AutoSize = true;
-            this.UserLabel.Location = new System.Drawing.Point(308, 195);
+            this.UserLabel.Location = new System.Drawing.Point(252, 166);
             this.UserLabel.Name = "UserLabel";
             this.UserLabel.Size = new System.Drawing.Size(55, 13);
             this.UserLabel.TabIndex = 2;
@@ -69,7 +73,7 @@ namespace SRMS
             // PassLabel
             // 
             this.PassLabel.AutoSize = true;
-            this.PassLabel.Location = new System.Drawing.Point(310, 234);
+            this.PassLabel.Location = new System.Drawing.Point(254, 205);
             this.PassLabel.Name = "PassLabel";
             this.PassLabel.Size = new System.Drawing.Size(53, 13);
             this.PassLabel.TabIndex = 3;
@@ -77,9 +81,10 @@ namespace SRMS
             // 
             // LoginButton
             // 
-            this.LoginButton.Location = new System.Drawing.Point(349, 275);
+            this.LoginButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.LoginButton.Location = new System.Drawing.Point(314, 256);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(109, 23);
+            this.LoginButton.Size = new System.Drawing.Size(100, 23);
             this.LoginButton.TabIndex = 4;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
@@ -89,7 +94,7 @@ namespace SRMS
             // 
             this.ProgTitle.AutoSize = true;
             this.ProgTitle.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProgTitle.Location = new System.Drawing.Point(298, 106);
+            this.ProgTitle.Location = new System.Drawing.Point(229, 53);
             this.ProgTitle.Name = "ProgTitle";
             this.ProgTitle.Size = new System.Drawing.Size(228, 31);
             this.ProgTitle.TabIndex = 5;
@@ -97,10 +102,10 @@ namespace SRMS
             // 
             // createAccountBtn
             // 
-            this.createAccountBtn.Location = new System.Drawing.Point(331, 320);
+            this.createAccountBtn.Location = new System.Drawing.Point(299, 299);
             this.createAccountBtn.Margin = new System.Windows.Forms.Padding(2);
             this.createAccountBtn.Name = "createAccountBtn";
-            this.createAccountBtn.Size = new System.Drawing.Size(139, 19);
+            this.createAccountBtn.Size = new System.Drawing.Size(139, 28);
             this.createAccountBtn.TabIndex = 6;
             this.createAccountBtn.Text = "Create or Edit Account";
             this.createAccountBtn.UseVisualStyleBackColor = true;
@@ -109,7 +114,7 @@ namespace SRMS
             // signInLabel
             // 
             this.signInLabel.AutoSize = true;
-            this.signInLabel.Location = new System.Drawing.Point(308, 161);
+            this.signInLabel.Location = new System.Drawing.Point(252, 132);
             this.signInLabel.Name = "signInLabel";
             this.signInLabel.Size = new System.Drawing.Size(56, 13);
             this.signInLabel.TabIndex = 2;
@@ -119,22 +124,48 @@ namespace SRMS
             // 
             this.signInCB.FormattingEnabled = true;
             this.signInCB.Items.AddRange(new object[] {
-            "Student",
+            "Administrator",
             "Faculty",
-            "Administrator"});
-            this.signInCB.Location = new System.Drawing.Point(370, 158);
+            "Student"});
+            this.signInCB.Location = new System.Drawing.Point(314, 129);
             this.signInCB.Margin = new System.Windows.Forms.Padding(2);
             this.signInCB.Name = "signInCB";
             this.signInCB.Size = new System.Drawing.Size(100, 21);
-            this.signInCB.TabIndex = 7;
+            this.signInCB.TabIndex = 1;
             this.signInCB.Text = "Student";
             this.signInCB.SelectedIndexChanged += new System.EventHandler(this.signInCB_SelectedIndexChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.BackgroundImage = global::SRMS.Properties.Resources.Kansas_Jayhawks_logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 129);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 110);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.Color.Pink;
+            this.lblStatus.Location = new System.Drawing.Point(417, 187);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(40, 13);
+            this.lblStatus.TabIndex = 8;
+            this.lblStatus.Text = "Status:";
+            this.lblStatus.Visible = false;
+            // 
             // LoginUI
             // 
+            this.AcceptButton = this.LoginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(628, 406);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.signInCB);
             this.Controls.Add(this.createAccountBtn);
             this.Controls.Add(this.ProgTitle);
@@ -144,10 +175,13 @@ namespace SRMS
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.PassInput);
             this.Controls.Add(this.UserInput);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginUI_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +198,7 @@ namespace SRMS
         private System.Windows.Forms.Button createAccountBtn;
         private System.Windows.Forms.Label signInLabel;
         private System.Windows.Forms.ComboBox signInCB;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

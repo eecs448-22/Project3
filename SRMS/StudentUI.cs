@@ -9,16 +9,22 @@ namespace SRMS
 {
     public partial class StudentUI : Form
     {
+        private int studentId = 0;
         private void button_logOut_Click(object sender, EventArgs e)
         {
+            this.Close();
+            // Close the form here; otherwise, the app won't exit, which prevents us from rebuilding app.
+            // https://stackoverflow.com/questions/50469473/switch-between-forms-from-main-program
+
             //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-            this.Hide();
-            LoginUI logOut = new LoginUI();
-            logOut.Show();
+            //this.Hide();
+            //LoginUI logOut = new LoginUI();
+            //logOut.Show();
         }
 
-        public StudentUI(string username)
+        public StudentUI(int id)
         {
+            studentId = id;
             InitializeComponent();
             dgvInfo.ReadOnly = true;
             dgvInfo.AllowUserToAddRows = false;
@@ -32,7 +38,7 @@ namespace SRMS
             dgvClasses.MultiSelect = false;
             dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            var sql = $"SELECT * FROM Student WHERE UserName = \"{username}\""; //retreive all data fields
+            var sql = $"SELECT * FROM Student WHERE Id = {studentId}"; //retreive all data fields
             var sql1 = $"SELECT * FROM Course";
             Utils.DisplayData(dgvInfo, sql);
             Utils.DisplayData(dgvClasses, sql1);

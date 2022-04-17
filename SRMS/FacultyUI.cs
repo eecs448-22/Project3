@@ -17,8 +17,11 @@ namespace SRMS
 {
     public partial class FacultyUI : Form
     {
-        public FacultyUI()
+        private int facultyId = 0;
+
+        public FacultyUI(int id)
         {
+            facultyId = id;
             InitializeComponent();
         }
 

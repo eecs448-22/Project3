@@ -8,6 +8,9 @@
 --CreatedOn marks the time which the data is entered on the current time (CURRENT_TIMESTAMP)
 --DATETIME format specifies YEAR:MONTH:DAY HOUR:MIN:SEC, i.e. "1900-01-01 00:00:00"
 
+-- Set the text/string encoding
+PRAGMA encoding = 'UTF-16';
+
 -- For system administrators
 CREATE TABLE Administrator(
     Id INTEGER PRIMARY KEY NOT NULL,
