@@ -33,13 +33,19 @@
             this.label_enrollment = new System.Windows.Forms.Label();
             this.label_classes = new System.Windows.Forms.Label();
             this.label_accInfo = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
             this.label_welcome = new System.Windows.Forms.Label();
             this.tabPage_accInfo = new System.Windows.Forms.TabPage();
             this.showPW = new System.Windows.Forms.CheckBox();
             this.label_heading = new System.Windows.Forms.Label();
             this.editInfoBtn = new System.Windows.Forms.Button();
+            this.textBox_Major = new System.Windows.Forms.TextBox();
+            this.label_major = new System.Windows.Forms.Label();
             this.textBox_password = new System.Windows.Forms.TextBox();
+            this.textBox_Email = new System.Windows.Forms.TextBox();
             this.label_password = new System.Windows.Forms.Label();
+            this.label_email = new System.Windows.Forms.Label();
             this.textBox_username = new System.Windows.Forms.TextBox();
             this.label_username = new System.Windows.Forms.Label();
             this.textBox_id = new System.Windows.Forms.TextBox();
@@ -61,12 +67,6 @@
             this.button_logOut = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label_email = new System.Windows.Forms.Label();
-            this.textBox_Email = new System.Windows.Forms.TextBox();
-            this.label_major = new System.Windows.Forms.Label();
-            this.textBox_Major = new System.Windows.Forms.TextBox();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
@@ -140,6 +140,25 @@
             this.label_accInfo.Size = new System.Drawing.Size(637, 22);
             this.label_accInfo.TabIndex = 1;
             this.label_accInfo.Text = "Select the \"Account Information\" tab to view and edit your personal information.";
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(224, 40);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(0, 38);
+            this.nameLabel.TabIndex = 0;
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(183, 29);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(226, 38);
+            this.labelName.TabIndex = 0;
+            this.labelName.Text = "{placeHolder}";
             // 
             // label_welcome
             // 
@@ -215,6 +234,25 @@
             this.editInfoBtn.UseVisualStyleBackColor = false;
             this.editInfoBtn.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textBox_Major
+            // 
+            this.textBox_Major.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Major.Location = new System.Drawing.Point(481, 234);
+            this.textBox_Major.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_Major.Name = "textBox_Major";
+            this.textBox_Major.Size = new System.Drawing.Size(173, 30);
+            this.textBox_Major.TabIndex = 9;
+            // 
+            // label_major
+            // 
+            this.label_major.AutoSize = true;
+            this.label_major.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_major.Location = new System.Drawing.Point(362, 231);
+            this.label_major.Name = "label_major";
+            this.label_major.Size = new System.Drawing.Size(61, 25);
+            this.label_major.TabIndex = 8;
+            this.label_major.Text = "Major";
+            // 
             // textBox_password
             // 
             this.textBox_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -223,6 +261,15 @@
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(173, 30);
             this.textBox_password.TabIndex = 9;
+            // 
+            // textBox_Email
+            // 
+            this.textBox_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Email.Location = new System.Drawing.Point(481, 179);
+            this.textBox_Email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_Email.Name = "textBox_Email";
+            this.textBox_Email.Size = new System.Drawing.Size(173, 22);
+            this.textBox_Email.TabIndex = 7;
             // 
             // label_password
             // 
@@ -233,6 +280,16 @@
             this.label_password.Size = new System.Drawing.Size(98, 25);
             this.label_password.TabIndex = 8;
             this.label_password.Text = "Password";
+            // 
+            // label_email
+            // 
+            this.label_email.AutoSize = true;
+            this.label_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_email.Location = new System.Drawing.Point(362, 181);
+            this.label_email.Name = "label_email";
+            this.label_email.Size = new System.Drawing.Size(60, 25);
+            this.label_email.TabIndex = 6;
+            this.label_email.Text = "Email";
             // 
             // textBox_username
             // 
@@ -346,6 +403,7 @@
             this.dgvClasses.RowTemplate.Height = 24;
             this.dgvClasses.Size = new System.Drawing.Size(619, 196);
             this.dgvClasses.TabIndex = 0;
+            this.dgvClasses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClasses_CellContentClick);
             // 
             // tabPage_enrollment
             // 
@@ -466,63 +524,6 @@
             this.listBox1.Size = new System.Drawing.Size(216, 68);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // label_email
-            // 
-            this.label_email.AutoSize = true;
-            this.label_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_email.Location = new System.Drawing.Point(362, 181);
-            this.label_email.Name = "label_email";
-            this.label_email.Size = new System.Drawing.Size(60, 25);
-            this.label_email.TabIndex = 6;
-            this.label_email.Text = "Email";
-            // 
-            // textBox_Email
-            // 
-            this.textBox_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Email.Location = new System.Drawing.Point(481, 179);
-            this.textBox_Email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_Email.Name = "textBox_Email";
-            this.textBox_Email.Size = new System.Drawing.Size(173, 22);
-            this.textBox_Email.TabIndex = 7;
-            // 
-            // label_major
-            // 
-            this.label_major.AutoSize = true;
-            this.label_major.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_major.Location = new System.Drawing.Point(362, 231);
-            this.label_major.Name = "label_major";
-            this.label_major.Size = new System.Drawing.Size(61, 25);
-            this.label_major.TabIndex = 8;
-            this.label_major.Text = "Major";
-            // 
-            // textBox_Major
-            // 
-            this.textBox_Major.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Major.Location = new System.Drawing.Point(481, 234);
-            this.textBox_Major.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_Major.Name = "textBox_Major";
-            this.textBox_Major.Size = new System.Drawing.Size(173, 30);
-            this.textBox_Major.TabIndex = 9;
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(224, 40);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(0, 38);
-            this.nameLabel.TabIndex = 0;
-            // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(183, 29);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(226, 38);
-            this.labelName.TabIndex = 0;
-            this.labelName.Text = "{placeHolder}";
             // 
             // StudentUI
             // 

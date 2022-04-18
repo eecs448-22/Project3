@@ -10,6 +10,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using Helper;
+using System.Linq;
+
 
 namespace SRMS
 {
@@ -41,6 +43,22 @@ namespace SRMS
             dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             displayAccountInfo();
+
+            
+
+            var conn = new SQLiteConnection(defaultConn);
+            conn.Open();
+            var sql = "";
+            sql = $"SELECT CourseId FROM Enrollment WHERE StudentId = {studentId}";
+            dynamic results = conn.Query<int>(sql);
+            results = results.ToArray();
+            Console.Write(results);
+
+            foreach(int result in results)
+            {
+                var sql1 = $"SELECT * FROM Course WHERE Id = {result}";
+                Utils.DisplayData(dgvClasses, sql1);
+            }
         }
 
         public void displayAccountInfo()
@@ -130,6 +148,11 @@ namespace SRMS
         }
 
         private void tabPage_welcome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvClasses_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
