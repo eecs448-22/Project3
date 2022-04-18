@@ -1,14 +1,20 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
 using System;
-using Models;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SQLite;
+using System.Drawing;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
-using Helper;
 
 namespace SRMS
 {
     public partial class StudentUI : Form
     {
+        public static string defaultConn = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
         private int studentId = 0;
         private void button_logOut_Click(object sender, EventArgs e)
         {
@@ -26,11 +32,6 @@ namespace SRMS
         {
             studentId = id;
             InitializeComponent();
-            dgvInfo.ReadOnly = true;
-            dgvInfo.AllowUserToAddRows = false;
-            dgvInfo.AllowUserToDeleteRows = false;
-            dgvInfo.MultiSelect = false;
-            dgvInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             dgvClasses.ReadOnly = true;
             dgvClasses.AllowUserToAddRows = false;
@@ -38,10 +39,23 @@ namespace SRMS
             dgvClasses.MultiSelect = false;
             dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            var sql = $"SELECT * FROM Student WHERE Id = {studentId}"; //retreive all data fields
-            var sql1 = $"SELECT * FROM Course";
-            Utils.DisplayData(dgvInfo, sql);
-            Utils.DisplayData(dgvClasses, sql1);
+            printAccountInfo(textBox_firstName, "Firstname");
+            printAccountInfo(textBox_lastName, "Lastname");
+            printAccountInfo(textBox_id, "Id");
+            printAccountInfo(textBox_username, "UserName");
+            printAccountInfo(textBox_password, "Password");
+            textBox_password.PasswordChar = '*';
+            //Utils.DisplayData(dgvInfo, sql);
+            //Utils.DisplayData(dgvClasses, sql1);
+        }
+        public void printAccountInfo(TextBox textField, string field)
+        {
+            var conn = new SQLiteConnection(defaultConn);
+            conn.Open();
+            var sql = "";
+            sql = $"SELECT {field} FROM Student WHERE Id = {studentId}";
+            dynamic result = conn.QuerySingle<string>(sql);
+            textField.Text = result;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,6 +69,25 @@ namespace SRMS
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void showPW_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (showPW.Checked)
+            {
+                string a = textBox_password.Text;
+                textBox_password.PasswordChar = '\0';
+            }
+            else if (!showPW.Checked)
+            {
+                textBox_password.PasswordChar = '*';
+            }
+        }
+
+        private void tabPage_accInfo_Click(object sender, EventArgs e)
         {
 
         }
