@@ -35,8 +35,9 @@
             this.label_accInfo = new System.Windows.Forms.Label();
             this.label_welcome = new System.Windows.Forms.Label();
             this.tabPage_accInfo = new System.Windows.Forms.TabPage();
+            this.showPW = new System.Windows.Forms.CheckBox();
             this.label_heading = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.editInfoBtn = new System.Windows.Forms.Button();
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.label_password = new System.Windows.Forms.Label();
             this.textBox_username = new System.Windows.Forms.TextBox();
@@ -60,7 +61,12 @@
             this.button_logOut = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.showPW = new System.Windows.Forms.CheckBox();
+            this.label_email = new System.Windows.Forms.Label();
+            this.textBox_Email = new System.Windows.Forms.TextBox();
+            this.label_major = new System.Windows.Forms.Label();
+            this.textBox_Major = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
@@ -92,6 +98,8 @@
             this.tabPage_welcome.Controls.Add(this.label_enrollment);
             this.tabPage_welcome.Controls.Add(this.label_classes);
             this.tabPage_welcome.Controls.Add(this.label_accInfo);
+            this.tabPage_welcome.Controls.Add(this.nameLabel);
+            this.tabPage_welcome.Controls.Add(this.labelName);
             this.tabPage_welcome.Controls.Add(this.label_welcome);
             this.tabPage_welcome.Location = new System.Drawing.Point(4, 25);
             this.tabPage_welcome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -100,32 +108,36 @@
             this.tabPage_welcome.TabIndex = 2;
             this.tabPage_welcome.Text = "Welcome";
             this.tabPage_welcome.UseVisualStyleBackColor = true;
+            this.tabPage_welcome.Click += new System.EventHandler(this.tabPage_welcome_Click);
             // 
             // label_enrollment
             // 
             this.label_enrollment.AutoSize = true;
-            this.label_enrollment.Location = new System.Drawing.Point(40, 186);
+            this.label_enrollment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_enrollment.Location = new System.Drawing.Point(13, 190);
             this.label_enrollment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_enrollment.Name = "label_enrollment";
-            this.label_enrollment.Size = new System.Drawing.Size(378, 16);
+            this.label_enrollment.Size = new System.Drawing.Size(514, 22);
             this.label_enrollment.TabIndex = 3;
             this.label_enrollment.Text = "Select the \"Enrollment\" tab to enroll in classes for the semester.";
             // 
             // label_classes
             // 
             this.label_classes.AutoSize = true;
-            this.label_classes.Location = new System.Drawing.Point(40, 153);
+            this.label_classes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_classes.Location = new System.Drawing.Point(13, 152);
             this.label_classes.Name = "label_classes";
-            this.label_classes.Size = new System.Drawing.Size(403, 16);
+            this.label_classes.Size = new System.Drawing.Size(541, 22);
             this.label_classes.TabIndex = 2;
             this.label_classes.Text = "Select the \"Classes\" tab to view your enrolled classes and grades. ";
             // 
             // label_accInfo
             // 
             this.label_accInfo.AutoSize = true;
-            this.label_accInfo.Location = new System.Drawing.Point(40, 121);
+            this.label_accInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_accInfo.Location = new System.Drawing.Point(13, 114);
             this.label_accInfo.Name = "label_accInfo";
-            this.label_accInfo.Size = new System.Drawing.Size(468, 16);
+            this.label_accInfo.Size = new System.Drawing.Size(637, 22);
             this.label_accInfo.TabIndex = 1;
             this.label_accInfo.Text = "Select the \"Account Information\" tab to view and edit your personal information.";
             // 
@@ -133,19 +145,23 @@
             // 
             this.label_welcome.AutoSize = true;
             this.label_welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_welcome.Location = new System.Drawing.Point(36, 31);
+            this.label_welcome.Location = new System.Drawing.Point(10, 29);
             this.label_welcome.Name = "label_welcome";
-            this.label_welcome.Size = new System.Drawing.Size(170, 38);
+            this.label_welcome.Size = new System.Drawing.Size(160, 38);
             this.label_welcome.TabIndex = 0;
-            this.label_welcome.Text = "Welcome!\r\n";
+            this.label_welcome.Text = "Welcome";
             // 
             // tabPage_accInfo
             // 
             this.tabPage_accInfo.Controls.Add(this.showPW);
             this.tabPage_accInfo.Controls.Add(this.label_heading);
-            this.tabPage_accInfo.Controls.Add(this.button1);
+            this.tabPage_accInfo.Controls.Add(this.editInfoBtn);
+            this.tabPage_accInfo.Controls.Add(this.textBox_Major);
+            this.tabPage_accInfo.Controls.Add(this.label_major);
             this.tabPage_accInfo.Controls.Add(this.textBox_password);
+            this.tabPage_accInfo.Controls.Add(this.textBox_Email);
             this.tabPage_accInfo.Controls.Add(this.label_password);
+            this.tabPage_accInfo.Controls.Add(this.label_email);
             this.tabPage_accInfo.Controls.Add(this.textBox_username);
             this.tabPage_accInfo.Controls.Add(this.label_username);
             this.tabPage_accInfo.Controls.Add(this.textBox_id);
@@ -164,109 +180,134 @@
             this.tabPage_accInfo.UseVisualStyleBackColor = true;
             this.tabPage_accInfo.Click += new System.EventHandler(this.tabPage_accInfo_Click);
             // 
+            // showPW
+            // 
+            this.showPW.AutoSize = true;
+            this.showPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPW.Location = new System.Drawing.Point(481, 130);
+            this.showPW.Name = "showPW";
+            this.showPW.Size = new System.Drawing.Size(175, 29);
+            this.showPW.TabIndex = 13;
+            this.showPW.Text = "Show Password";
+            this.showPW.UseVisualStyleBackColor = true;
+            this.showPW.CheckedChanged += new System.EventHandler(this.showPW_CheckedChanged_1);
+            // 
             // label_heading
             // 
             this.label_heading.AutoSize = true;
             this.label_heading.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_heading.Location = new System.Drawing.Point(36, 31);
+            this.label_heading.Location = new System.Drawing.Point(20, 25);
             this.label_heading.Name = "label_heading";
             this.label_heading.Size = new System.Drawing.Size(325, 38);
             this.label_heading.TabIndex = 11;
             this.label_heading.Text = "Account Information";
             // 
-            // button1
+            // editInfoBtn
             // 
-            this.button1.Location = new System.Drawing.Point(117, 294);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.editInfoBtn.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.editInfoBtn.Font = new System.Drawing.Font("Trebuchet MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editInfoBtn.Location = new System.Drawing.Point(255, 288);
+            this.editInfoBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.editInfoBtn.Name = "editInfoBtn";
+            this.editInfoBtn.Size = new System.Drawing.Size(193, 45);
+            this.editInfoBtn.TabIndex = 10;
+            this.editInfoBtn.Text = "Edit";
+            this.editInfoBtn.UseVisualStyleBackColor = false;
+            this.editInfoBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox_password
             // 
-            this.textBox_password.Location = new System.Drawing.Point(117, 206);
+            this.textBox_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_password.Location = new System.Drawing.Point(481, 84);
             this.textBox_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_password.Name = "textBox_password";
-            this.textBox_password.Size = new System.Drawing.Size(100, 22);
+            this.textBox_password.Size = new System.Drawing.Size(173, 30);
             this.textBox_password.TabIndex = 9;
             // 
             // label_password
             // 
             this.label_password.AutoSize = true;
-            this.label_password.Location = new System.Drawing.Point(40, 209);
+            this.label_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_password.Location = new System.Drawing.Point(360, 84);
             this.label_password.Name = "label_password";
-            this.label_password.Size = new System.Drawing.Size(67, 16);
+            this.label_password.Size = new System.Drawing.Size(98, 25);
             this.label_password.TabIndex = 8;
             this.label_password.Text = "Password";
             // 
             // textBox_username
             // 
-            this.textBox_username.Location = new System.Drawing.Point(117, 178);
+            this.textBox_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_username.Location = new System.Drawing.Point(163, 231);
             this.textBox_username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_username.Name = "textBox_username";
-            this.textBox_username.Size = new System.Drawing.Size(100, 22);
+            this.textBox_username.Size = new System.Drawing.Size(173, 30);
             this.textBox_username.TabIndex = 7;
             // 
             // label_username
             // 
             this.label_username.AutoSize = true;
-            this.label_username.Location = new System.Drawing.Point(40, 181);
+            this.label_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_username.Location = new System.Drawing.Point(40, 234);
             this.label_username.Name = "label_username";
-            this.label_username.Size = new System.Drawing.Size(70, 16);
+            this.label_username.Size = new System.Drawing.Size(102, 25);
             this.label_username.TabIndex = 6;
             this.label_username.Text = "Username";
             // 
             // textBox_id
             // 
-            this.textBox_id.Location = new System.Drawing.Point(117, 150);
+            this.textBox_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_id.Location = new System.Drawing.Point(163, 176);
             this.textBox_id.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_id.Name = "textBox_id";
-            this.textBox_id.Size = new System.Drawing.Size(100, 22);
+            this.textBox_id.Size = new System.Drawing.Size(173, 30);
             this.textBox_id.TabIndex = 5;
             // 
             // textBox_lastName
             // 
-            this.textBox_lastName.Location = new System.Drawing.Point(117, 122);
+            this.textBox_lastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_lastName.Location = new System.Drawing.Point(163, 128);
             this.textBox_lastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_lastName.Name = "textBox_lastName";
-            this.textBox_lastName.Size = new System.Drawing.Size(100, 22);
+            this.textBox_lastName.Size = new System.Drawing.Size(173, 30);
             this.textBox_lastName.TabIndex = 4;
             // 
             // textBox_firstName
             // 
-            this.textBox_firstName.Location = new System.Drawing.Point(117, 94);
+            this.textBox_firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_firstName.Location = new System.Drawing.Point(163, 81);
             this.textBox_firstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_firstName.Name = "textBox_firstName";
-            this.textBox_firstName.Size = new System.Drawing.Size(100, 22);
+            this.textBox_firstName.Size = new System.Drawing.Size(173, 30);
             this.textBox_firstName.TabIndex = 3;
+            this.textBox_firstName.TextChanged += new System.EventHandler(this.textBox_firstName_TextChanged);
             // 
             // label_id
             // 
             this.label_id.AutoSize = true;
-            this.label_id.Location = new System.Drawing.Point(40, 153);
+            this.label_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_id.Location = new System.Drawing.Point(36, 181);
             this.label_id.Name = "label_id";
-            this.label_id.Size = new System.Drawing.Size(68, 16);
+            this.label_id.Size = new System.Drawing.Size(104, 25);
             this.label_id.TabIndex = 2;
             this.label_id.Text = "Student ID";
             // 
             // label_lastName
             // 
             this.label_lastName.AutoSize = true;
-            this.label_lastName.Location = new System.Drawing.Point(40, 126);
+            this.label_lastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_lastName.Location = new System.Drawing.Point(36, 133);
             this.label_lastName.Name = "label_lastName";
-            this.label_lastName.Size = new System.Drawing.Size(72, 16);
+            this.label_lastName.Size = new System.Drawing.Size(106, 25);
             this.label_lastName.TabIndex = 1;
             this.label_lastName.Text = "Last Name";
             // 
             // label_firstName
             // 
             this.label_firstName.AutoSize = true;
-            this.label_firstName.Location = new System.Drawing.Point(40, 96);
+            this.label_firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_firstName.Location = new System.Drawing.Point(36, 84);
             this.label_firstName.Name = "label_firstName";
-            this.label_firstName.Size = new System.Drawing.Size(72, 16);
+            this.label_firstName.Size = new System.Drawing.Size(106, 25);
             this.label_firstName.TabIndex = 0;
             this.label_firstName.Text = "First Name";
             // 
@@ -314,9 +355,9 @@
             this.tabPage_enrollment.Controls.Add(this.comboBox_selectSemester);
             this.tabPage_enrollment.Controls.Add(this.label_enrollmentScreen);
             this.tabPage_enrollment.Location = new System.Drawing.Point(4, 25);
-            this.tabPage_enrollment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage_enrollment.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage_enrollment.Name = "tabPage_enrollment";
-            this.tabPage_enrollment.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage_enrollment.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage_enrollment.Size = new System.Drawing.Size(715, 349);
             this.tabPage_enrollment.TabIndex = 3;
             this.tabPage_enrollment.Tag = "Maggie";
@@ -337,7 +378,7 @@
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(45, 143);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.Size = new System.Drawing.Size(617, 155);
@@ -363,7 +404,7 @@
             "Summer 2022",
             "Fall 2022"});
             this.comboBox_selectSemester.Location = new System.Drawing.Point(337, 81);
-            this.comboBox_selectSemester.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox_selectSemester.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_selectSemester.Name = "comboBox_selectSemester";
             this.comboBox_selectSemester.Size = new System.Drawing.Size(209, 37);
             this.comboBox_selectSemester.TabIndex = 13;
@@ -420,22 +461,68 @@
             "■ Classes",
             "■ Enrollment"});
             this.listBox1.Location = new System.Drawing.Point(41, 242);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(216, 68);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // showPW
+            // label_email
             // 
-            this.showPW.AutoSize = true;
-            this.showPW.Location = new System.Drawing.Point(236, 209);
-            this.showPW.Name = "showPW";
-            this.showPW.Size = new System.Drawing.Size(125, 20);
-            this.showPW.TabIndex = 13;
-            this.showPW.Text = "Show Password";
-            this.showPW.UseVisualStyleBackColor = true;
-            this.showPW.CheckedChanged += new System.EventHandler(this.showPW_CheckedChanged_1);
+            this.label_email.AutoSize = true;
+            this.label_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_email.Location = new System.Drawing.Point(362, 181);
+            this.label_email.Name = "label_email";
+            this.label_email.Size = new System.Drawing.Size(60, 25);
+            this.label_email.TabIndex = 6;
+            this.label_email.Text = "Email";
+            // 
+            // textBox_Email
+            // 
+            this.textBox_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Email.Location = new System.Drawing.Point(481, 179);
+            this.textBox_Email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_Email.Name = "textBox_Email";
+            this.textBox_Email.Size = new System.Drawing.Size(173, 22);
+            this.textBox_Email.TabIndex = 7;
+            // 
+            // label_major
+            // 
+            this.label_major.AutoSize = true;
+            this.label_major.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_major.Location = new System.Drawing.Point(362, 231);
+            this.label_major.Name = "label_major";
+            this.label_major.Size = new System.Drawing.Size(61, 25);
+            this.label_major.TabIndex = 8;
+            this.label_major.Text = "Major";
+            // 
+            // textBox_Major
+            // 
+            this.textBox_Major.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Major.Location = new System.Drawing.Point(481, 234);
+            this.textBox_Major.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_Major.Name = "textBox_Major";
+            this.textBox_Major.Size = new System.Drawing.Size(173, 30);
+            this.textBox_Major.TabIndex = 9;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(224, 40);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(0, 38);
+            this.nameLabel.TabIndex = 0;
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(183, 29);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(226, 38);
+            this.labelName.TabIndex = 0;
+            this.labelName.Text = "{placeHolder}";
             // 
             // StudentUI
             // 
@@ -451,6 +538,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "StudentUI";
             this.Text = "Student";
+            this.Load += new System.EventHandler(this.StudentUI_Load);
             this.tabControl_studentInfo.ResumeLayout(false);
             this.tabPage_welcome.ResumeLayout(false);
             this.tabPage_welcome.PerformLayout();
@@ -488,7 +576,7 @@
         private System.Windows.Forms.Label label_username;
         private System.Windows.Forms.TextBox textBox_password;
         private System.Windows.Forms.Label label_password;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button editInfoBtn;
         private System.Windows.Forms.DataGridView dgvClasses;
         private System.Windows.Forms.Button button_logOut;
         private System.Windows.Forms.Label label_heading;
@@ -503,5 +591,11 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox showPW;
+        private System.Windows.Forms.TextBox textBox_Major;
+        private System.Windows.Forms.Label label_major;
+        private System.Windows.Forms.TextBox textBox_Email;
+        private System.Windows.Forms.Label label_email;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label labelName;
     }
 }

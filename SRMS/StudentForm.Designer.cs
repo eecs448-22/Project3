@@ -73,27 +73,29 @@ namespace SRMS
             this.tableLayoutPanel1.Controls.Add(this.lblMajor, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtCreatedOn, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.lblUsername, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 24);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(37, 30);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.12281F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.87719F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(247, 216);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 266);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblCreated
             // 
             this.lblCreated.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCreated.AutoSize = true;
-            this.lblCreated.Location = new System.Drawing.Point(3, 195);
+            this.lblCreated.Location = new System.Drawing.Point(4, 241);
+            this.lblCreated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCreated.Name = "lblCreated";
-            this.lblCreated.Size = new System.Drawing.Size(59, 13);
+            this.lblCreated.Size = new System.Drawing.Size(73, 16);
             this.lblCreated.TabIndex = 23;
             this.lblCreated.Text = "Created on";
             // 
@@ -102,9 +104,10 @@ namespace SRMS
             this.txtMajor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMajor.Location = new System.Drawing.Point(83, 164);
+            this.txtMajor.Location = new System.Drawing.Point(110, 203);
+            this.txtMajor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMajor.Name = "txtMajor";
-            this.txtMajor.Size = new System.Drawing.Size(161, 20);
+            this.txtMajor.Size = new System.Drawing.Size(215, 22);
             this.txtMajor.TabIndex = 6;
             // 
             // txtEmail
@@ -112,9 +115,10 @@ namespace SRMS
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(83, 136);
+            this.txtEmail.Location = new System.Drawing.Point(110, 169);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(161, 20);
+            this.txtEmail.Size = new System.Drawing.Size(215, 22);
             this.txtEmail.TabIndex = 5;
             // 
             // txtPassword
@@ -122,9 +126,10 @@ namespace SRMS
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(83, 108);
+            this.txtPassword.Location = new System.Drawing.Point(110, 135);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(161, 20);
+            this.txtPassword.Size = new System.Drawing.Size(215, 22);
             this.txtPassword.TabIndex = 4;
             // 
             // txtUsername
@@ -132,18 +137,20 @@ namespace SRMS
             this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.Location = new System.Drawing.Point(83, 79);
+            this.txtUsername.Location = new System.Drawing.Point(110, 99);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(161, 20);
+            this.txtUsername.Size = new System.Drawing.Size(215, 22);
             this.txtUsername.TabIndex = 3;
             // 
             // lblPassword
             // 
             this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(3, 112);
+            this.lblPassword.Location = new System.Drawing.Point(4, 140);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.Size = new System.Drawing.Size(67, 16);
             this.lblPassword.TabIndex = 9;
             this.lblPassword.Text = "Password";
             // 
@@ -151,9 +158,10 @@ namespace SRMS
             // 
             this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(3, 56);
+            this.lblLastName.Location = new System.Drawing.Point(4, 71);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(58, 13);
+            this.lblLastName.Size = new System.Drawing.Size(72, 16);
             this.lblLastName.TabIndex = 5;
             this.lblLastName.Text = "Last Name";
             // 
@@ -161,9 +169,10 @@ namespace SRMS
             // 
             this.lblFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(3, 31);
+            this.lblFirstName.Location = new System.Drawing.Point(4, 39);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(57, 13);
+            this.lblFirstName.Size = new System.Drawing.Size(72, 16);
             this.lblFirstName.TabIndex = 2;
             this.lblFirstName.Text = "First Name";
             // 
@@ -172,10 +181,11 @@ namespace SRMS
             this.txtStudentId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStudentId.Location = new System.Drawing.Point(83, 3);
+            this.txtStudentId.Location = new System.Drawing.Point(110, 4);
+            this.txtStudentId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtStudentId.Name = "txtStudentId";
             this.txtStudentId.ReadOnly = true;
-            this.txtStudentId.Size = new System.Drawing.Size(161, 20);
+            this.txtStudentId.Size = new System.Drawing.Size(215, 22);
             this.txtStudentId.TabIndex = 13;
             this.txtStudentId.TabStop = false;
             // 
@@ -184,9 +194,10 @@ namespace SRMS
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Location = new System.Drawing.Point(83, 28);
+            this.txtFirstName.Location = new System.Drawing.Point(110, 35);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(161, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(215, 22);
             this.txtFirstName.TabIndex = 1;
             // 
             // txtLastName
@@ -194,18 +205,20 @@ namespace SRMS
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Location = new System.Drawing.Point(83, 53);
+            this.txtLastName.Location = new System.Drawing.Point(110, 67);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(161, 20);
+            this.txtLastName.Size = new System.Drawing.Size(215, 22);
             this.txtLastName.TabIndex = 2;
             // 
             // lblEmail
             // 
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(3, 140);
+            this.lblEmail.Location = new System.Drawing.Point(4, 174);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.Size = new System.Drawing.Size(41, 16);
             this.lblEmail.TabIndex = 10;
             this.lblEmail.Text = "Email";
             // 
@@ -213,9 +226,10 @@ namespace SRMS
             // 
             this.lblStudentId.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblStudentId.AutoSize = true;
-            this.lblStudentId.Location = new System.Drawing.Point(3, 6);
+            this.lblStudentId.Location = new System.Drawing.Point(4, 7);
+            this.lblStudentId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStudentId.Name = "lblStudentId";
-            this.lblStudentId.Size = new System.Drawing.Size(16, 13);
+            this.lblStudentId.Size = new System.Drawing.Size(18, 16);
             this.lblStudentId.TabIndex = 1;
             this.lblStudentId.Text = "Id";
             // 
@@ -223,9 +237,10 @@ namespace SRMS
             // 
             this.lblMajor.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMajor.AutoSize = true;
-            this.lblMajor.Location = new System.Drawing.Point(3, 168);
+            this.lblMajor.Location = new System.Drawing.Point(4, 207);
+            this.lblMajor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMajor.Name = "lblMajor";
-            this.lblMajor.Size = new System.Drawing.Size(33, 13);
+            this.lblMajor.Size = new System.Drawing.Size(41, 16);
             this.lblMajor.TabIndex = 0;
             this.lblMajor.Text = "Major";
             // 
@@ -234,10 +249,11 @@ namespace SRMS
             this.txtCreatedOn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCreatedOn.Location = new System.Drawing.Point(83, 191);
+            this.txtCreatedOn.Location = new System.Drawing.Point(110, 236);
+            this.txtCreatedOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCreatedOn.Name = "txtCreatedOn";
             this.txtCreatedOn.ReadOnly = true;
-            this.txtCreatedOn.Size = new System.Drawing.Size(161, 20);
+            this.txtCreatedOn.Size = new System.Drawing.Size(215, 22);
             this.txtCreatedOn.TabIndex = 25;
             this.txtCreatedOn.TabStop = false;
             // 
@@ -245,18 +261,20 @@ namespace SRMS
             // 
             this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(3, 84);
+            this.lblUsername.Location = new System.Drawing.Point(4, 105);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.Size = new System.Drawing.Size(70, 16);
             this.lblUsername.TabIndex = 6;
             this.lblUsername.Text = "Username";
             // 
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(49, 266);
+            this.btnSave.Location = new System.Drawing.Point(65, 327);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -265,21 +283,23 @@ namespace SRMS
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(163, 266);
+            this.btnCancel.Location = new System.Drawing.Point(217, 327);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // StudentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 316);
+            this.ClientSize = new System.Drawing.Size(405, 389);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StudentForm";

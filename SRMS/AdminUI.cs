@@ -159,6 +159,10 @@ namespace SRMS
             this.Close();
         }
 
+        private void dgvAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 

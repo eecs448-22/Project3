@@ -62,20 +62,22 @@ namespace SRMS
             this.tabControlAdmin.Controls.Add(this.tabFaculty);
             this.tabControlAdmin.Controls.Add(this.tabStudent);
             this.tabControlAdmin.Controls.Add(this.tabCourse);
-            this.tabControlAdmin.Location = new System.Drawing.Point(24, 12);
+            this.tabControlAdmin.Location = new System.Drawing.Point(32, 15);
+            this.tabControlAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControlAdmin.Name = "tabControlAdmin";
             this.tabControlAdmin.SelectedIndex = 0;
-            this.tabControlAdmin.Size = new System.Drawing.Size(747, 370);
+            this.tabControlAdmin.Size = new System.Drawing.Size(996, 455);
             this.tabControlAdmin.TabIndex = 0;
             this.tabControlAdmin.SelectedIndexChanged += new System.EventHandler(this.tabControlAdmin_SelectedIndexChanged);
             // 
             // tabAdmin
             // 
             this.tabAdmin.Controls.Add(this.dgvAdmin);
-            this.tabAdmin.Location = new System.Drawing.Point(4, 22);
+            this.tabAdmin.Location = new System.Drawing.Point(4, 25);
+            this.tabAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabAdmin.Name = "tabAdmin";
-            this.tabAdmin.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAdmin.Size = new System.Drawing.Size(739, 344);
+            this.tabAdmin.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabAdmin.Size = new System.Drawing.Size(988, 426);
             this.tabAdmin.TabIndex = 0;
             this.tabAdmin.Text = "Administrator";
             this.tabAdmin.UseVisualStyleBackColor = true;
@@ -86,18 +88,22 @@ namespace SRMS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAdmin.Location = new System.Drawing.Point(0, 3);
+            this.dgvAdmin.Location = new System.Drawing.Point(0, 4);
+            this.dgvAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAdmin.Name = "dgvAdmin";
-            this.dgvAdmin.Size = new System.Drawing.Size(736, 340);
+            this.dgvAdmin.RowHeadersWidth = 51;
+            this.dgvAdmin.Size = new System.Drawing.Size(981, 418);
             this.dgvAdmin.TabIndex = 0;
+            this.dgvAdmin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmin_CellContentClick);
             // 
             // tabFaculty
             // 
             this.tabFaculty.Controls.Add(this.dgvFaculty);
-            this.tabFaculty.Location = new System.Drawing.Point(4, 22);
+            this.tabFaculty.Location = new System.Drawing.Point(4, 25);
+            this.tabFaculty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabFaculty.Name = "tabFaculty";
-            this.tabFaculty.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFaculty.Size = new System.Drawing.Size(739, 344);
+            this.tabFaculty.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabFaculty.Size = new System.Drawing.Size(988, 426);
             this.tabFaculty.TabIndex = 1;
             this.tabFaculty.Text = "Faculty";
             this.tabFaculty.UseVisualStyleBackColor = true;
@@ -108,18 +114,21 @@ namespace SRMS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFaculty.Location = new System.Drawing.Point(2, 2);
+            this.dgvFaculty.Location = new System.Drawing.Point(3, 2);
+            this.dgvFaculty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvFaculty.Name = "dgvFaculty";
-            this.dgvFaculty.Size = new System.Drawing.Size(740, 341);
+            this.dgvFaculty.RowHeadersWidth = 51;
+            this.dgvFaculty.Size = new System.Drawing.Size(987, 420);
             this.dgvFaculty.TabIndex = 0;
             // 
             // tabStudent
             // 
             this.tabStudent.Controls.Add(this.dgvStudent);
-            this.tabStudent.Location = new System.Drawing.Point(4, 22);
+            this.tabStudent.Location = new System.Drawing.Point(4, 25);
+            this.tabStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabStudent.Name = "tabStudent";
-            this.tabStudent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStudent.Size = new System.Drawing.Size(739, 344);
+            this.tabStudent.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStudent.Size = new System.Drawing.Size(988, 426);
             this.tabStudent.TabIndex = 2;
             this.tabStudent.Text = "Student";
             this.tabStudent.UseVisualStyleBackColor = true;
@@ -131,17 +140,20 @@ namespace SRMS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudent.Location = new System.Drawing.Point(-1, 2);
+            this.dgvStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvStudent.Name = "dgvStudent";
-            this.dgvStudent.Size = new System.Drawing.Size(740, 341);
+            this.dgvStudent.RowHeadersWidth = 51;
+            this.dgvStudent.Size = new System.Drawing.Size(987, 420);
             this.dgvStudent.TabIndex = 1;
             // 
             // tabCourse
             // 
             this.tabCourse.Controls.Add(this.dgvCourse);
-            this.tabCourse.Location = new System.Drawing.Point(4, 22);
+            this.tabCourse.Location = new System.Drawing.Point(4, 25);
+            this.tabCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabCourse.Name = "tabCourse";
-            this.tabCourse.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCourse.Size = new System.Drawing.Size(739, 344);
+            this.tabCourse.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabCourse.Size = new System.Drawing.Size(988, 426);
             this.tabCourse.TabIndex = 3;
             this.tabCourse.Text = "Course";
             this.tabCourse.UseVisualStyleBackColor = true;
@@ -153,16 +165,19 @@ namespace SRMS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCourse.Location = new System.Drawing.Point(-1, 2);
+            this.dgvCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCourse.Name = "dgvCourse";
-            this.dgvCourse.Size = new System.Drawing.Size(740, 341);
+            this.dgvCourse.RowHeadersWidth = 51;
+            this.dgvCourse.Size = new System.Drawing.Size(987, 420);
             this.dgvCourse.TabIndex = 2;
             // 
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCreate.Location = new System.Drawing.Point(29, 403);
+            this.btnCreate.Location = new System.Drawing.Point(39, 496);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(99, 24);
+            this.btnCreate.Size = new System.Drawing.Size(132, 30);
             this.btnCreate.TabIndex = 1;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -171,9 +186,10 @@ namespace SRMS
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.Location = new System.Drawing.Point(239, 403);
+            this.btnDelete.Location = new System.Drawing.Point(319, 496);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 24);
+            this.btnDelete.Size = new System.Drawing.Size(132, 30);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -182,9 +198,10 @@ namespace SRMS
             // btnUpdate
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUpdate.Location = new System.Drawing.Point(134, 403);
+            this.btnUpdate.Location = new System.Drawing.Point(179, 496);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(99, 24);
+            this.btnUpdate.Size = new System.Drawing.Size(132, 30);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -193,9 +210,10 @@ namespace SRMS
             // btnLogout
             // 
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogout.Location = new System.Drawing.Point(668, 403);
+            this.btnLogout.Location = new System.Drawing.Point(891, 496);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(99, 24);
+            this.btnLogout.Size = new System.Drawing.Size(132, 30);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -203,14 +221,15 @@ namespace SRMS
             // 
             // AdminUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.tabControlAdmin);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminUI";
             this.Text = "AdminUI";
             this.Load += new System.EventHandler(this.AdminUI_Load);
