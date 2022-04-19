@@ -58,6 +58,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvClasses = new System.Windows.Forms.DataGridView();
             this.tabPage_enrollment = new System.Windows.Forms.TabPage();
+            this.dropEnrollBtn = new System.Windows.Forms.Button();
+            this.enrollAddBtn = new System.Windows.Forms.Button();
             this.lblEnrollment = new System.Windows.Forms.Label();
             this.dgvEnrollment = new System.Windows.Forms.DataGridView();
             this.label_selectSemester = new System.Windows.Forms.Label();
@@ -67,6 +69,7 @@
             this.button_logOut = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.calender = new System.Windows.Forms.MonthCalendar();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
@@ -407,6 +410,8 @@
             // 
             // tabPage_enrollment
             // 
+            this.tabPage_enrollment.Controls.Add(this.dropEnrollBtn);
+            this.tabPage_enrollment.Controls.Add(this.enrollAddBtn);
             this.tabPage_enrollment.Controls.Add(this.lblEnrollment);
             this.tabPage_enrollment.Controls.Add(this.dgvEnrollment);
             this.tabPage_enrollment.Controls.Add(this.label_selectSemester);
@@ -422,10 +427,29 @@
             this.tabPage_enrollment.Text = "Enrollment";
             this.tabPage_enrollment.UseVisualStyleBackColor = true;
             // 
+            // dropEnrollBtn
+            // 
+            this.dropEnrollBtn.Location = new System.Drawing.Point(125, 304);
+            this.dropEnrollBtn.Name = "dropEnrollBtn";
+            this.dropEnrollBtn.Size = new System.Drawing.Size(75, 23);
+            this.dropEnrollBtn.TabIndex = 17;
+            this.dropEnrollBtn.Text = "Drop";
+            this.dropEnrollBtn.UseVisualStyleBackColor = true;
+            // 
+            // enrollAddBtn
+            // 
+            this.enrollAddBtn.Location = new System.Drawing.Point(44, 304);
+            this.enrollAddBtn.Name = "enrollAddBtn";
+            this.enrollAddBtn.Size = new System.Drawing.Size(75, 23);
+            this.enrollAddBtn.TabIndex = 17;
+            this.enrollAddBtn.Text = "Add";
+            this.enrollAddBtn.UseVisualStyleBackColor = true;
+            this.enrollAddBtn.Click += new System.EventHandler(this.enrollAddBtn_Click);
+            // 
             // lblEnrollment
             // 
             this.lblEnrollment.AutoSize = true;
-            this.lblEnrollment.Location = new System.Drawing.Point(42, 126);
+            this.lblEnrollment.Location = new System.Drawing.Point(41, 79);
             this.lblEnrollment.Name = "lblEnrollment";
             this.lblEnrollment.Size = new System.Drawing.Size(386, 16);
             this.lblEnrollment.TabIndex = 16;
@@ -434,7 +458,7 @@
             // dgvEnrollment
             // 
             this.dgvEnrollment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEnrollment.Location = new System.Drawing.Point(44, 154);
+            this.dgvEnrollment.Location = new System.Drawing.Point(45, 110);
             this.dgvEnrollment.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEnrollment.Name = "dgvEnrollment";
             this.dgvEnrollment.RowHeadersWidth = 51;
@@ -445,7 +469,7 @@
             // 
             this.label_selectSemester.AutoSize = true;
             this.label_selectSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_selectSemester.Location = new System.Drawing.Point(40, 85);
+            this.label_selectSemester.Location = new System.Drawing.Point(40, 42);
             this.label_selectSemester.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_selectSemester.Name = "label_selectSemester";
             this.label_selectSemester.Size = new System.Drawing.Size(281, 29);
@@ -460,7 +484,7 @@
             "Spring2022",
             "Summer2022",
             "Fall2022"});
-            this.comboBox_selectSemester.Location = new System.Drawing.Point(337, 81);
+            this.comboBox_selectSemester.Location = new System.Drawing.Point(337, 38);
             this.comboBox_selectSemester.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_selectSemester.Name = "comboBox_selectSemester";
             this.comboBox_selectSemester.Size = new System.Drawing.Size(209, 37);
@@ -471,7 +495,7 @@
             // 
             this.label_enrollmentScreen.AutoSize = true;
             this.label_enrollmentScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_enrollmentScreen.Location = new System.Drawing.Point(37, 30);
+            this.label_enrollmentScreen.Location = new System.Drawing.Point(38, 4);
             this.label_enrollmentScreen.Name = "label_enrollmentScreen";
             this.label_enrollmentScreen.Size = new System.Drawing.Size(182, 38);
             this.label_enrollmentScreen.TabIndex = 12;
@@ -502,10 +526,10 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.BackgroundImage = global::SRMS.Properties.Resources.Kansas_Jayhawks_logo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 89);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(216, 135);
+            this.pictureBox1.Size = new System.Drawing.Size(262, 148);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -518,12 +542,18 @@
             "■ Account Information",
             "■ Classes",
             "■ Enrollment"});
-            this.listBox1.Location = new System.Drawing.Point(41, 242);
+            this.listBox1.Location = new System.Drawing.Point(12, 177);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(216, 68);
+            this.listBox1.Size = new System.Drawing.Size(262, 68);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // calender
+            // 
+            this.calender.Location = new System.Drawing.Point(12, 258);
+            this.calender.Name = "calender";
+            this.calender.TabIndex = 18;
             // 
             // StudentUI
             // 
@@ -531,6 +561,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(1043, 487);
+            this.Controls.Add(this.calender);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button_logOut);
@@ -598,5 +629,8 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label lblEnrollment;
+        private System.Windows.Forms.Button dropEnrollBtn;
+        private System.Windows.Forms.Button enrollAddBtn;
+        private System.Windows.Forms.MonthCalendar calender;
     }
 }

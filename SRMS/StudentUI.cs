@@ -43,22 +43,24 @@ namespace SRMS
             dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             displayAccountInfo();
-
-            
-
+            showClasses();
+        }
+        public void showClasses()
+        {
             var conn = new SQLiteConnection(defaultConn);
             conn.Open();
             var sql = "";
             sql = $"SELECT CourseId FROM Enrollment WHERE StudentId = {studentId}";
             dynamic results = conn.Query<int>(sql);
             results = results.ToArray();
-            Console.Write(results);
-
-            foreach(int result in results)
+            var sql1 = $"SELECT * FROM Course WHERE Id = {results[0]}";
+            int count = 0;
+            foreach (int result in results)
             {
-                var sql1 = $"SELECT * FROM Course WHERE Id = {result}";
-                Utils.DisplayData(dgvClasses, sql1);
+                if (result != results[0]) sql1 = sql1 + $" OR Id = {results[count]}";
+                count++;
             }
+            Utils.DisplayData(dgvClasses, sql1);
         }
 
         public void displayAccountInfo()
@@ -162,9 +164,24 @@ namespace SRMS
             var conn = new SQLiteConnection(defaultConn);
             conn.Open();
             var sql = $"SELECT * FROM Course WHERE Semester = '{comboBox_selectSemester.Text}'";
-            System.Diagnostics.Debug.WriteLine(sql);
+            //System.Diagnostics.Debug.WriteLine(sql);
             Utils.DisplayData(dgvEnrollment, sql);
             lblEnrollment.Text = "The following courses are offered during " + comboBox_selectSemester.Text;
+        }
+        private void enrollAddBtn_Click(object sender, EventArgs e)
+        {
+            //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
+            int columnIndex = dgvEnrollment.CurrentCell.ColumnIndex;
+            int rowIndex = dgvEnrollment.CurrentCell.RowIndex;
+            string value = dgvEnrollment.Rows[columnIndex].Cells[columnIndex].Value.ToString();
+            System.Diagnostics.Debug.WriteLine(value);
+            var conn = new SQLiteConnection(defaultConn);
+            conn.Open();
+            var sql = $"INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{studentId}', '{value}')";
+            //var sql = $"INSERT INTO Enrollment (StudentId, CourseId, DateEntered, Status) VALUES {studentId}, {value}, {calender.TodayDate}, 1";
+            conn.Query(sql);
+            showClasses();
+
         }
     }
 }
