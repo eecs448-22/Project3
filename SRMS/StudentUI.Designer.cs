@@ -58,8 +58,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvClasses = new System.Windows.Forms.DataGridView();
             this.tabPage_enrollment = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.lblEnrollment = new System.Windows.Forms.Label();
+            this.dgvEnrollment = new System.Windows.Forms.DataGridView();
             this.label_selectSemester = new System.Windows.Forms.Label();
             this.comboBox_selectSemester = new System.Windows.Forms.ComboBox();
             this.label_enrollmentScreen = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             this.tabPage_classes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).BeginInit();
             this.tabPage_enrollment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -407,8 +407,8 @@
             // 
             // tabPage_enrollment
             // 
-            this.tabPage_enrollment.Controls.Add(this.label2);
-            this.tabPage_enrollment.Controls.Add(this.dataGridView2);
+            this.tabPage_enrollment.Controls.Add(this.lblEnrollment);
+            this.tabPage_enrollment.Controls.Add(this.dgvEnrollment);
             this.tabPage_enrollment.Controls.Add(this.label_selectSemester);
             this.tabPage_enrollment.Controls.Add(this.comboBox_selectSemester);
             this.tabPage_enrollment.Controls.Add(this.label_enrollmentScreen);
@@ -422,25 +422,24 @@
             this.tabPage_enrollment.Text = "Enrollment";
             this.tabPage_enrollment.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblEnrollment
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 218);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(204, 16);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "query classes for given semester";
+            this.lblEnrollment.AutoSize = true;
+            this.lblEnrollment.Location = new System.Drawing.Point(42, 126);
+            this.lblEnrollment.Name = "lblEnrollment";
+            this.lblEnrollment.Size = new System.Drawing.Size(386, 16);
+            this.lblEnrollment.TabIndex = 16;
+            this.lblEnrollment.Text = "Once a semester is selected, offered courses will appear below:";
             // 
-            // dataGridView2
+            // dgvEnrollment
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(45, 143);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(617, 155);
-            this.dataGridView2.TabIndex = 15;
+            this.dgvEnrollment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEnrollment.Location = new System.Drawing.Point(44, 154);
+            this.dgvEnrollment.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvEnrollment.Name = "dgvEnrollment";
+            this.dgvEnrollment.RowHeadersWidth = 51;
+            this.dgvEnrollment.Size = new System.Drawing.Size(617, 187);
+            this.dgvEnrollment.TabIndex = 15;
             // 
             // label_selectSemester
             // 
@@ -458,14 +457,15 @@
             this.comboBox_selectSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_selectSemester.FormattingEnabled = true;
             this.comboBox_selectSemester.Items.AddRange(new object[] {
-            "Spring 2022",
-            "Summer 2022",
-            "Fall 2022"});
+            "Spring2022",
+            "Summer2022",
+            "Fall2022"});
             this.comboBox_selectSemester.Location = new System.Drawing.Point(337, 81);
             this.comboBox_selectSemester.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_selectSemester.Name = "comboBox_selectSemester";
             this.comboBox_selectSemester.Size = new System.Drawing.Size(209, 37);
             this.comboBox_selectSemester.TabIndex = 13;
+            this.comboBox_selectSemester.SelectedIndexChanged += new System.EventHandler(this.comboBox_selectSemester_SelectedIndexChanged);
             // 
             // label_enrollmentScreen
             // 
@@ -550,7 +550,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).EndInit();
             this.tabPage_enrollment.ResumeLayout(false);
             this.tabPage_enrollment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -588,8 +588,7 @@
         private System.Windows.Forms.Label label_enrollmentScreen;
         private System.Windows.Forms.ComboBox comboBox_selectSemester;
         private System.Windows.Forms.Label label_selectSemester;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvEnrollment;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox showPW;
         private System.Windows.Forms.TextBox textBox_Major;
@@ -598,5 +597,6 @@
         private System.Windows.Forms.Label label_email;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label lblEnrollment;
     }
 }

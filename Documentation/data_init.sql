@@ -13,15 +13,15 @@ VALUES ('Bob', 'Jones', 'bob.jones', 'pass1'),
        ('Jim', 'Glass', 'jim.glass', 'pass1');
 
 -- Seed the first record
-INSERT INTO Course(Id, Subject, Level, Title, Hours)
-VALUES (1001, 'EECS', 101, 'New Student Seminar', 1);
+INSERT INTO Course(Id, Subject, Level, Title, Hours, Semester)
+VALUES (1001, 'EECS', 101, 'New Student Seminar', 1, 'Fall2022');
 
-INSERT INTO Course(Subject, Level, Title, Hours)
-VALUES ('EECS', 138, 'Introduction to Computing', 3),
-       ('EECS', 210, 'Discrete Structures', 4),
-       ('MATH', 510, 'Theory of Computing', 3),
-       ('PHSX', 521, 'Mechanics', 3),
-       ('PHSX', 531, 'Electricity and Magnetism', 3);
+INSERT INTO Course(Subject, Level, Title, Hours, Semester)
+VALUES ('EECS', 138, 'Introduction to Computing', 3, 'Spring2022'),
+       ('EECS', 210, 'Discrete Structures', 4, 'Summer2022'),
+       ('MATH', 510, 'Theory of Computing', 3, 'Fall2022'),
+       ('PHSX', 521, 'Mechanics', 3, 'Spring2022'),
+       ('PHSX', 531, 'Electricity and Magnetism', 3, 'Summer2022');
 
 INSERT INTO Enrollment(StudentId, CourseId)
 VALUES (30001, 1001),

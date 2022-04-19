@@ -156,5 +156,15 @@ namespace SRMS
         {
 
         }
+
+        private void comboBox_selectSemester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var conn = new SQLiteConnection(defaultConn);
+            conn.Open();
+            var sql = $"SELECT * FROM Course WHERE Semester = '{comboBox_selectSemester.Text}'";
+            System.Diagnostics.Debug.WriteLine(sql);
+            Utils.DisplayData(dgvEnrollment, sql);
+            lblEnrollment.Text = "The following courses are offered during " + comboBox_selectSemester.Text;
+        }
     }
 }
