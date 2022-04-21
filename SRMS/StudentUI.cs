@@ -53,14 +53,25 @@ namespace SRMS
             sql = $"SELECT CourseId FROM Enrollment WHERE StudentId = {studentId}";
             dynamic results = conn.Query<int>(sql);
             results = results.ToArray();
-            var sql1 = $"SELECT * FROM Course WHERE Id = {results[0]}";
-            int count = 0;
-            foreach (int result in results)
+            if (results.Length > 0)
             {
-                if (result != results[0]) sql1 = sql1 + $" OR Id = {results[count]}";
-                count++;
+                var sql1 = $"SELECT * FROM Course WHERE Id = {results[0]}";
+                int count = 1;
+                foreach (int result in results)
+                {
+                    if (count < results.Length)
+                    {
+                        sql1 = sql1 + $" OR Id = {results[count]}";
+                        count++;
+                    }
+                }
+                Utils.DisplayData(dgvClasses, sql1);
             }
-            Utils.DisplayData(dgvClasses, sql1);
+            else
+            {
+                dgvClasses.DataSource = null;
+                dgvClasses.Rows.Clear();
+            }
         }
 
         public void displayAccountInfo()
@@ -171,17 +182,42 @@ namespace SRMS
         private void enrollAddBtn_Click(object sender, EventArgs e)
         {
             //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
-            int columnIndex = dgvEnrollment.CurrentCell.ColumnIndex;
-            int rowIndex = dgvEnrollment.CurrentCell.RowIndex;
-            string value = dgvEnrollment.Rows[columnIndex].Cells[columnIndex].Value.ToString();
-            System.Diagnostics.Debug.WriteLine(value);
-            var conn = new SQLiteConnection(defaultConn);
-            conn.Open();
-            var sql = $"INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{studentId}', '{value}')";
-            //var sql = $"INSERT INTO Enrollment (StudentId, CourseId, DateEntered, Status) VALUES {studentId}, {value}, {calender.TodayDate}, 1";
-            conn.Query(sql);
-            showClasses();
+            int rowIndex = dgvEnrollment.CurrentRow.Index;
+            string value = dgvEnrollment.Rows[rowIndex].Cells[0].Value.ToString();
+            DialogResult confirmEnrollment = MessageBox.Show($"Do you want to enroll in the course with ID: {value}", "Confirm Enrollment", MessageBoxButtons.YesNo);
+            if (confirmEnrollment == DialogResult.Yes)
+            {
+                var conn = new SQLiteConnection(defaultConn);
+                conn.Open();
+                var sql = $"INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{studentId}', '{value}')";
+                //var sql = $"INSERT INTO Enrollment (StudentId, CourseId, DateEntered, Status) VALUES {studentId}, {value}, {calender.TodayDate}, 1";
+                conn.Query(sql);
+                showClasses();
 
+            }
+        }
+
+        private void calender_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void dropEnrollBtn_Click(object sender, EventArgs e)
+        {
+            //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
+            int columnIndex = dgvClasses.CurrentCell.ColumnIndex;
+            int rowIndex = dgvClasses.CurrentCell.RowIndex;
+            string value = dgvClasses.Rows[columnIndex].Cells[columnIndex].Value.ToString();
+            DialogResult confirmEnrollment = MessageBox.Show($"Are you sure you want to drop the course with ID: {value}", "Confirm Drop", MessageBoxButtons.YesNo);
+            if (confirmEnrollment == DialogResult.Yes)
+            {
+                var conn = new SQLiteConnection(defaultConn);
+                conn.Open();
+                var sql = $"DELETE FROM Enrollment WHERE StudentId = '{studentId}' AND CourseId = '{value}'";
+                conn.Query(sql);
+                showClasses();
+
+            }
         }
     }
 }

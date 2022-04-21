@@ -58,7 +58,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvClasses = new System.Windows.Forms.DataGridView();
             this.tabPage_enrollment = new System.Windows.Forms.TabPage();
-            this.dropEnrollBtn = new System.Windows.Forms.Button();
             this.enrollAddBtn = new System.Windows.Forms.Button();
             this.lblEnrollment = new System.Windows.Forms.Label();
             this.dgvEnrollment = new System.Windows.Forms.DataGridView();
@@ -70,6 +69,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.calender = new System.Windows.Forms.MonthCalendar();
+            this.dropEnrollBtn = new System.Windows.Forms.Button();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
@@ -89,11 +89,11 @@
             this.tabControl_studentInfo.Controls.Add(this.tabPage_accInfo);
             this.tabControl_studentInfo.Controls.Add(this.tabPage_classes);
             this.tabControl_studentInfo.Controls.Add(this.tabPage_enrollment);
-            this.tabControl_studentInfo.Location = new System.Drawing.Point(291, 63);
+            this.tabControl_studentInfo.Location = new System.Drawing.Point(327, 61);
             this.tabControl_studentInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl_studentInfo.Name = "tabControl_studentInfo";
             this.tabControl_studentInfo.SelectedIndex = 0;
-            this.tabControl_studentInfo.Size = new System.Drawing.Size(723, 378);
+            this.tabControl_studentInfo.Size = new System.Drawing.Size(716, 378);
             this.tabControl_studentInfo.TabIndex = 0;
             // 
             // tabPage_welcome
@@ -107,7 +107,7 @@
             this.tabPage_welcome.Location = new System.Drawing.Point(4, 25);
             this.tabPage_welcome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_welcome.Name = "tabPage_welcome";
-            this.tabPage_welcome.Size = new System.Drawing.Size(715, 349);
+            this.tabPage_welcome.Size = new System.Drawing.Size(708, 349);
             this.tabPage_welcome.TabIndex = 2;
             this.tabPage_welcome.Text = "Welcome";
             this.tabPage_welcome.UseVisualStyleBackColor = true;
@@ -196,7 +196,7 @@
             this.tabPage_accInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_accInfo.Name = "tabPage_accInfo";
             this.tabPage_accInfo.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_accInfo.Size = new System.Drawing.Size(715, 349);
+            this.tabPage_accInfo.Size = new System.Drawing.Size(708, 349);
             this.tabPage_accInfo.TabIndex = 0;
             this.tabPage_accInfo.Text = "Account Information";
             this.tabPage_accInfo.UseVisualStyleBackColor = true;
@@ -373,13 +373,14 @@
             // 
             // tabPage_classes
             // 
+            this.tabPage_classes.Controls.Add(this.dropEnrollBtn);
             this.tabPage_classes.Controls.Add(this.label1);
             this.tabPage_classes.Controls.Add(this.dgvClasses);
             this.tabPage_classes.Location = new System.Drawing.Point(4, 25);
             this.tabPage_classes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_classes.Name = "tabPage_classes";
             this.tabPage_classes.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_classes.Size = new System.Drawing.Size(715, 349);
+            this.tabPage_classes.Size = new System.Drawing.Size(708, 349);
             this.tabPage_classes.TabIndex = 1;
             this.tabPage_classes.Text = "Classes";
             this.tabPage_classes.UseVisualStyleBackColor = true;
@@ -404,13 +405,12 @@
             this.dgvClasses.Name = "dgvClasses";
             this.dgvClasses.RowHeadersWidth = 51;
             this.dgvClasses.RowTemplate.Height = 24;
-            this.dgvClasses.Size = new System.Drawing.Size(619, 196);
+            this.dgvClasses.Size = new System.Drawing.Size(612, 196);
             this.dgvClasses.TabIndex = 0;
             this.dgvClasses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClasses_CellContentClick);
             // 
             // tabPage_enrollment
             // 
-            this.tabPage_enrollment.Controls.Add(this.dropEnrollBtn);
             this.tabPage_enrollment.Controls.Add(this.enrollAddBtn);
             this.tabPage_enrollment.Controls.Add(this.lblEnrollment);
             this.tabPage_enrollment.Controls.Add(this.dgvEnrollment);
@@ -421,20 +421,11 @@
             this.tabPage_enrollment.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage_enrollment.Name = "tabPage_enrollment";
             this.tabPage_enrollment.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage_enrollment.Size = new System.Drawing.Size(715, 349);
+            this.tabPage_enrollment.Size = new System.Drawing.Size(708, 349);
             this.tabPage_enrollment.TabIndex = 3;
             this.tabPage_enrollment.Tag = "Maggie";
             this.tabPage_enrollment.Text = "Enrollment";
             this.tabPage_enrollment.UseVisualStyleBackColor = true;
-            // 
-            // dropEnrollBtn
-            // 
-            this.dropEnrollBtn.Location = new System.Drawing.Point(125, 304);
-            this.dropEnrollBtn.Name = "dropEnrollBtn";
-            this.dropEnrollBtn.Size = new System.Drawing.Size(75, 23);
-            this.dropEnrollBtn.TabIndex = 17;
-            this.dropEnrollBtn.Text = "Drop";
-            this.dropEnrollBtn.UseVisualStyleBackColor = true;
             // 
             // enrollAddBtn
             // 
@@ -512,7 +503,7 @@
             // button_logOut
             // 
             this.button_logOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_logOut.Location = new System.Drawing.Point(920, 21);
+            this.button_logOut.Location = new System.Drawing.Point(947, 21);
             this.button_logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_logOut.Name = "button_logOut";
             this.button_logOut.Size = new System.Drawing.Size(92, 36);
@@ -526,10 +517,10 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.BackgroundImage = global::SRMS.Properties.Resources.Kansas_Jayhawks_logo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 11);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 148);
+            this.pictureBox1.Size = new System.Drawing.Size(302, 158);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -545,22 +536,34 @@
             this.listBox1.Location = new System.Drawing.Point(12, 177);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(262, 68);
+            this.listBox1.Size = new System.Drawing.Size(302, 68);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // calender
             // 
+            this.calender.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calender.Location = new System.Drawing.Point(12, 258);
             this.calender.Name = "calender";
             this.calender.TabIndex = 18;
+            this.calender.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calender_DateChanged);
+            // 
+            // dropEnrollBtn
+            // 
+            this.dropEnrollBtn.Location = new System.Drawing.Point(43, 308);
+            this.dropEnrollBtn.Name = "dropEnrollBtn";
+            this.dropEnrollBtn.Size = new System.Drawing.Size(75, 23);
+            this.dropEnrollBtn.TabIndex = 18;
+            this.dropEnrollBtn.Text = "Drop";
+            this.dropEnrollBtn.UseVisualStyleBackColor = true;
+            this.dropEnrollBtn.Click += new System.EventHandler(this.dropEnrollBtn_Click);
             // 
             // StudentUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1043, 487);
+            this.ClientSize = new System.Drawing.Size(1055, 487);
             this.Controls.Add(this.calender);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox1);
@@ -629,8 +632,8 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label lblEnrollment;
-        private System.Windows.Forms.Button dropEnrollBtn;
         private System.Windows.Forms.Button enrollAddBtn;
         private System.Windows.Forms.MonthCalendar calender;
+        private System.Windows.Forms.Button dropEnrollBtn;
     }
 }
