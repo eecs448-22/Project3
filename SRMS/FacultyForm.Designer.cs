@@ -46,10 +46,10 @@ namespace SRMS
             this.lblMajor = new System.Windows.Forms.Label();
             this.txtCreatedOn = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.Dept = new System.Windows.Forms.Label();
             this.txtDept = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -257,6 +257,26 @@ namespace SRMS
             this.lblUsername.TabIndex = 6;
             this.lblUsername.Text = "Username";
             // 
+            // Dept
+            // 
+            this.Dept.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Dept.AutoSize = true;
+            this.Dept.Location = new System.Drawing.Point(3, 190);
+            this.Dept.Name = "Dept";
+            this.Dept.Size = new System.Drawing.Size(30, 13);
+            this.Dept.TabIndex = 26;
+            this.Dept.Text = "Dept";
+            // 
+            // txtDept
+            // 
+            this.txtDept.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDept.Location = new System.Drawing.Point(83, 187);
+            this.txtDept.Name = "txtDept";
+            this.txtDept.Size = new System.Drawing.Size(161, 20);
+            this.txtDept.TabIndex = 7;
+            // 
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -277,26 +297,6 @@ namespace SRMS
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // Dept
-            // 
-            this.Dept.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Dept.AutoSize = true;
-            this.Dept.Location = new System.Drawing.Point(3, 190);
-            this.Dept.Name = "Dept";
-            this.Dept.Size = new System.Drawing.Size(30, 13);
-            this.Dept.TabIndex = 26;
-            this.Dept.Text = "Dept";
-            // 
-            // txtDept
-            // 
-            this.txtDept.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDept.Location = new System.Drawing.Point(83, 187);
-            this.txtDept.Name = "txtDept";
-            this.txtDept.Size = new System.Drawing.Size(161, 20);
-            this.txtDept.TabIndex = 7;
             // 
             // FacultyForm
             // 
