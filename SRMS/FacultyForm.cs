@@ -78,6 +78,11 @@ namespace SRMS
                 MessageBox.Show(ex.Message, "Exception caught when saving to Faculty table");
             }
         }
+
+        private void FacultyForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

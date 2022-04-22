@@ -310,6 +310,7 @@ namespace SRMS
             this.MinimizeBox = false;
             this.Name = "FacultyForm";
             this.Text = "FacultyForm";
+            this.Load += new System.EventHandler(this.FacultyForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

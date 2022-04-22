@@ -21,6 +21,8 @@ namespace SRMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // Initialize database tables
+
             // Show login form
             var frmLogin = new LoginUI();
             if (frmLogin.ShowDialog() == DialogResult.OK)

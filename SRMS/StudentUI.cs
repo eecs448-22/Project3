@@ -47,30 +47,31 @@ namespace SRMS
         }
         public void showClasses()
         {
-            var conn = new SQLiteConnection(defaultConn);
-            conn.Open();
-            var sql = "";
-            sql = $"SELECT CourseId FROM Enrollment WHERE StudentId = {studentId}";
-            dynamic results = conn.Query<int>(sql);
-            results = results.ToArray();
-            if (results.Length > 0)
+            using (var conn = new SQLiteConnection(defaultConn))
             {
-                var sql1 = $"SELECT * FROM Course WHERE Id = {results[0]}";
-                int count = 1;
-                foreach (int result in results)
+                var sql = "";
+                sql = $"SELECT CourseId FROM Enrollment WHERE StudentId = {studentId}";
+                dynamic results = conn.Query<int>(sql);
+                results = results.ToArray();
+                if (results.Length > 0)
                 {
-                    if (count < results.Length)
+                    var sql1 = $"SELECT * FROM Course WHERE Id = {results[0]}";
+                    int count = 1;
+                    foreach (int result in results)
                     {
-                        sql1 = sql1 + $" OR Id = {results[count]}";
-                        count++;
+                        if (count < results.Length)
+                        {
+                            sql1 = sql1 + $" OR Id = {results[count]}";
+                            count++;
+                        }
                     }
+                    Utils.DisplayData(dgvClasses, sql1);
                 }
-                Utils.DisplayData(dgvClasses, sql1);
-            }
-            else
-            {
-                dgvClasses.DataSource = null;
-                dgvClasses.Rows.Clear();
+                else
+                {
+                    dgvClasses.DataSource = null;
+                    dgvClasses.Rows.Clear();
+                }
             }
         }
 
@@ -90,21 +91,25 @@ namespace SRMS
 
         public void printLabelInfo(Label text, string field)
         {
-            var conn = new SQLiteConnection(defaultConn);
-            conn.Open();
-            var sql = "";
-            sql = $"SELECT {field} FROM Student WHERE Id = {studentId}";
-            dynamic result = conn.QuerySingle<string>(sql);
-            text.Text = result + "!";
+            using (var conn = new SQLiteConnection(defaultConn))
+            {
+                var sql = "";
+                sql = $"SELECT {field} FROM Student WHERE Id = {studentId}";
+                dynamic result = conn.QuerySingle<string>(sql);
+                text.Text = result + "!"; 
+            }
+            
         }
         public void printAccountInfo(TextBox textField, string field)
         {
-            var conn = new SQLiteConnection(defaultConn);
-            conn.Open();
-            var sql = "";
-            sql = $"SELECT {field} FROM Student WHERE Id = {studentId}";
-            dynamic result = conn.QuerySingle<string>(sql);
-            textField.Text = result;
+            using (var conn = new SQLiteConnection(defaultConn))
+            {
+                var sql = "";
+                sql = $"SELECT {field} FROM Student WHERE Id = {studentId}";
+                dynamic result = conn.QuerySingle<string>(sql);
+                textField.Text = result;  
+            }
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,12 +177,13 @@ namespace SRMS
 
         private void comboBox_selectSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var conn = new SQLiteConnection(defaultConn);
-            conn.Open();
-            var sql = $"SELECT * FROM Course WHERE Semester = '{comboBox_selectSemester.Text}'";
-            //System.Diagnostics.Debug.WriteLine(sql);
-            Utils.DisplayData(dgvEnrollment, sql);
-            lblEnrollment.Text = "The following courses are offered during " + comboBox_selectSemester.Text;
+            using (var conn = new SQLiteConnection(defaultConn))
+            {
+                var sql = $"SELECT * FROM Course WHERE Semester = '{comboBox_selectSemester.Text}'";
+                //System.Diagnostics.Debug.WriteLine(sql);
+                Utils.DisplayData(dgvEnrollment, sql);
+                lblEnrollment.Text = "The following courses are offered during " + comboBox_selectSemester.Text;
+            }
         }
         private void enrollAddBtn_Click(object sender, EventArgs e)
         {
@@ -187,12 +193,14 @@ namespace SRMS
             DialogResult confirmEnrollment = MessageBox.Show($"Do you want to enroll in the course with ID: {value}", "Confirm Enrollment", MessageBoxButtons.YesNo);
             if (confirmEnrollment == DialogResult.Yes)
             {
-                var conn = new SQLiteConnection(defaultConn);
-                conn.Open();
-                var sql = $"INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{studentId}', '{value}')";
-                //var sql = $"INSERT INTO Enrollment (StudentId, CourseId, DateEntered, Status) VALUES {studentId}, {value}, {calender.TodayDate}, 1";
-                conn.Query(sql);
-                showClasses();
+                using (var conn = new SQLiteConnection(defaultConn))
+                {
+                    var sql = $"INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{studentId}', '{value}')";
+                    //var sql = $"INSERT INTO Enrollment (StudentId, CourseId, DateEntered, Status) VALUES {studentId}, {value}, {calender.TodayDate}, 1";
+                    conn.Query(sql);
+                    showClasses(); 
+                }
+                
 
             }
         }
@@ -211,13 +219,19 @@ namespace SRMS
             DialogResult confirmEnrollment = MessageBox.Show($"Are you sure you want to drop the course with ID: {value}", "Confirm Drop", MessageBoxButtons.YesNo);
             if (confirmEnrollment == DialogResult.Yes)
             {
-                var conn = new SQLiteConnection(defaultConn);
-                conn.Open();
-                var sql = $"DELETE FROM Enrollment WHERE StudentId = '{studentId}' AND CourseId = '{value}'";
-                conn.Query(sql);
-                showClasses();
+                using (var conn = new SQLiteConnection(defaultConn))
+                {
+                    var sql = $"DELETE FROM Enrollment WHERE StudentId = '{studentId}' AND CourseId = '{value}'";
+                    conn.Query(sql);
+                    showClasses();
+                }
 
             }
+        }
+
+        private void labelName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
