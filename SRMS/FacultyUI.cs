@@ -17,8 +17,11 @@ namespace SRMS
 {
     public partial class FacultyUI : Form
     {
-        public FacultyUI()
+        private int facultyId = 0;
+
+        public FacultyUI(int id)
         {
+            facultyId = id;
             InitializeComponent();
         }
 
@@ -33,6 +36,11 @@ namespace SRMS
             this.Hide();
             LoginUI newLogin = new LoginUI();
             newLogin.Show();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = listBox1.SelectedIndex;
         }
     }
 }

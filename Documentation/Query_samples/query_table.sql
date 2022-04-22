@@ -1,5 +1,8 @@
 -- Query each table
 SELECT *
+  FROM Administrator;
+
+SELECT *
   FROM Student;
 
 SELECT *
@@ -12,10 +15,5 @@ SELECT *
   FROM Faculty;
 
 SELECT *
-  FROM Assignment;
-
-SELECT *
   FROM Teaching;
 
-SELECT *
-  FROM Grading;

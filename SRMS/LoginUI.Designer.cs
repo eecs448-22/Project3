@@ -41,50 +41,50 @@ namespace SRMS
             this.createAccountBtn = new System.Windows.Forms.Button();
             this.signInLabel = new System.Windows.Forms.Label();
             this.signInCB = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // UserInput
             // 
-            this.UserInput.Location = new System.Drawing.Point(493, 236);
-            this.UserInput.Margin = new System.Windows.Forms.Padding(4);
+            this.UserInput.Location = new System.Drawing.Point(312, 169);
             this.UserInput.Name = "UserInput";
-            this.UserInput.Size = new System.Drawing.Size(132, 22);
-            this.UserInput.TabIndex = 0;
+            this.UserInput.Size = new System.Drawing.Size(100, 20);
+            this.UserInput.TabIndex = 2;
             // 
             // PassInput
             // 
-            this.PassInput.Location = new System.Drawing.Point(493, 284);
-            this.PassInput.Margin = new System.Windows.Forms.Padding(4);
+            this.PassInput.Location = new System.Drawing.Point(312, 208);
             this.PassInput.Name = "PassInput";
-            this.PassInput.Size = new System.Drawing.Size(132, 22);
-            this.PassInput.TabIndex = 1;
+            this.PassInput.PasswordChar = '*';
+            this.PassInput.Size = new System.Drawing.Size(100, 20);
+            this.PassInput.TabIndex = 3;
             // 
             // UserLabel
             // 
             this.UserLabel.AutoSize = true;
-            this.UserLabel.Location = new System.Drawing.Point(411, 240);
-            this.UserLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UserLabel.Location = new System.Drawing.Point(250, 172);
             this.UserLabel.Name = "UserLabel";
-            this.UserLabel.Size = new System.Drawing.Size(70, 16);
+            this.UserLabel.Size = new System.Drawing.Size(55, 13);
             this.UserLabel.TabIndex = 2;
             this.UserLabel.Text = "Username";
             // 
             // PassLabel
             // 
             this.PassLabel.AutoSize = true;
-            this.PassLabel.Location = new System.Drawing.Point(414, 288);
-            this.PassLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PassLabel.Location = new System.Drawing.Point(252, 211);
             this.PassLabel.Name = "PassLabel";
-            this.PassLabel.Size = new System.Drawing.Size(67, 16);
+            this.PassLabel.Size = new System.Drawing.Size(53, 13);
             this.PassLabel.TabIndex = 3;
             this.PassLabel.Text = "Password";
             // 
             // LoginButton
             // 
-            this.LoginButton.Location = new System.Drawing.Point(471, 338);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(4);
+            this.LoginButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.LoginButton.Location = new System.Drawing.Point(312, 277);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(154, 28);
+            this.LoginButton.Size = new System.Drawing.Size(100, 23);
             this.LoginButton.TabIndex = 4;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
@@ -94,30 +94,29 @@ namespace SRMS
             // 
             this.ProgTitle.AutoSize = true;
             this.ProgTitle.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProgTitle.Location = new System.Drawing.Point(397, 130);
-            this.ProgTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ProgTitle.Location = new System.Drawing.Point(227, 59);
             this.ProgTitle.Name = "ProgTitle";
-            this.ProgTitle.Size = new System.Drawing.Size(285, 40);
+            this.ProgTitle.Size = new System.Drawing.Size(228, 31);
             this.ProgTitle.TabIndex = 5;
             this.ProgTitle.Text = "KU Course Access";
             // 
             // createAccountBtn
             // 
-            this.createAccountBtn.Location = new System.Drawing.Point(470, 373);
+            this.createAccountBtn.Location = new System.Drawing.Point(297, 305);
+            this.createAccountBtn.Margin = new System.Windows.Forms.Padding(2);
             this.createAccountBtn.Name = "createAccountBtn";
-            this.createAccountBtn.Size = new System.Drawing.Size(155, 23);
+            this.createAccountBtn.Size = new System.Drawing.Size(139, 28);
             this.createAccountBtn.TabIndex = 6;
-            this.createAccountBtn.Text = "Create Account";
+            this.createAccountBtn.Text = "Create or Edit Account";
             this.createAccountBtn.UseVisualStyleBackColor = true;
             this.createAccountBtn.Click += new System.EventHandler(this.createAccountBtn_Click);
             // 
             // signInLabel
             // 
             this.signInLabel.AutoSize = true;
-            this.signInLabel.Location = new System.Drawing.Point(411, 198);
-            this.signInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.signInLabel.Location = new System.Drawing.Point(250, 138);
             this.signInLabel.Name = "signInLabel";
-            this.signInLabel.Size = new System.Drawing.Size(68, 16);
+            this.signInLabel.Size = new System.Drawing.Size(56, 13);
             this.signInLabel.TabIndex = 2;
             this.signInLabel.Text = "Sign in as:";
             // 
@@ -125,20 +124,48 @@ namespace SRMS
             // 
             this.signInCB.FormattingEnabled = true;
             this.signInCB.Items.AddRange(new object[] {
-            "Student",
-            "Teacher"});
-            this.signInCB.Location = new System.Drawing.Point(493, 195);
+            "Administrator",
+            "Faculty",
+            "Student"});
+            this.signInCB.Location = new System.Drawing.Point(312, 135);
+            this.signInCB.Margin = new System.Windows.Forms.Padding(2);
             this.signInCB.Name = "signInCB";
-            this.signInCB.Size = new System.Drawing.Size(132, 24);
-            this.signInCB.TabIndex = 7;
+            this.signInCB.Size = new System.Drawing.Size(100, 21);
+            this.signInCB.TabIndex = 1;
             this.signInCB.Text = "Student";
             this.signInCB.SelectedIndexChanged += new System.EventHandler(this.signInCB_SelectedIndexChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.BackgroundImage = global::SRMS.Properties.Resources.Kansas_Jayhawks_logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 129);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 110);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.Color.Pink;
+            this.lblStatus.Location = new System.Drawing.Point(278, 246);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(40, 13);
+            this.lblStatus.TabIndex = 8;
+            this.lblStatus.Text = "Status:";
+            this.lblStatus.Visible = false;
+            // 
             // LoginUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.LoginButton;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(628, 406);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.signInCB);
             this.Controls.Add(this.createAccountBtn);
             this.Controls.Add(this.ProgTitle);
@@ -148,11 +175,13 @@ namespace SRMS
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.PassInput);
             this.Controls.Add(this.UserInput);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginUI_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +198,7 @@ namespace SRMS
         private System.Windows.Forms.Button createAccountBtn;
         private System.Windows.Forms.Label signInLabel;
         private System.Windows.Forms.ComboBox signInCB;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

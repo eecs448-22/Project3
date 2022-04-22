@@ -2,34 +2,47 @@
  * Some code in this file (class and functions) are generated from the visual studio .NET C# winForms framework. 
  * ============================================================================= */
 
-
-using DBMS;
+using Dapper;
+using Dapper.Contrib.Extensions;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SQLite;
 using System.Windows.Forms;
+using Models;
+using Helper;
+using DBMS;
 
 
 namespace SRMS
 {
     public partial class LoginUI : Form
     {
+        private int userId = 0;
+
         public LoginUI()
         {
             //Initialize component and database
             InitializeComponent();
-            SqliteDataAccess.InitializeDatabase();
-            foreach (UserModel user in ManageUser.LoadUsers())
-            {
-                //Write each user into console.
-                Console.WriteLine(user.Username);
-                Console.WriteLine(user.Password);
-            }
+            createAccountBtn.Visible = false;
+            signInCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 0) Administrator, 1) Faculty, 2) Student
+            signInCB.SelectedIndex = 2;
+            //SqliteDataAccess.InitializeDatabase();
+            //foreach (UserModel user in ManageUser.LoadUsers())
+            //{
+            //    //Write each user into console.
+            //    Console.WriteLine(user.Username);
+            //    Console.WriteLine(user.Password);
+            //}
+        }
+
+        public int GetLoginRole()
+        {
+            return signInCB.SelectedIndex;
+        }
+
+        public int GetUserId()
+        {
+            return userId;
         }
 
         private void LoginUI_Load(object sender, EventArgs e)
@@ -39,10 +52,64 @@ namespace SRMS
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            lblStatus.Visible = false;
+            var role = signInCB.SelectedIndex;
+            var username = UserInput.Text.Trim();
+            var password = PassInput.Text.Trim();
+
+            userId = Authenticate(username, password, role, out string status);
+            if (userId == 0)
+            {
+                // Do not close the Login dialog if user is not valid
+                if (status.Length > 0)
+                {
+                    lblStatus.Text = status;
+                    lblStatus.Visible = true;
+                }
+                this.DialogResult = DialogResult.None;
+            }
+        }
+
+        private int Authenticate(string usr, string pwd, int role, out string status)
+        {
+            status = String.Empty;
+            var tblNames = new string[] { "Administrator", "Faculty", "Student" };
+
+            if (role >= 0 && role < tblNames.Length)
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    var sql = $"SELECT Id, Password FROM {tblNames[role]} WHERE UserName = '{usr}'";
+                    var user = conn.QueryFirstOrDefault(sql);
+                    if (user == null)
+                    {
+                        status = "Invalid Username!";
+                        return 0;
+                    }
+                    if (user.Password != pwd)
+                    {
+                        status = "Invalid Password!";
+                        return 0;
+                    }
+
+                    return Convert.ToInt32(user.Id);
+                }
+            }
+
+            return 0;
+        }
+
+/*
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
             //When the login button is clicked, create a new user model and verify it is a valid user
             UserModel user = new UserModel();
             user.Username = UserInput.Text;
             user.Password = PassInput.Text;
+            this.Hide();
+            StudentUI mainView = new StudentUI(UserInput.Text);
+            mainView.Show();
+
             if (ManageUser.ValidateUser(user))
             {
                 Console.WriteLine("user is logged in");
@@ -50,7 +117,7 @@ namespace SRMS
                 if(signInCB.Text == "Student")
                 {
                     this.Hide();
-                    MainUI mainView = new MainUI();
+                    StudentUI mainView = new StudentUI();
                     mainView.Show();
                 }
                 else
@@ -64,24 +131,10 @@ namespace SRMS
             {
                 //Error message for invalid user.
                 Console.WriteLine("invalid user");
+                MessageBox.Show("Error! Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (signInCB.Text == "Student")
-            {
-                //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-                this.Hide();
-                StudentUI studentView = new StudentUI();
-                studentView.Show();
-            }
-            else
-            {
-                //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-                this.Hide();
-                FacultyUI teacherView = new FacultyUI();
-                teacherView.Show();
-            }
-
         }
-
+*/
         private void createAccountBtn_Click(object sender, EventArgs e)
         {
             //Whne the create Account button is clicked, switch pages to create account. Found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s

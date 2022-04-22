@@ -20,8 +20,21 @@ namespace SRMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Run login form
-            Application.Run(new LoginUI());
+
+            // Show login form
+            var frmLogin = new LoginUI();
+            if (frmLogin.ShowDialog() == DialogResult.OK)
+            {
+                // Login Role: 0) Administrator, 1) Faculty, 2) Student
+                int loginRole = frmLogin.GetLoginRole();
+                int userId = frmLogin.GetUserId();
+                if (loginRole == 0)
+                    Application.Run(new AdminUI(userId));
+                else if (loginRole == 1)
+                    Application.Run(new FacultyUI(userId));
+                else if (loginRole == 2)
+                    Application.Run(new StudentUI(userId));
+            }
         }
     }
 }

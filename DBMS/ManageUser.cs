@@ -17,8 +17,8 @@ namespace DBMS
              //Create a new connection to the local server
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
-                //Select all elements from the Users table and return as a list 
-                var output = cnn.Query<UserModel>("select * from Users", new DynamicParameters());
+                //Select all elements from the Administrator table and return as a list 
+                var output = cnn.Query<UserModel>("select * from Administrator", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -28,8 +28,8 @@ namespace DBMS
              //Create a new connection to the local server
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
-                //Insert a new entry into the Users table
-                cnn.Execute("insert into Users (Username, Password) values (@Username, @Password)", user);
+                //Insert a new entry into the Administrator table
+                cnn.Execute("insert into Administrator (Username, Password) values (@Username, @Password)", user);
             }
         }
 

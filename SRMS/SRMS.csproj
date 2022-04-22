@@ -39,7 +39,11 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.2.0.78\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -56,17 +60,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUI.Designer.cs">
+      <DependentUpon>AdminUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseForm.Designer.cs">
+      <DependentUpon>CourseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateAccountUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateAccountUI.Designer.cs">
       <DependentUpon>CreateAccountUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="FacultyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacultyForm.designer.cs">
+      <DependentUpon>FacultyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FacultyUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FacultyUI.Designer.cs">
       <DependentUpon>FacultyUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="helper.cs" />
+    <Compile Include="models.cs" />
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentForm.Designer.cs">
+      <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentUI.cs">
       <SubType>Form</SubType>
@@ -88,8 +124,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminUI.resx">
+      <DependentUpon>AdminUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseForm.resx">
+      <DependentUpon>CourseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAccountUI.resx">
       <DependentUpon>CreateAccountUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacultyForm.resx">
+      <DependentUpon>FacultyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FacultyUI.resx">
       <DependentUpon>FacultyUI.cs</DependentUpon>
@@ -99,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentForm.resx">
+      <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

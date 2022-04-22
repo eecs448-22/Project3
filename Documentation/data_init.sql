@@ -1,25 +1,27 @@
 -- Initialize the database
+INSERT INTO Administrator(UserName, Password)
+VALUES ('admin', 'test');
 
 -- Seed the first record
-INSERT INTO Student(Id, FirstName, LastName, UserName)
-VALUES (30001, 'Tom', 'Smith', 'tom.smith');
+INSERT INTO Student(Id, FirstName, LastName, UserName, Password)
+VALUES (30001, 'Tom', 'Smith', 'tom.smith', 'pass1');
 
-INSERT INTO Student(FirstName, LastName, UserName)
-VALUES ('Bob', 'Jones', 'bob.jones'),
-       ('Emma', 'Davis', 'emma.davis'),
-       ('Emily', 'Brown', 'emily.brown'),
-       ('Jim', 'Glass', 'jim.glass');
+INSERT INTO Student(FirstName, LastName, UserName, Password)
+VALUES ('Bob', 'Jones', 'bob.jones', 'pass1'),
+       ('Emma', 'Davis', 'emma.davis', 'pass1'),
+       ('Emily', 'Brown', 'emily.brown', 'pass1'),
+       ('Jim', 'Glass', 'jim.glass', 'pass1');
 
 -- Seed the first record
-INSERT INTO Course(Id, Subject, Level, Title, Hours)
-VALUES (1001, 'EECS', 101, 'New Student Seminar', 1);
+INSERT INTO Course(Id, Subject, Level, Title, Hours, Semester)
+VALUES (1001, 'EECS', 101, 'New Student Seminar', 1, 'Fall2022');
 
-INSERT INTO Course(Subject, Level, Title, Hours)
-VALUES ('EECS', 138, 'Introduction to Computing', 3),
-       ('EECS', 210, 'Discrete Structures', 4),
-       ('MATH', 510, 'Theory of Computing', 3),
-       ('PHSX', 521, 'Mechanics', 3),
-       ('PHSX', 531, 'Electricity and Magnetism', 3);
+INSERT INTO Course(Subject, Level, Title, Hours, Semester)
+VALUES ('EECS', 138, 'Introduction to Computing', 3, 'Spring2022'),
+       ('EECS', 210, 'Discrete Structures', 4, 'Summer2022'),
+       ('MATH', 510, 'Theory of Computing', 3, 'Fall2022'),
+       ('PHSX', 521, 'Mechanics', 3, 'Spring2022'),
+       ('PHSX', 531, 'Electricity and Magnetism', 3, 'Summer2022');
 
 INSERT INTO Enrollment(StudentId, CourseId)
 VALUES (30001, 1001),
@@ -30,14 +32,14 @@ VALUES (30001, 1001),
        (30002, 1006);
 
 -- Faculty
-INSERT INTO Faculty(Id, FirstName, LastName, UserName)
-VALUES (10001, 'Ashley', 'Johnson', 'ashley.johnson');
+INSERT INTO Faculty(Id, FirstName, LastName, UserName, Password)
+VALUES (10001, 'Ashley', 'Johnson', 'ashley.johnson', 'pass2');
 
-INSERT INTO Faculty(FirstName, LastName, UserName)
-VALUES ('Charles', 'Clark', 'charles.clark'),
-       ('David', 'Miller', 'david.miller'),
-       ('Michael', 'Lewis', 'michael.lewis'),
-       ('Samantha', 'Nelson', 'samantha.nelson');
+INSERT INTO Faculty(FirstName, LastName, UserName, Password)
+VALUES ('Charles', 'Clark', 'charles.clark', 'pass2'),
+       ('David', 'Miller', 'david.miller', 'pass2'),
+       ('Michael', 'Lewis', 'michael.lewis', 'pass2'),
+       ('Samantha', 'Nelson', 'samantha.nelson', 'pass2');
 
 INSERT INTO Teaching(FacultyId, CourseId)
 VALUES (10001, 1001),
@@ -46,7 +48,7 @@ VALUES (10001, 1001),
        (10004, 1004),
        (10005, 1005),
        (10005, 1006);
-
+/*
 INSERT INTO Assignment(Id, CourseId, Description)
 VALUES (100101, 1001, 'Reading Student Handbook P0-32');
 
@@ -65,3 +67,4 @@ VALUES (30001, 1001, 100101, 91.5),
        (30004, 1004, 100104, 75.0),
        (30005, 1005, 100105, 95.5),
        (30005, 1006, 100106, 89.0);
+*/
