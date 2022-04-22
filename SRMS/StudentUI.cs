@@ -187,22 +187,27 @@ namespace SRMS
         }
         private void enrollAddBtn_Click(object sender, EventArgs e)
         {
-            //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
-            int rowIndex = dgvEnrollment.CurrentRow.Index;
-            string value = dgvEnrollment.Rows[rowIndex].Cells[0].Value.ToString();
-            DialogResult confirmEnrollment = MessageBox.Show($"Do you want to enroll in the course with ID: {value}", "Confirm Enrollment", MessageBoxButtons.YesNo);
-            if (confirmEnrollment == DialogResult.Yes)
+        //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
+        https://stackoverflow.com/questions/15536223/how-do-i-avoid-object-reference-not-set-to-an-instance-of-an-object
+            int rowCount = dgvEnrollment.Rows.Count; // returns actual row count
+            if(rowCount > 0)
             {
-                using (var conn = new SQLiteConnection(defaultConn))
+                int rowIndex = dgvEnrollment.CurrentRow.Index;
+                string value = dgvEnrollment.Rows[rowIndex].Cells[0].Value.ToString();
+                DialogResult confirmEnrollment = MessageBox.Show($"Do you want to enroll in the course with ID: {value}", "Confirm Enrollment", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (confirmEnrollment == DialogResult.Yes)
                 {
-                    var sql = $"INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{studentId}', '{value}')";
-                    //var sql = $"INSERT INTO Enrollment (StudentId, CourseId, DateEntered, Status) VALUES {studentId}, {value}, {calender.TodayDate}, 1";
-                    conn.Query(sql);
-                    showClasses(); 
+                    using (var conn = new SQLiteConnection(defaultConn))
+                    {
+                        var sql = $"INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{studentId}', '{value}')";
+                        //var sql = $"INSERT INTO Enrollment (StudentId, CourseId, DateEntered, Status) VALUES {studentId}, {value}, {calender.TodayDate}, 1";
+                        conn.Query(sql);
+                        showClasses();
+                    }
+                    MessageBox.Show($"Success - You are now enrolled in the course with ID: {value}", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
-
             }
+            else MessageBox.Show("Error - No course is selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void calender_DateChanged(object sender, DateRangeEventArgs e)
@@ -212,20 +217,29 @@ namespace SRMS
 
         private void dropEnrollBtn_Click(object sender, EventArgs e)
         {
-            //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
-            int columnIndex = dgvClasses.CurrentCell.ColumnIndex;
-            int rowIndex = dgvClasses.CurrentCell.RowIndex;
-            string value = dgvClasses.Rows[columnIndex].Cells[columnIndex].Value.ToString();
-            DialogResult confirmEnrollment = MessageBox.Show($"Are you sure you want to drop the course with ID: {value}", "Confirm Drop", MessageBoxButtons.YesNo);
-            if (confirmEnrollment == DialogResult.Yes)
-            {
-                using (var conn = new SQLiteConnection(defaultConn))
+        //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
+        https://stackoverflow.com/questions/15536223/how-do-i-avoid-object-reference-not-set-to-an-instance-of-an-object
+            int rowCount = dgvClasses.Rows.Count; // returns actual row count
+            if (rowCount > 0)
+            { 
+                int rowIndex = dgvClasses.CurrentRow.Index;
+                string value = dgvClasses.Rows[rowIndex].Cells[0].Value.ToString();
+                DialogResult confirmEnrollment = MessageBox.Show($"Are you sure you want to drop the course with ID: {value}", "Confirm Drop", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmEnrollment == DialogResult.Yes)
                 {
-                    var sql = $"DELETE FROM Enrollment WHERE StudentId = '{studentId}' AND CourseId = '{value}'";
-                    conn.Query(sql);
-                    showClasses();
-                }
+                    using (var conn = new SQLiteConnection(defaultConn))
+                    {
+                        var sql = $"DELETE FROM Enrollment WHERE StudentId = '{studentId}' AND CourseId = '{value}'";
+                        conn.Query(sql);
+                        showClasses();
+                    }
 
+                }
+                MessageBox.Show($"Success - You have withdrawn from the course with ID: {value}", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error - No course is selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
