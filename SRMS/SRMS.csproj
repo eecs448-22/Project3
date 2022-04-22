@@ -118,12 +118,6 @@
     <Compile Include="LoginUI.Designer.cs">
       <DependentUpon>LoginUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainUI.Designer.cs">
-      <DependentUpon>MainUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminUI.resx">
@@ -143,9 +137,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginUI.resx">
       <DependentUpon>LoginUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainUI.resx">
-      <DependentUpon>MainUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>

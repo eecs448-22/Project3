@@ -41,7 +41,7 @@ namespace SRMS
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.submitDataBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.Courselbl = new System.Windows.Forms.Label();
             this.CourseCboBox = new System.Windows.Forms.ComboBox();
             this.CourseTab = new System.Windows.Forms.TabPage();
@@ -49,14 +49,14 @@ namespace SRMS
             this.CourseLabel = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.personalInfoTab = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.welcomeLbl = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GradeTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.CourseTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.personalInfoTab.SuspendLayout();
@@ -102,7 +102,7 @@ namespace SRMS
             this.GradeTab.Controls.Add(this.label3);
             this.GradeTab.Controls.Add(this.label2);
             this.GradeTab.Controls.Add(this.submitDataBtn);
-            this.GradeTab.Controls.Add(this.dataGridView1);
+            this.GradeTab.Controls.Add(this.dataGridView3);
             this.GradeTab.Controls.Add(this.Courselbl);
             this.GradeTab.Controls.Add(this.CourseCboBox);
             this.GradeTab.Location = new System.Drawing.Point(4, 25);
@@ -137,14 +137,14 @@ namespace SRMS
             this.submitDataBtn.Text = "Save Changes";
             this.submitDataBtn.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridView3
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(37, 91);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(492, 179);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(37, 91);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.Size = new System.Drawing.Size(492, 179);
+            this.dataGridView3.TabIndex = 2;
             // 
             // Courselbl
             // 
@@ -162,6 +162,7 @@ namespace SRMS
             this.CourseCboBox.Name = "CourseCboBox";
             this.CourseCboBox.Size = new System.Drawing.Size(199, 24);
             this.CourseCboBox.TabIndex = 0;
+            this.CourseCboBox.SelectionChangeCommitted += new System.EventHandler(this.CourseCboBox_SelectionChangeCommitted);
             // 
             // CourseTab
             // 
@@ -197,10 +198,10 @@ namespace SRMS
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(39, 122);
+            this.dataGridView2.Location = new System.Drawing.Point(31, 90);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(501, 141);
+            this.dataGridView2.Size = new System.Drawing.Size(512, 186);
             this.dataGridView2.TabIndex = 0;
             // 
             // personalInfoTab
@@ -215,6 +216,24 @@ namespace SRMS
             this.personalInfoTab.TabIndex = 0;
             this.personalInfoTab.Text = "Home";
             this.personalInfoTab.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(46, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(449, 17);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Select \"Gradebook\" tab to view class roster and edit semester grades.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(46, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(274, 17);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Select \"Courses\" tab to view your courses.";
             // 
             // welcomeLbl
             // 
@@ -237,6 +256,7 @@ namespace SRMS
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(576, 336);
             this.tabControl.TabIndex = 1;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // listBox1
             // 
@@ -250,24 +270,6 @@ namespace SRMS
             this.listBox1.Size = new System.Drawing.Size(163, 56);
             this.listBox1.TabIndex = 7;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 115);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(274, 17);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Select \"Courses\" tab to view your courses.";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(449, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Select \"Gradebook\" tab to view class roster and edit semester grades.";
             // 
             // FacultyUI
             // 
@@ -284,7 +286,7 @@ namespace SRMS
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.GradeTab.ResumeLayout(false);
             this.GradeTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.CourseTab.ResumeLayout(false);
             this.CourseTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -304,7 +306,7 @@ namespace SRMS
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button submitDataBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label Courselbl;
         private System.Windows.Forms.ComboBox CourseCboBox;
         private System.Windows.Forms.TabPage CourseTab;
