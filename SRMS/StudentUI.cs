@@ -47,32 +47,16 @@ namespace SRMS
         }
         public void showClasses()
         {
-            using (var conn = new SQLiteConnection(defaultConn))
-            {
-                var sql = "";
-                sql = $"SELECT CourseId FROM Enrollment WHERE StudentId = {studentId}";
-                dynamic results = conn.Query<int>(sql);
-                results = results.ToArray();
-                if (results.Length > 0)
-                {
-                    var sql1 = $"SELECT * FROM Course WHERE Id = {results[0]}";
-                    int count = 1;
-                    foreach (int result in results)
-                    {
-                        if (count < results.Length)
-                        {
-                            sql1 = sql1 + $" OR Id = {results[count]}";
-                            count++;
-                        }
-                    }
-                    Utils.DisplayData(dgvClasses, sql1);
-                }
-                else
-                {
-                    dgvClasses.DataSource = null;
-                    dgvClasses.Rows.Clear();
-                }
-            }
+            var sql = $@"SELECT c.Id, c.Subject, c.Level, c.Title, c.Hours, c.Semester FROM Course AS c
+                JOIN Enrollment AS e ON e.CourseId = c.Id
+                JOIN Student AS s ON s.Id = e.StudentId
+                WHERE s.Id = {studentId}";
+            dgvClasses.ReadOnly = true;
+            dgvClasses.AllowUserToAddRows = false;
+            dgvClasses.AllowUserToDeleteRows = false;
+            dgvClasses.MultiSelect = false;
+            dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Utils.DisplayData(dgvClasses, sql);
         }
 
         public void displayAccountInfo()
