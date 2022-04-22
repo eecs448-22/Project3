@@ -7,6 +7,8 @@ using System.Data.SQLite;
 using System.Data;
 using Dapper;
 using System.Configuration;
+using System.Runtime.CompilerServices;
+
 
 namespace DBMS
 {
