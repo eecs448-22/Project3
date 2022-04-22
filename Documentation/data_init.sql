@@ -23,6 +23,11 @@ VALUES ('EECS', 138, 'Introduction to Computing', 3, 'Spring2022'),
        ('PHSX', 521, 'Mechanics', 3, 'Spring2022'),
        ('PHSX', 531, 'Electricity and Magnetism', 3, 'Summer2022');
 
+/*INSERT INTO Assignment(Description, StudentId, CourseId, Grade)
+VALUES  ("Lab #1", 30001, 1001, 91.5),
+        ("Lab #2", 30001, 1001, 84.5),
+        ("Lab #3", 30001, 1001, 89.1);*/
+
 INSERT INTO Enrollment(StudentId, CourseId)
 VALUES (30001, 1001),
        (30002, 1002),
@@ -60,11 +65,11 @@ VALUES (1002, 'Lab #1 - Hellow World!'),
        (1006, 'Homework #5 Magnetism');
 
 INSERT INTO Grading(StudentId, CourseId, AssignmentId, Score)
-VALUES (30001, 1001, 100101, 91.5),
-       (30002, 1002, 100102, 67.0),
-       (30002, 1006, 100106, 86.0),
-       (30003, 1003, 100103, 83.5),
-       (30004, 1004, 100104, 75.0),
-       (30005, 1005, 100105, 95.5),
-       (30005, 1006, 100106, 89.0);
+VALUES (40001, 1001, 100101, 91.5),
+       (40002, 1002, 100102, 67.0),
+       (40002, 1006, 100106, 86.0),
+       (40003, 1003, 100103, 83.5),
+       (40004, 1004, 100104, 75.0),
+       (40005, 1005, 100105, 95.5),
+       (40005, 1006, 100106, 89.0);
 */

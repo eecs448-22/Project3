@@ -44,6 +44,16 @@ CREATE TABLE Course(
     Notes VARCHAR(255)           --brief course description
 );
 
+
+/*CREATE TABLE Assignment(
+    Description VARCHAR(128) NOT NULL,
+    StudentId INTEGER NOT NULL,
+    CourseId INTEGER NOT NULL,
+    Grade NUMERIC(2,1),
+    FOREIGN KEY(StudentId) REFERENCES Student(Id), --studentID retreived from Primary Key of Student table
+    FOREIGN KEY(CourseId) REFERENCES Course(Id) --same for courseID
+);*/
+
 CREATE TABLE Enrollment(
     StudentId INTEGER NOT NULL,
     CourseId INTEGER NOT NULL,

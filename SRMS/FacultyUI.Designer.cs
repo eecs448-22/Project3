@@ -39,9 +39,10 @@ namespace SRMS
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.GradeTab = new System.Windows.Forms.TabPage();
+            this.studentsLb = new System.Windows.Forms.Label();
+            this.editCourseBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.submitDataBtn = new System.Windows.Forms.Button();
             this.dgvGradebook = new System.Windows.Forms.DataGridView();
             this.Courselbl = new System.Windows.Forms.Label();
             this.CourseCboBox = new System.Windows.Forms.ComboBox();
@@ -134,9 +135,10 @@ namespace SRMS
             // 
             // GradeTab
             // 
+            this.GradeTab.Controls.Add(this.studentsLb);
+            this.GradeTab.Controls.Add(this.editCourseBtn);
             this.GradeTab.Controls.Add(this.label3);
             this.GradeTab.Controls.Add(this.label2);
-            this.GradeTab.Controls.Add(this.submitDataBtn);
             this.GradeTab.Controls.Add(this.dgvGradebook);
             this.GradeTab.Controls.Add(this.Courselbl);
             this.GradeTab.Controls.Add(this.CourseCboBox);
@@ -146,6 +148,25 @@ namespace SRMS
             this.GradeTab.TabIndex = 3;
             this.GradeTab.Text = "Gradebook";
             this.GradeTab.UseVisualStyleBackColor = true;
+            // 
+            // studentsLb
+            // 
+            this.studentsLb.AutoSize = true;
+            this.studentsLb.Location = new System.Drawing.Point(27, 48);
+            this.studentsLb.Name = "studentsLb";
+            this.studentsLb.Size = new System.Drawing.Size(68, 17);
+            this.studentsLb.TabIndex = 7;
+            this.studentsLb.Text = "Students:";
+            // 
+            // editCourseBtn
+            // 
+            this.editCourseBtn.Location = new System.Drawing.Point(395, 12);
+            this.editCourseBtn.Name = "editCourseBtn";
+            this.editCourseBtn.Size = new System.Drawing.Size(96, 23);
+            this.editCourseBtn.TabIndex = 6;
+            this.editCourseBtn.Text = "Edit Course";
+            this.editCourseBtn.UseVisualStyleBackColor = true;
+            this.editCourseBtn.Click += new System.EventHandler(this.editCourseBtn_Click);
             // 
             // label3
             // 
@@ -163,28 +184,20 @@ namespace SRMS
             this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 4;
             // 
-            // submitDataBtn
-            // 
-            this.submitDataBtn.Location = new System.Drawing.Point(405, 275);
-            this.submitDataBtn.Name = "submitDataBtn";
-            this.submitDataBtn.Size = new System.Drawing.Size(109, 29);
-            this.submitDataBtn.TabIndex = 3;
-            this.submitDataBtn.Text = "Save Changes";
-            this.submitDataBtn.UseVisualStyleBackColor = true;
-            // 
             // dgvGradebook
             // 
             this.dgvGradebook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGradebook.Location = new System.Drawing.Point(22, 90);
+            this.dgvGradebook.Location = new System.Drawing.Point(22, 68);
             this.dgvGradebook.Name = "dgvGradebook";
             this.dgvGradebook.RowHeadersWidth = 51;
             this.dgvGradebook.Size = new System.Drawing.Size(492, 179);
             this.dgvGradebook.TabIndex = 2;
+            this.dgvGradebook.Click += new System.EventHandler(this.dgvGradebook_Click);
             // 
             // Courselbl
             // 
             this.Courselbl.AutoSize = true;
-            this.Courselbl.Location = new System.Drawing.Point(34, 38);
+            this.Courselbl.Location = new System.Drawing.Point(34, 15);
             this.Courselbl.Name = "Courselbl";
             this.Courselbl.Size = new System.Drawing.Size(61, 17);
             this.Courselbl.TabIndex = 1;
@@ -193,7 +206,7 @@ namespace SRMS
             // CourseCboBox
             // 
             this.CourseCboBox.FormattingEnabled = true;
-            this.CourseCboBox.Location = new System.Drawing.Point(101, 35);
+            this.CourseCboBox.Location = new System.Drawing.Point(101, 12);
             this.CourseCboBox.Name = "CourseCboBox";
             this.CourseCboBox.Size = new System.Drawing.Size(199, 24);
             this.CourseCboBox.TabIndex = 0;
@@ -224,7 +237,7 @@ namespace SRMS
             // 
             this.CourseLabel.AutoSize = true;
             this.CourseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.CourseLabel.Location = new System.Drawing.Point(35, 41);
+            this.CourseLabel.Location = new System.Drawing.Point(38, 21);
             this.CourseLabel.Name = "CourseLabel";
             this.CourseLabel.Size = new System.Drawing.Size(110, 29);
             this.CourseLabel.TabIndex = 1;
@@ -233,7 +246,7 @@ namespace SRMS
             // dgvClasses
             // 
             this.dgvClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClasses.Location = new System.Drawing.Point(13, 91);
+            this.dgvClasses.Location = new System.Drawing.Point(13, 70);
             this.dgvClasses.Name = "dgvClasses";
             this.dgvClasses.RowHeadersWidth = 51;
             this.dgvClasses.Size = new System.Drawing.Size(501, 171);
@@ -272,7 +285,6 @@ namespace SRMS
             this.label6.Size = new System.Drawing.Size(390, 17);
             this.label6.TabIndex = 4;
             this.label6.Text = "Select \"Account Information\" tab to view personal information";
-            //this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -301,7 +313,6 @@ namespace SRMS
             this.welcomeLbl.Size = new System.Drawing.Size(135, 29);
             this.welcomeLbl.TabIndex = 0;
             this.welcomeLbl.Text = "Welcome,";
-            //this.welcomeLbl.Click += new System.EventHandler(this.welcomeLbl_Click);
             // 
             // userInfo
             // 
@@ -342,7 +353,6 @@ namespace SRMS
             this.tabPage1.TabIndex = 4;
             this.tabPage1.Text = "Account Information";
             this.tabPage1.UseVisualStyleBackColor = true;
-            //this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // editAcctInfoBtn
             // 
@@ -416,7 +426,6 @@ namespace SRMS
             this.facultyIdText.Size = new System.Drawing.Size(78, 17);
             this.facultyIdText.TabIndex = 12;
             this.facultyIdText.Text = "{Faculty Id}";
-            //this.facultyIdText.Click += new System.EventHandler(this.label14_Click_1);
             // 
             // showPassCB
             // 
@@ -474,7 +483,6 @@ namespace SRMS
             this.passwordLb.Size = new System.Drawing.Size(73, 17);
             this.passwordLb.TabIndex = 3;
             this.passwordLb.Text = "Password:";
-            //this.passwordLb.Click += new System.EventHandler(this.label9_Click);
             // 
             // facultyIdLb
             // 
@@ -484,7 +492,6 @@ namespace SRMS
             this.facultyIdLb.Size = new System.Drawing.Size(72, 17);
             this.facultyIdLb.TabIndex = 2;
             this.facultyIdLb.Text = "Faculty Id:";
-            //this.facultyIdLb.Click += new System.EventHandler(this.label8_Click);
             // 
             // firstNameLb
             // 
@@ -504,7 +511,6 @@ namespace SRMS
             this.acctInfoLabel.Size = new System.Drawing.Size(242, 29);
             this.acctInfoLabel.TabIndex = 0;
             this.acctInfoLabel.Text = "Account Information";
-            //this.acctInfoLabel.Click += new System.EventHandler(this.label7_Click);
             // 
             // monthCalendar1
             // 
@@ -525,7 +531,6 @@ namespace SRMS
             this.Controls.Add(this.userInfo);
             this.Name = "FacultyUI";
             this.Text = "Faculty";
-            //this.Load += new System.EventHandler(this.FacultyUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.GradeTab.ResumeLayout(false);
             this.GradeTab.PerformLayout();
@@ -551,7 +556,6 @@ namespace SRMS
         private System.Windows.Forms.TabPage GradeTab;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button submitDataBtn;
         private System.Windows.Forms.DataGridView dgvGradebook;
         private System.Windows.Forms.Label Courselbl;
         private System.Windows.Forms.ComboBox CourseCboBox;
@@ -585,5 +589,7 @@ namespace SRMS
         private System.Windows.Forms.Label firstNameText;
         private System.Windows.Forms.Button editAcctInfoBtn;
         private System.Windows.Forms.Label welcomeNameLb;
+        private System.Windows.Forms.Button editCourseBtn;
+        private System.Windows.Forms.Label studentsLb;
     }
 }

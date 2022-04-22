@@ -25,18 +25,16 @@ namespace SRMS
         private int facultyId = 0;
         private string passHolder = "";
         private string password = "";
+        private List<int> coursesTaught;
+        private TextBox gradeTextBox;
         public FacultyUI(int id)
         {
             facultyId = id;
             InitializeComponent();
-            dgvClasses.ReadOnly = true;
-            dgvClasses.AllowUserToAddRows = false;
-            dgvClasses.AllowUserToDeleteRows = false;
-            dgvClasses.MultiSelect = false;
-            dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             loginPageLoadName();
             displayAcctInfo();
             displayClasses();
+            loadCourseSelect();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -113,6 +111,11 @@ namespace SRMS
                             count++;
                         }
                     }
+                    dgvClasses.ReadOnly = true;
+                    dgvClasses.AllowUserToAddRows = false;
+                    dgvClasses.AllowUserToDeleteRows = false;
+                    dgvClasses.MultiSelect = false;
+                    dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     Utils.DisplayData(dgvClasses, sql1);
                 }
                 else
@@ -156,83 +159,102 @@ namespace SRMS
             displayAcctInfo();
         }
 
-        private void courseSelect()
+        private void loadCourseSelect()
         {
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                CourseCboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                var sql = $@"SELECT c.Id, c.Subject, c.Level, c.Semester FROM Course AS c 
+                            JOIN Teaching AS t ON t.CourseId = c.Id
+                            JOIN Faculty AS f ON f.Id = t.FacultyId
+                            WHERE f.Id = {facultyId}";
+                var courses = conn.Query<Course>(sql);
+                courses = courses.ToArray();
+                coursesTaught = new List<int>();
+                foreach (Course c in courses)
+                {
+                    coursesTaught.Add(c.Id);
+                    var entry = $"{c.Subject} {c.Level} {c.Semester}";
+                    CourseCboBox.Items.Add(entry);
+                }
+            }
+        
+        }
+        private void displayStudents()
+        {
+            var courseId = coursesTaught.ElementAt(CourseCboBox.SelectedIndex);
+            var sql = $@"SELECT s.Id, s.FirstName, s.LastName, e.Grade FROM Student AS s
+                           JOIN Enrollment AS e ON s.Id = e.StudentId
+                           WHERE e.CourseId = {courseId}";
+            dgvGradebook.ReadOnly = true;
+            dgvGradebook.AllowUserToAddRows = false;
+            dgvGradebook.AllowUserToDeleteRows = false;
+            dgvGradebook.MultiSelect = false;
+            dgvGradebook.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Utils.DisplayData(dgvGradebook, sql);
+        }
 
+        private void editGradeBtn_Click(Object sender, EventArgs e)
+        {
+            if (gradeTextBox.Text != null)
+            {
+                dynamic grade = gradeTextBox.Text;
+                dynamic id = dgvGradebook.SelectedRows[0].Cells["Id"].Value;
+                var courseId = coursesTaught.ElementAt(CourseCboBox.SelectedIndex);
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    var sql = $@"UPDATE Enrollment SET Grade = {grade} WHERE StudentId = {id} AND CourseId = {courseId};";
+                    conn.Execute(sql);
+                }
+                gradeTextBox.Text = "";
+                displayStudents();
+            }
         }
         private void CourseCboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            displayStudents();
+            Button editGradeBtn = new Button()
+            {
+                Text = "Edit Grade",
+                Location = new Point(300, 265),
+                Size = new Size(120, 25)
+            };
+            editGradeBtn.Click += editGradeBtn_Click;
+            gradeTextBox = new TextBox()
+            {
+                Location = new Point(editGradeBtn.Location.X - 110, editGradeBtn.Location.Y),
+                Size = new Size(80, 25)
+            };
+            GradeTab.Controls.Add(editGradeBtn);
+            GradeTab.Controls.Add(gradeTextBox);
 
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void dgvGradebook_selectedRowSelected(object sender, EventArgs e)
         {
-            var curIdx = tabControl.SelectedIndex; //get the correct tab
-            if (curIdx == 1)
-            {
-                var sql = $@"SELECT f.Id, f.FirstName, f.LastName, c.Subject, c.Level
-                               FROM Faculty AS f
-                               JOIN Teaching AS t ON f.Id = t.FacultyId
-                               JOIN Course as c ON t.CourseId = c.Id
-                              WHERE f.Id = {facultyId}"; //retreive all data fields
 
-                //call display data from helpers.cs
-                dataGridView2.ReadOnly = true;
-                dataGridView2.AllowUserToAddRows = false;
-                dataGridView2.AllowUserToDeleteRows = false;
-                dataGridView2.MultiSelect = false;
-                dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                Utils.DisplayData(dataGridView2, sql);
-            }
+        }
 
-            if(curIdx == 2)
+        private void editCourseBtn_Click(object sender, EventArgs e)
+        {
+            if (CourseCboBox.SelectedItem != null)
             {
-                var str = $@"SELECT DISTINCT c.Subject || ' ' || c.Level AS Name, c.Id AS Cid
-                               FROM Faculty AS f
-                               JOIN Teaching AS t ON f.Id = t.FacultyId
-                               JOIN Course AS c ON t.CourseId = c.Id
-                               JOIN Enrollment AS e ON e.CourseId = c.Id
-                               JOIN Student AS s ON s.Id = e.StudentId
-                               WHERE f.Id = {facultyId}";
-                using (var conn = new SQLiteConnection(Utils.defaultConn))
-                {
-                    CourseCboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                    CourseCboBox.DataSource = null;
-                    var result = conn.Query(str);
-                    CourseCboBox.DataSource = result.ToDataTable();
-                    CourseCboBox.DisplayMember = "Name";
-                    CourseCboBox.ValueMember = "Cid";
-                }
-                if (CourseCboBox.Items.Count > 1)
-                {
-                    CourseCboBox.SelectedIndex = 0;
-                    CourseCboBox_SelectionChangeCommitted(CourseCboBox, null);
-                }
+                var courseId = coursesTaught.ElementAt(CourseCboBox.SelectedIndex);
+                editCourse(courseId);
             }
         }
 
-        private void CourseCboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        private bool editCourse(int id = 0)
         {
-            var curIdx = tabControl.SelectedIndex; //get the correct tab
-            if (curIdx == 2)
-            {
-                var sql = $@"SELECT c.Subject, c.Level
-                                  , s.Id AS StudentId, s.FirstName, s.LastName, e.Grade
-                               FROM Faculty AS f
-                               JOIN Teaching AS t ON f.Id = t.FacultyId
-                               JOIN Course AS c ON t.CourseId = c.Id
-                               JOIN Enrollment AS e ON e.CourseId = c.Id
-                               JOIN Student AS s ON s.Id = e.StudentId
-                               WHERE f.Id = {facultyId} and c.Id = {CourseCboBox.SelectedValue}";
+            var retval = DialogResult.Cancel;
+            var course = new CourseForm(id);
+            retval = course.ShowDialog();
+            return DialogResult.OK == retval;
+        }
 
-                //call display data from helpers.cs
-                dataGridView3.ReadOnly = true;
-                dataGridView3.AllowUserToAddRows = false;
-                dataGridView3.AllowUserToDeleteRows = false;
-                dataGridView3.MultiSelect = false;
-                dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                Utils.DisplayData(dataGridView3, sql);
-            }
+        private void dgvGradebook_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
