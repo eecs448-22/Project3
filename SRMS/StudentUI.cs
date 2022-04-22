@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using Helper;
-using System.Linq;
+using System.Linq;  
 
 
 namespace SRMS
@@ -41,6 +41,12 @@ namespace SRMS
             dgvClasses.AllowUserToDeleteRows = false;
             dgvClasses.MultiSelect = false;
             dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            dgvEnrollment.ReadOnly = true;
+            dgvEnrollment.AllowUserToAddRows = false;
+            dgvEnrollment.AllowUserToDeleteRows = false;
+            dgvEnrollment.MultiSelect = false;
+            dgvEnrollment.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             displayAccountInfo();
             showClasses();
@@ -99,6 +105,7 @@ namespace SRMS
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             tabControl_studentInfo.SelectedIndex = listBox1.SelectedIndex;
+            //listBox1.SetSelected(tabControl_studentInfo.SelectedIndex, true);
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -228,6 +235,16 @@ namespace SRMS
         }
 
         private void labelName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvEnrollment_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage_enrollment_Click(object sender, EventArgs e)
         {
 
         }
