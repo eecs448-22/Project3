@@ -94,36 +94,17 @@ namespace SRMS
         }
         public void displayClasses()
         {
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
-            {
-                var sql = $"SELECT CourseId FROM Teaching WHERE FacultyId = {facultyId}";
-                dynamic results = conn.Query<int>(sql);
-                results = results.ToArray();
-                if (results.Length > 0)
-                {
-                    var sql1 = $"SELECT * FROM Course WHERE Id = {results[0]}";
-                    int count = 1;
-                    foreach (dynamic result in results)
-                    {
-                        if (count < results.Length)
-                        {
-                            sql1 = sql1 + $" OR Id = {results[count]}";
-                            count++;
-                        }
-                    }
-                    dgvClasses.ReadOnly = true;
-                    dgvClasses.AllowUserToAddRows = false;
-                    dgvClasses.AllowUserToDeleteRows = false;
-                    dgvClasses.MultiSelect = false;
-                    dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                    Utils.DisplayData(dgvClasses, sql1);
-                }
-                else
-                {
-                    dgvClasses.DataSource = null;
-                    dgvClasses.Rows.Clear();
-                }
-            }
+            var sql = $@"SELECT c.Id, c.Subject, c.Level, c.Title, c.Hours, c.Semester FROM Course AS c
+                JOIN Teaching AS t ON t.CourseId = c.Id
+                JOIN Faculty AS f ON f.Id = t.FacultyId
+                WHERE f.Id = {facultyId}";
+
+            dgvClasses.ReadOnly = true;
+            dgvClasses.AllowUserToAddRows = false;
+            dgvClasses.AllowUserToDeleteRows = false;
+            dgvClasses.MultiSelect = false;
+            dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Utils.DisplayData(dgvClasses, sql);
         }
 
         private bool editInfo(int id = 0)
