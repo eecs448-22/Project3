@@ -152,16 +152,15 @@ namespace SRMS
         private void btnRunTests_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Check Console for Results.");
+
+            Console.WriteLine("Test suite: ");
+            
             TestClass t1 = new TestClass();
             t1.Admin_CreateUser();
             t1.Admin_UpdateUser();
             t1.Admin_DeleteUser();
 
-            Console.WriteLine("Manual Tests: ");
-            Console.WriteLine("Test1: Able to create new Administrator: PASS ");
-            Console.WriteLine("Test2: Able to update Administrator: PASS ");
-            Console.WriteLine("Test2: Able to delete Administrator: PASS ");
-            //Console.WriteLine("Manual Tests: ");
+            
         }
     }
 }
