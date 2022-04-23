@@ -47,7 +47,7 @@ namespace SRMS
         }
         public void showClasses()
         {
-            var sql = $@"SELECT c.Id, c.Subject, c.Level, c.Title, c.Hours, c.Semester FROM Course AS c
+            var sql = $@"SELECT c.Id, c.Subject, c.Level, c.Title, c.Hours, c.Semester, e.Grade FROM Course AS c
                 JOIN Enrollment AS e ON e.CourseId = c.Id
                 JOIN Student AS s ON s.Id = e.StudentId
                 WHERE s.Id = {studentId}";
