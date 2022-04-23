@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Models;
 using Helper;
 using DBMS;
-
+using MyTests;
 
 namespace SRMS
 {
@@ -99,6 +99,7 @@ namespace SRMS
             return 0;
         }
 
+
 /*
         private void LoginButton_Click(object sender, EventArgs e)
         {
@@ -146,6 +147,21 @@ namespace SRMS
         private void signInCB_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRunTests_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Check Console for Results.");
+            TestClass t1 = new TestClass();
+            t1.Admin_CreateUser();
+            t1.Admin_UpdateUser();
+            t1.Admin_DeleteUser();
+
+            Console.WriteLine("Manual Tests: ");
+            Console.WriteLine("Test1: Able to create new Administrator: PASS ");
+            Console.WriteLine("Test2: Able to update Administrator: PASS ");
+            Console.WriteLine("Test2: Able to delete Administrator: PASS ");
+            //Console.WriteLine("Manual Tests: ");
         }
     }
 }

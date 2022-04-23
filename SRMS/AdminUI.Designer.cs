@@ -94,7 +94,6 @@ namespace SRMS
             this.dgvAdmin.RowHeadersWidth = 51;
             this.dgvAdmin.Size = new System.Drawing.Size(981, 418);
             this.dgvAdmin.TabIndex = 0;
-            this.dgvAdmin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmin_CellContentClick);
             // 
             // tabFaculty
             // 

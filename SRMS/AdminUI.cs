@@ -9,54 +9,88 @@ namespace SRMS
 {
     public partial class AdminUI : Form
     {
-        private int adminId = 0;
-        private string[] tblNames = null;
-        private DataGridView[] tblGrids = null; //dataGridViews 
+        private int adminId = 0; //id variable for insertion into database
+        private string[] tblNames = null; //tables containing dataview names
+        private DataGridView[] tblGrids = null; //tables to represent the 4 dataviews 
+
+
+        /* AdminUI constructor
+        * Programmer: Alice Kuang
+        * Date Created: 4/10/22
+        * Date Revised: 4/14/22
+        * Desc: this is the default constructor for Admin, instantiates two tables for ease of referencing 
+        *       dataGridViews and customizes the presets of dataGridView
+        * Pre: takes the id of the Admin
+        * Post: none
+        * side-effects: defines the properties of dataGridView 
+        * invariants: called when the AdminUI form is launched
+        * faults: none known
+        */
         public AdminUI(int id)
         {
             adminId = id;
             InitializeComponent();
 
-            tblNames = new string[] { "Administrator", "Faculty", "Student", "Course" };
-            tblGrids = new DataGridView[] { dgvAdmin, dgvFaculty, dgvStudent, dgvCourse };
+            tblNames = new string[] { "Administrator", "Faculty", "Student", "Course" }; //initialze data
+            tblGrids = new DataGridView[] { dgvAdmin, dgvFaculty, dgvStudent, dgvCourse };  //initialze data
 
-            //Customize the DataGridView objects
-            foreach (var dgv in tblGrids)
+
+            foreach (var dgv in tblGrids) //Customize each of the DataGridView objects
             {
-                dgv.ReadOnly = true;
-                dgv.AllowUserToAddRows = false;
-                dgv.AllowUserToDeleteRows = false;
-                dgv.MultiSelect = false;
-                dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dgv.ReadOnly = true; //set the datagridview as readonly 
+                dgv.AllowUserToAddRows = false; //prevent user from adding rows
+                dgv.AllowUserToDeleteRows = false; //prevent user from deleting rows
+                dgv.MultiSelect = false; //prevent user from selecting multiple rows
+                dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect; //set full row selection
             }
         }
 
         private void AdminUI_Load(object sender, EventArgs e)
         {
-            tabControlAdmin_SelectedIndexChanged(tabControlAdmin, null);
+            tabControlAdmin_SelectedIndexChanged(tabControlAdmin, null); //change the tab
         }
 
         private void tabControlAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var curIdx = tabControlAdmin.SelectedIndex; //get the correct tab
-            var sql = $"SELECT * FROM {tblNames[curIdx]}"; //retreive all data fields
-
-            //call display data from helpers.cs
-            Utils.DisplayData(tblGrids[curIdx], sql);
+            var curIdx = tabControlAdmin.SelectedIndex; //get the currently selected tab
+            var sql = $"SELECT * FROM {tblNames[curIdx]}"; //make sql statement to retreive all data fields
+            Utils.DisplayData(tblGrids[curIdx], sql); //call displayData from helpers.cs to get the data view
         }
 
+        /* Create Button
+        * Programmer: Alice Kuang
+        * Date Created: 4/10/22
+        * Date Revised: 4/14/22
+        * Desc: Creates a new Record
+        * Pre: Buttonclick event received
+        * Post: Returns the new record into its table. 
+        * side-effects: none
+        * invariants: the record will be inserted in the database
+        * faults: none known
+        */
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            int idx = tabControlAdmin.SelectedIndex;
+            int idx = tabControlAdmin.SelectedIndex; //use the selectedIdx
 
-            if (updateInsert(idx))
+            if (updateInsert(idx)) //call updateInsert method for selected datagridView
             {
                 //immediately "refresh" the datagridView
-                var sql = $"SELECT * FROM {tblNames[idx]}";
-                Utils.DisplayData(tblGrids[idx], sql);
+                var sql = $"SELECT * FROM {tblNames[idx]}"; //get all the input from the data
+                Utils.DisplayData(tblGrids[idx], sql);      //display it in the corresponding datagridview
             }
         }
 
+        /* Update Button
+      * Programmer: Alice Kuang
+      * Date Created: 4/10/22
+      * Date Revised: 4/14/22
+      * Desc: Updates an existing Record
+      * Pre: Buttonclick event received
+      * Post: Returns the Updated record into its table. 
+      * side-effects: none
+      * invariants: the record will be inserted in the database
+      * faults: none known
+      */
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             int idx = tabControlAdmin.SelectedIndex;
@@ -65,11 +99,22 @@ namespace SRMS
             if (updateInsert(idx, id))
             {
                 //immediately "refresh" the datagridView
-                var sql = $"SELECT * FROM {tblNames[idx]}";
-                Utils.DisplayData(tblGrids[idx], sql);
+                var sql = $"SELECT * FROM {tblNames[idx]}"; //get all the input from the data
+                Utils.DisplayData(tblGrids[idx], sql);      // display it in the corresponding datagridview
             }
         }
 
+        /* Delete Button
+        * Programmer: Alice Kuang
+        * Date Created: 4/10/22
+        * Date Revised: 4/14/22
+        * Desc: Updates an existing Record
+        * Pre: Buttonclick event received
+        * Post: Returns the Updated record into its table. 
+        * side-effects: none
+        * invariants: the record will be inserted in the database
+        * faults: none known
+        */
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -120,6 +165,17 @@ namespace SRMS
             }
         }
 
+        /* AdminUI constructor
+* Programmer: Alice Kuang
+* Date Created: 4/10/22
+* Date Revised: 4/14/22
+* Desc: this is the default constructor for Admin
+* Pre: takes the id of the Admin
+* Post: Returns the new or updated Admin record. 
+* side-effects: none  
+* invariants: the record will be inserted or modified in the database
+* faults: none known
+*/
         //update and isnert based on tab idx and id. id = 0 is insert; id > 0 is udpate
         private bool updateInsert(int idx, int id = 0)
         {
@@ -156,13 +212,10 @@ namespace SRMS
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); //call close upon logout
         }
 
-        private void dgvAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
     }
 
 
