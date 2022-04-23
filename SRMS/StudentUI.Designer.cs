@@ -61,6 +61,7 @@
             this.tabPage_enrollment = new System.Windows.Forms.TabPage();
             this.enrollAddBtn = new System.Windows.Forms.Button();
             this.lblEnrollment = new System.Windows.Forms.Label();
+            this.dgvEnrollment = new System.Windows.Forms.DataGridView();
             this.label_selectSemester = new System.Windows.Forms.Label();
             this.comboBox_selectSemester = new System.Windows.Forms.ComboBox();
             this.label_enrollmentScreen = new System.Windows.Forms.Label();
@@ -69,15 +70,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.calender = new System.Windows.Forms.MonthCalendar();
-            this.dgvEnrollment = new System.Windows.Forms.DataGridView();
             this.tabControl_studentInfo.SuspendLayout();
             this.tabPage_welcome.SuspendLayout();
             this.tabPage_accInfo.SuspendLayout();
             this.tabPage_classes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).BeginInit();
             this.tabPage_enrollment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_studentInfo
@@ -200,7 +200,7 @@
             this.tabPage_accInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_accInfo.Name = "tabPage_accInfo";
             this.tabPage_accInfo.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_accInfo.Size = new System.Drawing.Size(849, 467);
+            this.tabPage_accInfo.Size = new System.Drawing.Size(849, 460);
             this.tabPage_accInfo.TabIndex = 0;
             this.tabPage_accInfo.Text = "Account Information";
             this.tabPage_accInfo.UseVisualStyleBackColor = true;
@@ -412,7 +412,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(100, 57);
+            this.label1.Location = new System.Drawing.Point(125, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 38);
             this.label1.TabIndex = 12;
@@ -423,12 +423,12 @@
             this.dgvClasses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClasses.Location = new System.Drawing.Point(107, 114);
+            this.dgvClasses.Location = new System.Drawing.Point(132, 121);
             this.dgvClasses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvClasses.Name = "dgvClasses";
             this.dgvClasses.RowHeadersWidth = 51;
             this.dgvClasses.RowTemplate.Height = 24;
-            this.dgvClasses.Size = new System.Drawing.Size(607, 196);
+            this.dgvClasses.Size = new System.Drawing.Size(571, 196);
             this.dgvClasses.TabIndex = 0;
             this.dgvClasses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClasses_CellContentClick);
             // 
@@ -441,9 +441,9 @@
             this.tabPage_enrollment.Controls.Add(this.comboBox_selectSemester);
             this.tabPage_enrollment.Controls.Add(this.label_enrollmentScreen);
             this.tabPage_enrollment.Location = new System.Drawing.Point(4, 25);
-            this.tabPage_enrollment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage_enrollment.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage_enrollment.Name = "tabPage_enrollment";
-            this.tabPage_enrollment.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage_enrollment.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage_enrollment.Size = new System.Drawing.Size(849, 460);
             this.tabPage_enrollment.TabIndex = 3;
             this.tabPage_enrollment.Tag = "Maggie";
@@ -471,6 +471,17 @@
             this.lblEnrollment.TabIndex = 16;
             this.lblEnrollment.Text = "Once a semester is selected, offered courses will appear below:";
             // 
+            // dgvEnrollment
+            // 
+            this.dgvEnrollment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEnrollment.Location = new System.Drawing.Point(117, 171);
+            this.dgvEnrollment.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvEnrollment.Name = "dgvEnrollment";
+            this.dgvEnrollment.RowHeadersWidth = 51;
+            this.dgvEnrollment.Size = new System.Drawing.Size(613, 187);
+            this.dgvEnrollment.TabIndex = 15;
+            this.dgvEnrollment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEnrollment_CellContentClick);
+            // 
             // label_selectSemester
             // 
             this.label_selectSemester.AutoSize = true;
@@ -491,7 +502,7 @@
             "Summer2022",
             "Fall2022"});
             this.comboBox_selectSemester.Location = new System.Drawing.Point(409, 86);
-            this.comboBox_selectSemester.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox_selectSemester.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_selectSemester.Name = "comboBox_selectSemester";
             this.comboBox_selectSemester.Size = new System.Drawing.Size(209, 37);
             this.comboBox_selectSemester.TabIndex = 13;
@@ -549,7 +560,7 @@
             "■ Classes",
             "■ Enrollment"});
             this.listBox1.Location = new System.Drawing.Point(12, 261);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(303, 68);
             this.listBox1.TabIndex = 8;
@@ -562,17 +573,6 @@
             this.calender.Name = "calender";
             this.calender.TabIndex = 18;
             this.calender.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calender_DateChanged);
-            // 
-            // dgvEnrollment
-            // 
-            this.dgvEnrollment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEnrollment.Location = new System.Drawing.Point(117, 171);
-            this.dgvEnrollment.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvEnrollment.Name = "dgvEnrollment";
-            this.dgvEnrollment.RowHeadersWidth = 51;
-            this.dgvEnrollment.Size = new System.Drawing.Size(613, 187);
-            this.dgvEnrollment.TabIndex = 15;
-            this.dgvEnrollment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEnrollment_CellContentClick);
             // 
             // StudentUI
             // 
@@ -600,8 +600,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).EndInit();
             this.tabPage_enrollment.ResumeLayout(false);
             this.tabPage_enrollment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
