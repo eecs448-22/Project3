@@ -48,7 +48,7 @@ namespace MyTests
                     idUser = conn.ExecuteScalar<int>(sql);
 
                     //check if it was inserted
-                     sql = $"SELECT * From Administrator Where Id = {idUser}";
+                    sql = $"SELECT * From Administrator Where Id = {idUser}";
                     var admin = conn.QuerySingleOrDefault<Administrator>(sql);
 
                     //If all fields match, return test passed, if not, return failed.
@@ -161,7 +161,48 @@ namespace MyTests
             {
                 MessageBox.Show(ex.Message, "Exception caught when deleting from Admin table");
             }
-
         }
+
+        
+        public void Create_Student()
+        {
+              var test_student = new string[] { "Jamie", "Maddox", "jamiemaddox", "password", "jamiemaddox@ku.edu" };
+              var s = new Student
+              {
+                FirstName = test_student[0],
+                LastName = test_student[1],
+                UserName = test_student[2],
+                Password = test_student[3],
+                Email = test_student[4],
+               };
+              try
+              {
+                    using (var conn = new SQLiteConnection(Utils.defaultConn))
+                    {
+                        conn.Insert(s);
+                        var sql = "SELECT Max(Id) FROM Student";
+                        idUser = conn.ExecuteScalar<int>(sql);
+                        sql = $"SELECT * From Student Where Id = {idUser}";
+                        var student = conn.QuerySingleOrDefault<Student>(sql);
+                        if (student.UserName == s.UserName
+                            && student.FirstName == s.FirstName
+                            && student.LastName == s.LastName
+                            && student.Password == s.Password
+                            && student.Email == s.Email)
+                        { 
+                        Console.WriteLine("Test 4: New Student profile successfully inserted: PASS");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Test 4: New Student profile successfully inserted: FAIL");
+                        }
+                    }
+              }
+              catch (Exception ex)
+              {
+                MessageBox.Show(ex.Message, "Exception caught when saving Student table");
+              }
+        }
+        
     }
 }
