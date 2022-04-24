@@ -48,7 +48,7 @@ namespace MyTests
                     idUser = conn.ExecuteScalar<int>(sql);
 
                     //check if it was inserted
-                     sql = $"SELECT * From Administrator Where Id = {idUser}";
+                    sql = $"SELECT * From Administrator Where Id = {idUser}";
                     var admin = conn.QuerySingleOrDefault<Administrator>(sql);
 
                     //If all fields match, return test passed, if not, return failed.
@@ -161,7 +161,524 @@ namespace MyTests
             {
                 MessageBox.Show(ex.Message, "Exception caught when deleting from Admin table");
             }
+        }
 
+
+        public void Create_Student()
+        {
+            var test_student = new string[] { "Jamie", "Maddox", "jamiemaddox", "password", "jamiemaddox@ku.edu" };
+            var s = new Student
+            {
+                FirstName = test_student[0],
+                LastName = test_student[1],
+                UserName = test_student[2],
+                Password = test_student[3],
+                Email = test_student[4],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Insert(s);
+                    var sql = "SELECT Max(Id) FROM Student";
+                    idUser = conn.ExecuteScalar<int>(sql);
+                    sql = $"SELECT * From Student Where Id = {idUser}";
+                    var student = conn.QuerySingleOrDefault<Student>(sql);
+                    if (student.UserName == s.UserName
+                        && student.FirstName == s.FirstName
+                        && student.LastName == s.LastName
+                        && student.Password == s.Password
+                        && student.Email == s.Email)
+                    {
+                        Console.WriteLine("Test 4: New Student profile successfully inserted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 4: New Student profile successfully inserted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when saving Student table");
+            }
+        }
+
+
+        public void Update_Student()
+        {
+            string[] test_student = { "Jamie", "Maddox", "jamiemaddox3", "password", "jamiemaddox@ku.edu" };
+            var s = new Student
+            {
+                Id = idUser,
+                FirstName = test_student[0],
+                LastName = test_student[1],
+                UserName = test_student[2],
+                Password = test_student[3],
+                Email = test_student[4],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                conn.Update<Student>(s);
+                var sql = $"SELECT * FROM Student WHERE Id = {idUser}";
+                var student = conn.QuerySingleOrDefault<Student>(sql);
+
+                if (student.UserName == s.UserName
+                    && student.FirstName == s.FirstName
+                    && student.LastName == s.LastName
+                    && student.Password == s.Password
+                    && student.Email == s.Email)
+                {
+                    Console.WriteLine("Test 5: Student profile successfully updated: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 5: Student profile successfully update: FAIL");
+                }
+            }
+        }
+
+        public void Delete_Student()
+        {
+            string[] test_student = { "Jamie", "Maddox", "jamiemaddox3", "password", "jamiemaddox@ku.edu" };
+            var s = new Student
+            {
+                Id = idUser,
+                FirstName = test_student[0],
+                LastName = test_student[1],
+                UserName = test_student[2],
+                Password = test_student[3],
+                Email = test_student[4],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Delete(s);
+                    var sql = $"SELECT * FROM Student WHERE Id = {idUser}";
+                    var student = conn.QuerySingleOrDefault<Student>(sql);
+                    if (student == null)
+                    {
+                        Console.WriteLine("Test 6: Student profile successfully deleted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 6: Student profile successfully delete: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when deleting from Student table");
+            }
+        }
+
+        public void Create_Faculty()
+        {
+            var test_faculty = new string[] { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "password4", "Professor", "Business" };
+            var f = new Faculty
+            {
+                FirstName = test_faculty[0],
+                LastName = test_faculty[1],
+                UserName = test_faculty[2],
+                Email = test_faculty[3],
+                Password = test_faculty[4],
+                Title = test_faculty[5],
+                Dept = test_faculty[6],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Insert(f);
+                    var sql = "SELECT MAX(Id) FROM Faculty";
+                    idUser = conn.ExecuteScalar<int>(sql);
+                    sql = $"SELECT * From Faculty Where Id = {idUser}";
+                    var faculty = conn.QuerySingleOrDefault<Faculty>(sql);
+                    if (faculty.UserName == f.UserName
+                        && faculty.FirstName == f.FirstName
+                        && faculty.LastName == f.LastName
+                        && faculty.Email == f.Email
+                        && faculty.Password == f.Password
+                        && faculty.Title == f.Title
+                        && faculty.Dept == f.Dept)
+                    {
+                        Console.WriteLine("Test 7: New Faculty profile successfully inserted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 7: New Faculty profile successfully inserted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when saving to Faculty table");
+            }
+        }
+
+        public void Update_Faculty()
+        {
+            string[] test_faculty = { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "newpassword", "Associate Professor", "Business" };
+            var f = new Faculty
+            {
+                Id = idUser,
+                FirstName = test_faculty[0],
+                LastName = test_faculty[1],
+                UserName = test_faculty[2],
+                Email = test_faculty[3],
+                Password = test_faculty[4],
+                Title = test_faculty[5],
+                Dept = test_faculty[6],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                conn.Update<Faculty>(f);
+                var sql = $"SELECT * FROM Faculty WHERE Id = {idUser}";
+                var faculty = conn.QuerySingleOrDefault<Faculty>(sql);
+                if (faculty.UserName == f.UserName
+                    && faculty.FirstName == f.FirstName
+                    && faculty.LastName == f.LastName
+                    && faculty.Password == f.Password
+                    && faculty.Email == f.Email
+                    && faculty.Title == f.Title
+                    && faculty.Dept == f.Dept
+                    )
+                {
+                    Console.WriteLine("Test 8: Faculty profile successfully updated: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 8: Faculty profile successfully update: FAIL");
+                }
+            }
+        }
+
+        public void Delete_Faculty()
+        {
+            string[] test_faculty = { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "newpassword", "Associate Professor", "Business" };
+            var f = new Faculty
+            {
+                Id = idUser,
+                FirstName = test_faculty[0],
+                LastName = test_faculty[1],
+                UserName = test_faculty[2],
+                Email = test_faculty[3],
+                Password = test_faculty[4],
+                Title = test_faculty[5],
+                Dept = test_faculty[6],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Delete(f);
+                    var sql = $"SELECT * FROM Faculty WHERE Id = {idUser}";
+                    var faculty = conn.QuerySingleOrDefault<Administrator>(sql);
+                    if (faculty == null)
+                    {
+                        Console.WriteLine("Test 9: Faculty profile successfully deleted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 9: Faculty profile successfully deleted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when deleting from Admin table");
+            }
+        }
+
+        public void Create_Course()
+        {
+            string[] test_course = { "HA", "101", "Introduction to Art History", "3", "SMA 211", "Summer2022" };
+            int level_int = Convert.ToInt32(test_course[1]);
+            int hours_int = Convert.ToInt32(test_course[3]);
+            var c = new Course
+            {
+                Subject = test_course[0],
+                Level = level_int,
+                Title = test_course[2],
+                Hours = hours_int,
+                Room = test_course[4],
+                Semester = test_course[5],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Insert(c);
+                    var sql = $"SELECT MAX(Id) FROM Course";
+                    idUser = conn.ExecuteScalar<int>(sql);
+                    sql = $"SELECT * From Course Where Id = {idUser}";
+                    var course = conn.QuerySingleOrDefault<Course>(sql);
+                    if (course.Subject == c.Subject
+                        && course.Level == c.Level
+                        && course.Title == c.Title
+                        && course.Hours == c.Hours
+                        && course.Room == c.Room
+                        && course.Semester == c.Semester)
+                    {
+                        Console.WriteLine("Test 10: New Course successfully inserted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 10: New Course successfully inserted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when saving to Course table");
+            }
+        }
+
+        public void Update_Course()
+        {
+            string[] test_course = { "HA", "101", "Introduction to Art History", "4", "SMA 200", "Summer2022" };
+            int level_int = Convert.ToInt32(test_course[1]);
+            int hours_int = Convert.ToInt32(test_course[3]);
+            var c = new Course
+            {
+                Id = idUser,
+                Subject = test_course[0],
+                Level = level_int,
+                Title = test_course[2],
+                Hours = hours_int,
+                Room = test_course[4],
+                Semester = test_course[5],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                conn.Update<Course>(c);
+                var sql = $"SELECT * FROM Course WHERE Id = {idUser}";
+                var course = conn.QuerySingleOrDefault<Course>(sql);
+                if (course.Subject == c.Subject
+                        && course.Level == c.Level
+                        && course.Title == c.Title
+                        && course.Hours == c.Hours
+                        && course.Room == c.Room
+                        && course.Semester == c.Semester)
+                {
+                    Console.WriteLine("Test 11: Course information successfully updated: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 11: Course information successfully udpated: FAIL");
+                }
+            }
+        }
+        public void Delete_Course()
+        {
+            string[] test_course = { "HA", "101", "Introduction to Art History", "4", "SMA 200", "Summer2022" };
+            int level_int = Convert.ToInt32(test_course[1]);
+            int hours_int = Convert.ToInt32(test_course[3]);
+            var c = new Course
+            {
+                Id = idUser,
+                Subject = test_course[0],
+                Level = level_int,
+                Title = test_course[2],
+                Hours = hours_int,
+                Room = test_course[4],
+                Semester = test_course[5],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Delete(c);
+                    var sql = $"SELECT * FROM Course WHERE Id = {idUser}";
+                    var course = conn.QuerySingleOrDefault<Course>(sql);
+                    if (course == null)
+                    {
+                        Console.WriteLine("Test 12: Course successfully deleted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 12: Course successfully deleted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when deleting from Course table");
+            }
+        }
+        public void Assign_Student_Course()
+        {
+            //** added student id as first array element**
+            string[] test_enrollment = { "30006", "1010", "94" };
+            //int course_int = Convert.ToInt32(test_enrollment[0]);
+            // **Not using a student object, no need to declare**
+            //var e = new Enrollment
+            //{
+            //    StudentId = 30006,
+            //    CourseId = course_int,
+            //    Grade = test_enrollment[1],
+            //};
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+
+                //(INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{30006}', '{course_int}')"; 
+                //                                                         ^no needs for {} around 30006, pass in a string instead of course int**
+                var sql = $"INSERT INTO Enrollment (StudentId, CourseId, Grade) VALUES ('{test_enrollment[0]}', '{test_enrollment[1]}', '{test_enrollment[2]}')";
+                conn.Query(sql);
+
+                //sql = $"SELECT * FROM Enrollment WHERE Id = {30006}";
+
+                sql = $"SELECT * FROM Enrollment WHERE StudentId = {test_enrollment[0]} AND CourseId = {test_enrollment[1]}";
+                var enrollment = conn.QuerySingleOrDefault<Enrollment>(sql);
+                //if ( sql.CourseId == e.CourseId
+                //        && enrollment.Grade == e.Grade)
+                //{
+                if(test_enrollment[0] == enrollment.StudentId.ToString()  /*converted StudentId toString because it was stored as an int in database (ref: data_schema.sql)*/
+                    && test_enrollment[1] == enrollment.CourseId.ToString()
+                    && test_enrollment[2] == enrollment.Grade.ToString())
+                { 
+                Console.WriteLine("Test 13: Student successfully enrolled in course: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 13: Student successfully enrolled in course: FAIL");
+                }
+            }
+        }
+
+        public void Drop_Student_Course()
+        {
+            //string[] test_enrollment = { "1010", "94" };
+            //int course_int = Convert.ToInt32(test_enrollment[0]);
+            //var e = new Enrollment
+            //{
+            //    StudentId = 30006,
+            //    CourseId = course_int,
+            //    Grade = test_enrollment[1],
+            //};
+
+            string[] test_enrollment = { "30006", "1010", "94" };
+
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                //var sql = $"DELETE FROM Enrollment WHERE StudentId = '{30006}' AND CourseId = '{course_int}'";
+                var sql = $"DELETE FROM Enrollment WHERE StudentId = '{test_enrollment[0]}'AND CourseId = '{test_enrollment[1]}' And Grade ='{test_enrollment[2]}'";
+                conn.Query(sql);
+
+                sql = $"SELECT * FROM Enrollment WHERE StudentId = {test_enrollment[0]} AND CourseId = {test_enrollment[1]}";
+                var enrollment = conn.QuerySingleOrDefault<Enrollment>(sql);
+                if (enrollment == null)
+                {
+                    Console.WriteLine("Test 14: Student successfully dropped course: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 14: Student successfully dropped course: FAIL");
+                }
+            }
+        }
+
+        public void Assign_Faculty_Course()
+        {
+            string[] test_teaching = { "1014" };
+            int course_int = Convert.ToInt32(test_teaching[0]);
+            var t = new Teaching
+            {
+                FacultyId = 10003,
+                CourseId = course_int,
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                var sql = $"INSERT INTO Teaching (FacultyId, CourseId) VALUES ('{10003}', '{course_int}')";
+                conn.Query(sql);
+
+                //if (?????)
+                //{
+                Console.WriteLine("Test 15: Faculty successfully enrolled in course: PASS");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Test 15: Faculty successfully enrolled in course: FAIL");
+                //}
+            }
+        }
+
+        public void Remove_Faculty_Course()
+        {
+            string[] test_teaching = { "1014" };
+            int course_int = Convert.ToInt32(test_teaching[0]);
+            var t = new Teaching
+            {
+                FacultyId = 10003,
+                CourseId = course_int,
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                var sql = $"DELETE FROM Teaching WHERE FacultyId = '{10003}' AND CourseId = '{course_int}'";
+                conn.Query(sql);
+
+                //if (?????)
+                //{
+                Console.WriteLine("Test 16: Faculty successfully removed from course: PASS");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Test 16: Faculty successfully removed from course: FAIL");
+                //}
+            }
+        }
+
+        public void Update_Student_Grade()
+        {
+            string[] test_updategrade = { "1003", "90" };
+            int course_int = Convert.ToInt32(test_updategrade[0]);
+            var e = new Enrollment
+            {
+                StudentId = 30006,
+                CourseId = course_int,
+                Grade = test_updategrade[1],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                var sql = $@"UPDATE Enrollment SET Grade = {test_updategrade[1]} WHERE StudentId = {30006} AND CourseId = {course_int};";
+                conn.Execute(sql);
+
+                //if (?????)
+                //{
+                Console.WriteLine("Test 17: Student grade successfully updated: PASS");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Test 17: Student grade successfully updated: FAIL");
+                //}
+            }
+        }
+
+        public void Revert_Student_Grade()
+        {
+            string[] test_updategrade = { "1003", "80" };
+            int course_int = Convert.ToInt32(test_updategrade[0]);
+            var e = new Enrollment
+            {
+                StudentId = 30006,
+                CourseId = course_int,
+                Grade = test_updategrade[1],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                var sql = $@"UPDATE Enrollment SET Grade = {test_updategrade[1]} WHERE StudentId = {30006} AND CourseId = {course_int};";
+                conn.Execute(sql);
+
+                //if (?????)
+                //{
+                Console.WriteLine("Test 18: Student grade successfully restored to original: PASS");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Test 18: Student grade successfully restored to original: FAIL");
+                //}
+            }
         }
     }
 }
