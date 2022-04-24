@@ -175,6 +175,8 @@ namespace SRMS
             t1.Create_Course();
             t1.Update_Course();
             t1.Delete_Course();
+            t1.Assign_Student_Course();
+            t1.Drop_Student_Course();
         }
     }
 }

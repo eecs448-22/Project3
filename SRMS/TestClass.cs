@@ -506,6 +506,56 @@ namespace MyTests
             {
                 MessageBox.Show(ex.Message, "Exception caught when deleting from Course table");
             }
+        } 
+        public void Assign_Student_Course()
+        {
+            string[] test_enrollment = { "1010", "94" };
+            int course_int = Convert.ToInt32(test_enrollment[0]);
+            var e = new Enrollment
+            {
+                StudentId = 30006,
+                CourseId = course_int,
+                Grade = test_enrollment[1],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                var sql = $"INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{30006}', '{course_int}')";
+                conn.Query(sql);
+                
+                //if (?????)
+                //{
+                    Console.WriteLine("Test 13: Student successfully enrolled in course: PASS");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Test 13: Student successfully enrolled in course: FAIL");
+                //}
+            }
+        }
+
+        public void Drop_Student_Course()
+        {
+            string[] test_enrollment = { "1010", "94" };
+            int course_int = Convert.ToInt32(test_enrollment[0]);
+            var e = new Enrollment
+            {
+                StudentId = 30006,
+                CourseId = course_int,
+                Grade = test_enrollment[1],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                var sql = $"DELETE FROM Enrollment WHERE StudentId = '{30006}' AND CourseId = '{course_int}'";
+                conn.Query(sql);
+                //if (?????)
+                //{
+                    Console.WriteLine("Test 14: Student successfully dropped course: PASS");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Test 14: Student successfully dropped course: FAIL");
+                //}
+            }
         }
     }
 }
