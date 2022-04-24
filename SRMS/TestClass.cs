@@ -353,5 +353,42 @@ namespace MyTests
                 }
             }
         }
+
+        public void Delete_Faculty()
+        {
+            string[] test_faculty = { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "newpassword", "Associate Professor", "Business" };
+            var f = new Faculty
+            {
+                Id = idUser,
+                FirstName = test_faculty[0],
+                LastName = test_faculty[1],
+                UserName = test_faculty[2],
+                Email = test_faculty[3],
+                Password = test_faculty[4],
+                Title = test_faculty[5],
+                Dept = test_faculty[6],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Delete(f);
+                    var sql = $"SELECT * FROM Faculty WHERE Id = {idUser}";
+                    var faculty = conn.QuerySingleOrDefault<Administrator>(sql);
+                    if (faculty == null)
+                    {
+                        Console.WriteLine("Test 9: Faculty profile successfully deleted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 9: Faculty profile successfully deleted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when deleting from Admin table");
+            }
+        }
     }
 }

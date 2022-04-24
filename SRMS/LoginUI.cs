@@ -171,6 +171,7 @@ namespace SRMS
             t1.Delete_Student();
             t1.Create_Faculty();
             t1.Update_Faculty();
+            t1.Delete_Faculty();
             
         }
     }
