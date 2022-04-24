@@ -11,12 +11,18 @@ using Models;
 using Helper;
 using DBMS;
 using MyTests;
+using System.Runtime.InteropServices;
 
 namespace SRMS
 {
     public partial class LoginUI : Form
     {
         private int userId = 0;
+
+        // Windows API function
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
 
         public LoginUI()
         {
@@ -151,7 +157,8 @@ namespace SRMS
 
         private void btnRunTests_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Check Console for Results.");
+            // show a console output/window in a forms application
+            AllocConsole();
 
             Console.WriteLine("Test suite: ");
             
