@@ -167,6 +167,8 @@ namespace SRMS
             t1.Admin_UpdateUser();
             t1.Admin_DeleteUser();
             t1.Create_Student();
+            t1.Update_Student();
+            t1.Delete_Student();
 
             
         }

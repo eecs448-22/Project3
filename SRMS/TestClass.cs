@@ -203,6 +203,74 @@ namespace MyTests
                 MessageBox.Show(ex.Message, "Exception caught when saving Student table");
               }
         }
+
         
+        public void Update_Student()
+        {
+            string[] test_student = { "Jamie", "Maddox", "jamiemaddox3", "password", "jamiemaddox@ku.edu" };
+            var s = new Student
+            {
+                Id = idUser,
+                FirstName = test_student[0],
+                LastName = test_student[1],
+                UserName = test_student[2],
+                Password = test_student[3],
+                Email = test_student[4],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                conn.Update<Student>(s);
+                var sql = $"SELECT * FROM Student WHERE Id = {idUser}";
+                var student = conn.QuerySingleOrDefault<Student>(sql);
+                
+                if (student.UserName == s.UserName
+                    && student.FirstName == s.FirstName
+                    && student.LastName == s.LastName
+                    && student.Password == s.Password
+                    && student.Email == s.Email)
+                {
+                    Console.WriteLine("Test 5: Student profile successfully updated: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 5: Student profile successfully update: FAIL");
+                }
+            }
+        }
+        
+        public void Delete_Student()
+        {
+            string[] test_student = { "Jamie", "Maddox", "jamiemaddox3", "password", "jamiemaddox@ku.edu" };
+            var s = new Student
+            {
+                Id = idUser,
+                FirstName = test_student[0],
+                LastName = test_student[1],
+                UserName = test_student[2],
+                Password = test_student[3],
+                Email = test_student[4],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Delete(s);
+                    var sql = $"SELECT * FROM Student WHERE Id = {idUser}";
+                    var student = conn.QuerySingleOrDefault<Student>(sql);
+                    if (student == null)
+                    {
+                        Console.WriteLine("Test 6: Student profile successfully deleted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 6: Student profile successfully delete: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when deleting from Student table");
+            }
+        }
     }
 }
