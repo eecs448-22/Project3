@@ -38,7 +38,6 @@ namespace SRMS
             this.PassLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
             this.ProgTitle = new System.Windows.Forms.Label();
-            this.createAccountBtn = new System.Windows.Forms.Button();
             this.signInLabel = new System.Windows.Forms.Label();
             this.signInCB = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -101,17 +100,6 @@ namespace SRMS
             this.ProgTitle.TabIndex = 5;
             this.ProgTitle.Text = "KU Course Access";
             // 
-            // createAccountBtn
-            // 
-            this.createAccountBtn.Location = new System.Drawing.Point(297, 305);
-            this.createAccountBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.createAccountBtn.Name = "createAccountBtn";
-            this.createAccountBtn.Size = new System.Drawing.Size(139, 28);
-            this.createAccountBtn.TabIndex = 6;
-            this.createAccountBtn.Text = "Create or Edit Account";
-            this.createAccountBtn.UseVisualStyleBackColor = true;
-            this.createAccountBtn.Click += new System.EventHandler(this.createAccountBtn_Click);
-            // 
             // signInLabel
             // 
             this.signInLabel.AutoSize = true;
@@ -134,7 +122,6 @@ namespace SRMS
             this.signInCB.Size = new System.Drawing.Size(100, 21);
             this.signInCB.TabIndex = 1;
             this.signInCB.Text = "Student";
-            this.signInCB.SelectedIndexChanged += new System.EventHandler(this.signInCB_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
@@ -179,7 +166,6 @@ namespace SRMS
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.signInCB);
-            this.Controls.Add(this.createAccountBtn);
             this.Controls.Add(this.ProgTitle);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PassLabel);
@@ -192,7 +178,6 @@ namespace SRMS
             this.Name = "LoginUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.LoginUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,7 +192,6 @@ namespace SRMS
         private System.Windows.Forms.Label PassLabel;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label ProgTitle;
-        private System.Windows.Forms.Button createAccountBtn;
         private System.Windows.Forms.Label signInLabel;
         private System.Windows.Forms.ComboBox signInCB;
         private System.Windows.Forms.PictureBox pictureBox1;

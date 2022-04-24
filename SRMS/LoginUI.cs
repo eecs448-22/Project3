@@ -3,15 +3,12 @@
  * ============================================================================= */
 
 using Dapper;
-using Dapper.Contrib.Extensions;
+using Helper;
+using MyTests;
 using System;
 using System.Data.SQLite;
-using System.Windows.Forms;
-using Models;
-using Helper;
-using DBMS;
-using MyTests;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace SRMS
 {
@@ -19,141 +16,101 @@ namespace SRMS
     {
         private int userId = 0;
 
-        // Windows API function
+        // Windows API function to setup opening a console
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
 
         public LoginUI()
         {
-            //Initialize component and database
-            InitializeComponent();
-            createAccountBtn.Visible = false;
-            signInCB.DropDownStyle = ComboBoxStyle.DropDownList;
-            // 0) Administrator, 1) Faculty, 2) Student
-            signInCB.SelectedIndex = 2;
-            //SqliteDataAccess.InitializeDatabase();
-            //foreach (UserModel user in ManageUser.LoadUsers())
-            //{
-            //    //Write each user into console.
-            //    Console.WriteLine(user.Username);
-            //    Console.WriteLine(user.Password);
-            //}
+            InitializeComponent(); //Initialize component and database
+            signInCB.DropDownStyle = ComboBoxStyle.DropDownList; // 0) Administrator, 1) Faculty, 2) Student
+            signInCB.SelectedIndex = 2; //set the default selected as student
         }
 
         public int GetLoginRole()
         {
-            return signInCB.SelectedIndex;
+            return signInCB.SelectedIndex; //return selected index
         }
 
         public int GetUserId()
         {
-            return userId;
+            return userId; //return userId
         }
 
-        private void LoginUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /* Login button 
+        * Programmer: Alice Kuang
+        * Date Created: 4/10/22
+        * Date Revised: 4/14/22
+        * Desc: this is the event handler authenticates a user exists in the database
+        * Pre: requires a sender, and takes an event (button sumbit)
+        * Post: nothing
+        * side-effects: displays error message if invalid credentials or transitions to specified form  
+        * invariants: if succeeds, successful insertion of record into database
+        * faults: none known
+        */
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            lblStatus.Visible = false;
-            var role = signInCB.SelectedIndex;
-            var username = UserInput.Text.Trim();
-            var password = PassInput.Text.Trim();
+            lblStatus.Visible = false; //hide the Login Status label
+            var role = signInCB.SelectedIndex; //get the account type from sign-in comboBox
+            var username = UserInput.Text.Trim(); //get user input for userName
+            var password = PassInput.Text.Trim(); //get user input for password
 
-            userId = Authenticate(username, password, role, out string status);
-            if (userId == 0)
+            userId = Authenticate(username, password, role, out string status); //check if this is a valid user
+            if (userId == 0) //if one of the fields is invalid 
             {
-                // Do not close the Login dialog if user is not valid
-                if (status.Length > 0)
+               
+                if (status.Length > 0) //ensure a status was returned
                 {
-                    lblStatus.Text = status;
-                    lblStatus.Visible = true;
+                    lblStatus.Text = status; //assign the status to the label text
+                    lblStatus.Visible = true; //show the Login Status label
                 }
-                this.DialogResult = DialogResult.None;
+                this.DialogResult = DialogResult.None;  // Keep the login dialog open
             }
         }
 
+        /* Authenticate button 
+        * Programmer: Alice Kuang
+        * Date Created: 4/10/22
+        * Date Revised: 4/14/22
+        * Desc: this function checks for valid login credentials
+        * Pre: requires the username, password, and role from the form; it also has an out 
+        *      string called status, which is instantiated inside the callee function 
+        * Post: returns 0 if authentication failed or the id number if authentication successful
+        * side-effects: displays error message if invalid credentials or transitions to specified form  
+        * invariants: if succeeds, successful insertion of record into database
+        * faults: none known
+        */
         private int Authenticate(string usr, string pwd, int role, out string status)
         {
-            status = String.Empty;
-            var tblNames = new string[] { "Administrator", "Faculty", "Student" };
+            status = String.Empty; //start with an empty status
+            var tblNames = new string[] { "Administrator", "Faculty", "Student" }; 
 
-            if (role >= 0 && role < tblNames.Length)
+            if (role >= 0 && role < tblNames.Length) //check if role valid (Admin, student, or faculty selected)
             {
-                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                using (var conn = new SQLiteConnection(Utils.defaultConn)) //get database connection
                 {
-                    var sql = $"SELECT Id, Password FROM {tblNames[role]} WHERE UserName = '{usr}'";
-                    var user = conn.QueryFirstOrDefault(sql);
-                    if (user == null)
+                    var sql = $"SELECT Id, Password FROM {tblNames[role]} WHERE UserName = '{usr}'"; //sql statement to get id and password
+                    var user = conn.QueryFirstOrDefault(sql); //get the data through using the sql string to query from the database
+                    if (user == null) //if the user could not be found after the query
                     {
-                        status = "Invalid Username!";
+                        status = "Invalid Username!"; //return this status
                         return 0;
                     }
-                    if (user.Password != pwd)
+                    if (user.Password != pwd) //if the password does not matche the password in the query
                     {
-                        status = "Invalid Password!";
+                        status = "Invalid Password!";  //return this status
                         return 0;
                     }
 
-                    return Convert.ToInt32(user.Id);
+                    return Convert.ToInt32(user.Id); //else, the user was valid; return their id. 
                 }
             }
 
-            return 0;
+            return 0; //invalid role
         }
 
 
-/*
-        private void LoginButton_Click(object sender, EventArgs e)
-        {
-            //When the login button is clicked, create a new user model and verify it is a valid user
-            UserModel user = new UserModel();
-            user.Username = UserInput.Text;
-            user.Password = PassInput.Text;
-            this.Hide();
-            StudentUI mainView = new StudentUI(UserInput.Text);
-            mainView.Show();
-
-            if (ManageUser.ValidateUser(user))
-            {
-                Console.WriteLine("user is logged in");
-                //If the user is valid, switch the the next form. Found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-                if(signInCB.Text == "Student")
-                {
-                    this.Hide();
-                    StudentUI mainView = new StudentUI();
-                    mainView.Show();
-                }
-                else
-                {
-                    this.Hide();
-                    FacultyUI teacherView = new FacultyUI();
-                    teacherView.Show();
-                }
-            }
-            else
-            {
-                //Error message for invalid user.
-                Console.WriteLine("invalid user");
-                MessageBox.Show("Error! Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-*/
-        private void createAccountBtn_Click(object sender, EventArgs e)
-        {
-            //Whne the create Account button is clicked, switch pages to create account. Found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-            this.Hide();
-            newPassWordLabel newAcc = new newPassWordLabel();
-            newAcc.Show();
-        }
-
-        private void signInCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnRunTests_Click(object sender, EventArgs e)
         {
@@ -162,6 +119,7 @@ namespace SRMS
 
             Console.WriteLine("Test suite: ");
             
+            //call the test suite functions, which
             TestClass t1 = new TestClass();
             t1.Admin_CreateUser(); //1
             t1.Admin_UpdateUser(); //2

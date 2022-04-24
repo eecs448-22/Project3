@@ -192,7 +192,6 @@ namespace SRMS
             this.dgvGradebook.RowHeadersWidth = 51;
             this.dgvGradebook.Size = new System.Drawing.Size(492, 179);
             this.dgvGradebook.TabIndex = 2;
-            this.dgvGradebook.Click += new System.EventHandler(this.dgvGradebook_Click);
             // 
             // Courselbl
             // 

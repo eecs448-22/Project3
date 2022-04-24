@@ -4,19 +4,14 @@
 
 using Dapper;
 using Dapper.Contrib.Extensions;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SQLite;
-using System.Configuration;
-using System.Windows.Forms;
 using Helper;
 using Models;
+using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace SRMS
 {
@@ -53,10 +48,6 @@ namespace SRMS
         private void logOutBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            ////Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-            //this.Hide();
-            //LoginUI newLogin = new LoginUI();
-            //newLogin.Show();
         }
         public void displayAcctInfo()
         {
@@ -211,11 +202,6 @@ namespace SRMS
 
         }
 
-        private void dgvGradebook_selectedRowSelected(object sender, EventArgs e)
-        {
-
-        }
-
         private void editCourseBtn_Click(object sender, EventArgs e)
         {
             if (CourseCboBox.SelectedItem != null)
@@ -233,9 +219,5 @@ namespace SRMS
             return DialogResult.OK == retval;
         }
 
-        private void dgvGradebook_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

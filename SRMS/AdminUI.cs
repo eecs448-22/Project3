@@ -17,7 +17,7 @@ namespace SRMS
         /* AdminUI constructor
         * Programmer: Alice Kuang
         * Date Created: 4/10/22
-        * Date Revised: 4/14/22
+        * Date Revised: 4/14/22 (Revisor: Alice Kuang)
         * Desc: this is the default constructor for Admin, instantiates two tables for ease of referencing 
         *       dataGridViews and customizes the presets of dataGridView
         * Pre: takes the id of the Admin
@@ -60,7 +60,7 @@ namespace SRMS
         /* Create Button
         * Programmer: Alice Kuang
         * Date Created: 4/10/22
-        * Date Revised: 4/14/22
+        * Date Revised: 4/14/22 (Revisor: Alice Kuang)
         * Desc: Creates a new Record
         * Pre: Buttonclick event received
         * Post: Returns the new record into its table. 
@@ -83,12 +83,12 @@ namespace SRMS
         /* Update Button
       * Programmer: Alice Kuang
       * Date Created: 4/10/22
-      * Date Revised: 4/14/22
+      * Date Revised: 4/14/22 (Revisor: Alice Kuang)
       * Desc: Updates an existing Record
       * Pre: Buttonclick event received
       * Post: Returns the Updated record into its table. 
       * side-effects: none
-      * invariants: the record will be inserted in the database
+      * invariants: the record will be updated in the database
       * faults: none known
       */
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -107,44 +107,44 @@ namespace SRMS
         /* Delete Button
         * Programmer: Alice Kuang
         * Date Created: 4/10/22
-        * Date Revised: 4/14/22
+        * Date Revised: 4/14/22 (Revisor: Alice Kuang)
         * Desc: Updates an existing Record
-        * Pre: Buttonclick event received
-        * Post: Returns the Updated record into its table. 
+        * Pre: Buttonclick event was sent and received
+        * Post: The record is removed from the database
         * side-effects: none
-        * invariants: the record will be inserted in the database
+        * invariants: the record will be removed from the database
         * faults: none known
         */
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                var idx = tabControlAdmin.SelectedIndex;
-                var tid = Convert.ToInt32(tblGrids[idx].SelectedRows[0].Cells[0].Value);
+                var idx = tabControlAdmin.SelectedIndex; //get the selected index from the admin
+                var tid = Convert.ToInt32(tblGrids[idx].SelectedRows[0].Cells[0].Value); //get the Id of the currently selected row
 
-                bool retval = false;
-                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                bool retval = false; 
+                using (var conn = new SQLiteConnection(Utils.defaultConn)) //get connection string to database
                 {
-                    switch (idx)
+                    switch (idx) //based on tab
                     {
                         case 0:
-                            var a = new Administrator { Id = tid };
-                            retval = conn.Delete(a);
+                            var a = new Administrator { Id = tid }; //create admin object with the retreived id
+                            retval = conn.Delete(a);                //use the id to delete the record with the id
                             break;
 
                         case 1:
-                            var f = new Faculty { Id = tid };
-                            retval = conn.Delete(f);
+                            var f = new Faculty { Id = tid }; //create Faculty object with the retreived id
+                            retval = conn.Delete(f);          //use the id to delete the record with the id
                             break;
 
                         case 2:
-                            var s = new Student { Id = tid };
-                            retval = conn.Delete(s);
+                            var s = new Student { Id = tid }; //create Student object with the retreived id
+                            retval = conn.Delete(s);          //use the id to delete the record with the id
                             break;
 
                         case 3:
-                            var c = new Course { Id = tid };
-                            retval = conn.Delete(c);
+                            var c = new Course { Id = tid }; //create Course object with the retreived id
+                            retval = conn.Delete(c);         //use the id to delete the record with the id
                             break;
 
                         default:
@@ -153,30 +153,30 @@ namespace SRMS
                     }
                 }
 
-                if (retval)
+                if (retval) //if the record was successfully deleted
                 {
-                    var sql = $"SELECT * FROM {tblNames[idx]}";
-                    Utils.DisplayData(tblGrids[idx], sql);
+                    var sql = $"SELECT * FROM {tblNames[idx]}"; //create a sql string to query the table again
+                    Utils.DisplayData(tblGrids[idx], sql); //using DisplayData to "refresh" the view 
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) //exception handling if problem with database connections
             {
                 MessageBox.Show(ex.Message, "Exception caught when deleting");
             }
         }
 
-        /* AdminUI constructor
-* Programmer: Alice Kuang
-* Date Created: 4/10/22
-* Date Revised: 4/14/22
-* Desc: this is the default constructor for Admin
-* Pre: takes the id of the Admin
-* Post: Returns the new or updated Admin record. 
-* side-effects: none  
-* invariants: the record will be inserted or modified in the database
-* faults: none known
-*/
-        //update and isnert based on tab idx and id. id = 0 is insert; id > 0 is udpate
+        /* UpdateInsert Method
+        * Programmer: Alice Kuang
+        * Date Created: 4/10/22
+        * Date Revised: 4/14/22 (Revisor: Alice Kuang)
+        * Desc: update and isnert based on tab idx and id. id = 0 is insert; id > 0 is udpate
+        * Pre: takes the index of a table and an id value
+        * Post: Returns a boolean status of whether the form opening was successful or not
+        * side-effects: opens the dialog corresponding to the given index  
+        * invariants: none
+        * faults: none known
+        */
+        //
         private bool updateInsert(int idx, int id = 0)
         {
             var retval = DialogResult.Cancel;
