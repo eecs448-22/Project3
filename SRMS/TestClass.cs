@@ -390,5 +390,49 @@ namespace MyTests
                 MessageBox.Show(ex.Message, "Exception caught when deleting from Admin table");
             }
         }
+
+        public void Create_Course()
+        {
+            var test_course = new String[] { "HA", "101", "Introduction to Art History", "3", "SMA 211", "Summer2022" };
+            int level_int = Convert.ToInt32(test_course[1]);
+            int hours_int = Convert.ToInt32(test_course[3]);
+            var c = new Course
+            {
+                Subject = test_course[0],
+                Level = level_int,
+                Title = test_course[2],
+                Hours = hours_int,
+                Room = test_course[4],
+                Semester = test_course[5],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Insert(c);
+                    var sql = $"SELECT MAX(Id) FROM Course";
+                    idUser = conn.ExecuteScalar<int>(sql);
+                    sql = $"SELECT * From Course Where Id = {idUser}";
+                    var course = conn.QuerySingleOrDefault<Course>(sql);
+                    if (course.Subject == c.Subject
+                        && course.Level == c.Level
+                        && course.Title == c.Title
+                        && course.Hours == c.Hours
+                        && course.Room == c.Room
+                        && course.Semester == c.Semester)
+                    {
+                        Console.WriteLine("Test 10: New Course successfully inserted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 10: New Course successfully inserted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when saving to Course table");
+            } 
+        }
     }
 }

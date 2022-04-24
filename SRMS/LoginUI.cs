@@ -172,7 +172,7 @@ namespace SRMS
             t1.Create_Faculty();
             t1.Update_Faculty();
             t1.Delete_Faculty();
-            
+            t1.Create_Course();
         }
     }
 }
