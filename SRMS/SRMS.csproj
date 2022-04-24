@@ -74,12 +74,6 @@
     <Compile Include="CourseForm.Designer.cs">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateAccountUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateAccountUI.Designer.cs">
-      <DependentUpon>CreateAccountUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="FacultyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +120,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateAccountUI.resx">
-      <DependentUpon>CreateAccountUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FacultyForm.resx">
       <DependentUpon>FacultyForm.cs</DependentUpon>
