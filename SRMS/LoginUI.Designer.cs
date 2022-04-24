@@ -43,6 +43,7 @@ namespace SRMS
             this.signInCB = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.btnRunTests = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,12 +159,23 @@ namespace SRMS
             this.lblStatus.Text = "Status:";
             this.lblStatus.Visible = false;
             // 
+            // btnRunTests
+            // 
+            this.btnRunTests.Location = new System.Drawing.Point(309, 351);
+            this.btnRunTests.Name = "btnRunTests";
+            this.btnRunTests.Size = new System.Drawing.Size(103, 31);
+            this.btnRunTests.TabIndex = 9;
+            this.btnRunTests.Text = "Run Test Suite";
+            this.btnRunTests.UseVisualStyleBackColor = true;
+            this.btnRunTests.Click += new System.EventHandler(this.btnRunTests_Click);
+            // 
             // LoginUI
             // 
             this.AcceptButton = this.LoginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 406);
+            this.Controls.Add(this.btnRunTests);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.signInCB);
@@ -200,5 +212,6 @@ namespace SRMS
         private System.Windows.Forms.ComboBox signInCB;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button btnRunTests;
     }
 }

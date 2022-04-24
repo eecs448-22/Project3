@@ -10,13 +10,19 @@ using System.Windows.Forms;
 using Models;
 using Helper;
 using DBMS;
-
+using MyTests;
+using System.Runtime.InteropServices;
 
 namespace SRMS
 {
     public partial class LoginUI : Form
     {
         private int userId = 0;
+
+        // Windows API function
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
 
         public LoginUI()
         {
@@ -99,6 +105,7 @@ namespace SRMS
             return 0;
         }
 
+
 /*
         private void LoginButton_Click(object sender, EventArgs e)
         {
@@ -146,6 +153,21 @@ namespace SRMS
         private void signInCB_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRunTests_Click(object sender, EventArgs e)
+        {
+            // show a console output/window in a forms application
+            AllocConsole();
+
+            Console.WriteLine("Test suite: ");
+            
+            TestClass t1 = new TestClass();
+            t1.Admin_CreateUser();
+            t1.Admin_UpdateUser();
+            t1.Admin_DeleteUser();
+
+            
         }
     }
 }
