@@ -163,20 +163,24 @@ namespace SRMS
             Console.WriteLine("Test suite: ");
             
             TestClass t1 = new TestClass();
-            t1.Admin_CreateUser();
-            t1.Admin_UpdateUser();
-            t1.Admin_DeleteUser();
-            t1.Create_Student();
-            t1.Update_Student();
-            t1.Delete_Student();
-            t1.Create_Faculty();
-            t1.Update_Faculty();
-            t1.Delete_Faculty();
-            t1.Create_Course();
-            t1.Update_Course();
-            t1.Delete_Course();
-            t1.Assign_Student_Course();
-            t1.Drop_Student_Course();
+            t1.Admin_CreateUser(); //1
+            t1.Admin_UpdateUser(); //2
+            t1.Admin_DeleteUser(); //3
+            t1.Create_Student(); //4
+            t1.Update_Student(); //5
+            t1.Delete_Student(); //6
+            t1.Create_Faculty(); //7
+            t1.Update_Faculty(); //8
+            t1.Delete_Faculty(); //9
+            t1.Create_Course(); //10
+            t1.Update_Course(); //11
+            t1.Delete_Course(); //12
+            t1.Assign_Student_Course(); //13
+            t1.Drop_Student_Course(); //14
+            t1.Assign_Faculty_Course(); //15
+            t1.Remove_Faculty_Course(); //16
+            t1.Update_Student_Grade(); //17
+            t1.Revert_Student_Grade(); //18
         }
     }
 }
