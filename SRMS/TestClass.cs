@@ -272,5 +272,86 @@ namespace MyTests
                 MessageBox.Show(ex.Message, "Exception caught when deleting from Student table");
             }
         }
+        
+        public void Create_Faculty()
+        {
+            var test_faculty = new string[] { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "password4", "Professor", "Business" };
+            var f = new Faculty
+            {
+                FirstName = test_faculty[0],
+                LastName = test_faculty[1],
+                UserName = test_faculty[2],
+                Email = test_faculty[3],
+                Password = test_faculty[4],
+                Title = test_faculty[5],
+                Dept = test_faculty[6],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Insert(f);
+                    var sql = "SELECT MAX(Id) FROM Faculty";
+                    idUser = conn.ExecuteScalar<int>(sql);
+                    sql = $"SELECT * From Faculty Where Id = {idUser}";
+                    var faculty = conn.QuerySingleOrDefault<Faculty>(sql);
+                    if (faculty.UserName == f.UserName
+                        && faculty.FirstName == f.FirstName
+                        && faculty.LastName == f.LastName
+                        && faculty.Email == f.Email
+                        && faculty.Password == f.Password
+                        && faculty.Title == f.Title
+                        && faculty.Dept == f.Dept)
+                    {
+                        Console.WriteLine("Test 7: New Faculty profile successfully inserted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 7: New Faculty profile successfully inserted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when saving to Faculty table");
+            }
+        }
+
+        public void Update_Faculty()
+        {
+            string[] test_faculty = { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "newpassword", "Associate Professor", "Business" };
+            var f = new Faculty
+            {
+                Id = idUser,
+                FirstName = test_faculty[0],
+                LastName = test_faculty[1],
+                UserName = test_faculty[2],
+                Email = test_faculty[3],
+                Password = test_faculty[4],
+                Title = test_faculty[5],
+                Dept = test_faculty[6],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                conn.Update<Faculty>(f);
+                var sql = $"SELECT * FROM Faculty WHERE Id = {idUser}";
+                var faculty = conn.QuerySingleOrDefault<Faculty>(sql);
+                if (faculty.UserName == f.UserName
+                    && faculty.FirstName == f.FirstName
+                    && faculty.LastName == f.LastName
+                    && faculty.Password == f.Password
+                    && faculty.Email == f.Email
+                    && faculty.Title == f.Title
+                    && faculty.Dept == f.Dept
+                    )
+                {
+                    Console.WriteLine("Test 8: Faculty profile successfully updated: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 8: Faculty profile successfully update: FAIL");
+                }
+            }
+        }
     }
 }
