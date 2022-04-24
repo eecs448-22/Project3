@@ -393,7 +393,7 @@ namespace MyTests
 
         public void Create_Course()
         {
-            var test_course = new String[] { "HA", "101", "Introduction to Art History", "3", "SMA 211", "Summer2022" };
+            string[] test_course = { "HA", "101", "Introduction to Art History", "3", "SMA 211", "Summer2022" };
             int level_int = Convert.ToInt32(test_course[1]);
             int hours_int = Convert.ToInt32(test_course[3]);
             var c = new Course
@@ -433,6 +433,79 @@ namespace MyTests
             {
                 MessageBox.Show(ex.Message, "Exception caught when saving to Course table");
             } 
+        }
+
+        public void Update_Course()
+        {
+            string[] test_course = { "HA", "101", "Introduction to Art History", "4", "SMA 200", "Summer2022" };
+            int level_int = Convert.ToInt32(test_course[1]);
+            int hours_int = Convert.ToInt32(test_course[3]);
+            var c = new Course
+            {
+                Id = idUser,
+                Subject = test_course[0],
+                Level = level_int,
+                Title = test_course[2],
+                Hours = hours_int,
+                Room = test_course[4],
+                Semester = test_course[5],
+            };
+            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            {
+                conn.Update<Course>(c);
+                var sql = $"SELECT * FROM Course WHERE Id = {idUser}";
+                var course = conn.QuerySingleOrDefault<Course>(sql);
+                if (course.Subject == c.Subject
+                        && course.Level == c.Level
+                        && course.Title == c.Title
+                        && course.Hours == c.Hours
+                        && course.Room == c.Room
+                        && course.Semester == c.Semester)
+                {
+                    Console.WriteLine("Test 11: Course information successfully updated: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 11: Course information successfully udpated: FAIL");
+                }
+            }
+        }
+        public void Delete_Course()
+        {
+            string[] test_course = { "HA", "101", "Introduction to Art History", "4", "SMA 200", "Summer2022" };
+            int level_int = Convert.ToInt32(test_course[1]);
+            int hours_int = Convert.ToInt32(test_course[3]);
+            var c = new Course
+            {
+                Id = idUser,
+                Subject = test_course[0],
+                Level = level_int,
+                Title = test_course[2],
+                Hours = hours_int,
+                Room = test_course[4],
+                Semester = test_course[5],
+            };
+            try
+            {
+                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                {
+                    conn.Delete(c);
+                    var sql = $"SELECT * FROM Course WHERE Id = {idUser}";
+                    var course = conn.QuerySingleOrDefault<Course>(sql);
+                    if (course == null)
+                    {
+                        Console.WriteLine("Test 12: Course successfully deleted: PASS");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Test 12: Course successfully deleted: FAIL");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception caught when deleting from Course table");
+            }
         }
     }
 }
