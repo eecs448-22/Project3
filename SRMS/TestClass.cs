@@ -333,8 +333,18 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Create_Faculty() Method
+         * Programmer: Maggie Swartz
+         * Date Created: 4/24/22
+         * Date Revised: 4/24/22
+         * Desc: Seventh test, creates new faculty member profile and inserts into Faculty database
+         * Pre: need access to database and a faculty profile to insert
+         * Post: prints to console whether or not the test passed or failed
+         * Error/Exceptions: throws an exception if encounters an error when inserting to the Faculty table
+        */
         public void Create_Faculty() //Test 7
         {
+            //Creates a new faculty profile to insert into the database
             var test_faculty = new string[] { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "password4", "Professor", "Business" };
             var f = new Faculty
             {
@@ -348,13 +358,14 @@ namespace MyTests
             };
             try
             {
-                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establishes connection to database
                 {
-                    conn.Insert(f);
+                    conn.Insert(f); //Inserts new faculty profile to the database
                     var sql = "SELECT MAX(Id) FROM Faculty";
-                    idUser = conn.ExecuteScalar<int>(sql);
-                    sql = $"SELECT * From Faculty Where Id = {idUser}";
+                    idUser = conn.ExecuteScalar<int>(sql); 
+                    sql = $"SELECT * From Faculty Where Id = {idUser}"; //Searches database for recently added faculty member
                     var faculty = conn.QuerySingleOrDefault<Faculty>(sql);
+                    //If all fields match, then faculty member was inserted, return PASS, otherwise return FAIL
                     if (faculty.UserName == f.UserName
                         && faculty.FirstName == f.FirstName
                         && faculty.LastName == f.LastName
@@ -377,8 +388,17 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Update_Faculty() Method
+         * Programmer: Maggie Swartz
+         * Date Created: 4/24/22
+         * Date Revised: 4/24/22
+         * Desc: Eighth test, updates information for existing faculty profile in the Faculty table
+         * Pre: need access to database and a student profile to look up in the database w/ slightly altered information
+         * Post: prints to console whether or not the test passed or failed
+        */
         public void Update_Faculty() //Test 8
         {
+            //Records new faculty profile with slightly altered information to update
             string[] test_faculty = { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "newpassword", "Associate Professor", "Business" };
             var f = new Faculty
             {
@@ -391,11 +411,12 @@ namespace MyTests
                 Title = test_faculty[5],
                 Dept = test_faculty[6],
             };
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establishes connection to database
             {
-                conn.Update<Faculty>(f);
+                conn.Update<Faculty>(f); //Updates the profile in the faculty table
                 var sql = $"SELECT * FROM Faculty WHERE Id = {idUser}";
-                var faculty = conn.QuerySingleOrDefault<Faculty>(sql);
+                var faculty = conn.QuerySingleOrDefault<Faculty>(sql); //Searches the table to see if the info was updated successfully
+                //If all fields match, then record was updated successfully, return PASS, otherwise return FAIL
                 if (faculty.UserName == f.UserName
                     && faculty.FirstName == f.FirstName
                     && faculty.LastName == f.LastName
@@ -414,8 +435,18 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Delete_Faculty() Method
+         * Programmer: Maggie Swartz
+         * Date Created: 4/24/22
+         * Date Revised: 4/24/22
+         * Desc: Ninth test, deletes existing faculty profile from the Faculty table
+         * Pre: need access to database and a faculty profile to look up in the database to delete
+         * Post: prints to console whether or not the test passed or failed
+         * Error/Exceptions: throws an exception if encounters an error when deleting from the faculty table
+        */
         public void Delete_Faculty() //Test 9
         {
+            //Records information of the faculty member you hope to delete from the table
             string[] test_faculty = { "Jillian", "Ward", "jillianward", "jillianward@ku.edu", "newpassword", "Associate Professor", "Business" };
             var f = new Faculty
             {
@@ -430,12 +461,12 @@ namespace MyTests
             };
             try
             {
-                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establishes connection to the database
                 {
-                    conn.Delete(f);
+                    conn.Delete(f); //Deletes the faculty profile from the Faculty table
                     var sql = $"SELECT * FROM Faculty WHERE Id = {idUser}";
-                    var faculty = conn.QuerySingleOrDefault<Administrator>(sql);
-                    if (faculty == null)
+                    var faculty = conn.QuerySingleOrDefault<Administrator>(sql); //Searches table to see if you can find deleted faculty
+                    if (faculty == null) //If the faculty member cannot be found, then deletio was successful, return PASS, otherwise FAIL
                     {
                         Console.WriteLine("Test 9: Faculty profile successfully deleted: PASS");
                     }
