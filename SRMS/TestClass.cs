@@ -18,7 +18,17 @@ namespace MyTests
 
         //NOTE: USERNAME IS A UNIQUE FIELD; RECOMMENDED TO CREATE USER AND DELETE SAME USER 
         //TO AVOID NOT BEING ABLE TO SEED THE SAME RECORD 
-        public void Admin_CreateUser()
+        
+        /* Code Artifact: Admin_CreateUser() Method
+         * Programmer: Alice Kuang
+         * Date Created: 4/23/22
+         * Date Revised: 4/24/22
+         * Desc: First test, checks to see if a new admin user can be created and inserted into the Administrator table
+         * Pre: need access to database and a test user w/ information to insert
+         * Post: prints to console whether or not the test passed or failed
+         * Error/Exceptions: Will throw an exception if an error is encoutnered when saving to admin table
+        */
+        public void Admin_CreateUser() //Test 1
         {
 
             //Steps needed:
@@ -75,8 +85,16 @@ namespace MyTests
 
 
         }
-
-        public void Admin_UpdateUser()
+        
+        /* Code Artifact: Admin_UpdateUser() Method
+         * Programmer: Alice Kuang
+         * Date Created: 4/23/22
+         * Date Revised: 4/24/22
+         * Desc: Second test, checks to see if an existing admin user's info can be updated in Administrator table
+         * Pre: need access to database and a test user w/ changed information to insert
+         * Post: prints to console whether or not the test passed or failed
+        */
+        public void Admin_UpdateUser() //Test 2
         {
 
             //Steps needed:
@@ -121,6 +139,15 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Admin_DeleteUser() Method
+         * Programmer: Alice Kuang
+         * Date Created: 4/23/22
+         * Date Revised: 4/24/22
+         * Desc: Third test, checks to see if an existing admin user can be deleted from the Administrator table
+         * Pre: need access to database and info a user looking to delete
+         * Post: prints to console whether or not the test passed or failed
+         * Error/Exceptions: Will throw an exception if an error is encountered when deleting from admin table
+        */
         public void Admin_DeleteUser()
         {
             string[] user = { "Linda", "Jones", "linda3.smith", "test", "lsmith3@ku.edu" };
