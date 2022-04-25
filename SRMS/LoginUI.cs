@@ -121,23 +121,23 @@ namespace SRMS
 
             //Calls the test suite functions, which:
             TestClass t1 = new TestClass();
-            t1.Admin_CreateUser(); //Test 1:
-            t1.Admin_UpdateUser(); //Test 2:
-            t1.Admin_DeleteUser(); //Test 3:
-            t1.Create_Student(); //Test 4:
-            t1.Update_Student(); //Test 5:
-            t1.Delete_Student(); //Test 6:
-            t1.Create_Faculty(); //Test 7:
-            t1.Update_Faculty(); //Test 8:
-            t1.Delete_Faculty(); //Test 9:
-            t1.Create_Course(); //Test 10:
-            t1.Update_Course(); //Test 11:
-            t1.Delete_Course(); //Test 12:
-            t1.Assign_Student_Course(); //Test 13:
-            t1.Drop_Student_Course(); //Test 14:
-            t1.Assign_Faculty_Course(); //Test 15:
-            t1.Remove_Faculty_Course(); //Test 16:
-            t1.Update_Student_Grade(); //Test 17:
+            t1.Admin_CreateUser(); //Test 1: Creates new admin user
+            t1.Admin_UpdateUser(); //Test 2: Updates existing admin user's info
+            t1.Admin_DeleteUser(); //Test 3: Deletes existing admin user
+            t1.Create_Student(); //Test 4: Creates new student
+            t1.Update_Student(); //Test 5: Updates existing student's info
+            t1.Delete_Student(); //Test 6: Deletes existing student
+            t1.Create_Faculty(); //Test 7: Creates new faculty member
+            t1.Update_Faculty(); //Test 8: Updates existing faculty info
+            t1.Delete_Faculty(); //Test 9: Deletes existing facuty member
+            t1.Create_Course(); //Test 10: Creates new course offerin
+            t1.Update_Course(); //Test 11: Updates existing course offering's info
+            t1.Delete_Course(); //Test 12: Deletes existing course offering
+            t1.Assign_Student_Course(); //Test 13: Enrolls existing student in new course offering
+            t1.Drop_Student_Course(); //Test 14: Drops student form assigned course offering
+            t1.Assign_Faculty_Course(); //Test 15: Assigns faculty to a new course offering
+            t1.Remove_Faculty_Course(); //Test 16: Removes faculty from existing course offering
+            t1.Update_Student_Grade(); //Test 17: Updates student's grade
         }
     }
 }
