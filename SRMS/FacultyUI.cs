@@ -256,7 +256,7 @@ namespace SRMS
         */
         private void editGradeBtn_Click(Object sender, EventArgs e)
         {
-            if (gradeTextBox.Text != null)
+            if (gradeTextBox.Text != null && CourseCboBox.SelectedIndex >= 0)
             {
                 dynamic grade = gradeTextBox.Text;
                 dynamic id = dgvGradebook.SelectedRows[0].Cells["Id"].Value;
