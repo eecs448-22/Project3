@@ -482,6 +482,15 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Create_Course() Method
+         * Programmer: Maggie Swartz
+         * Date Created: 4/24/22
+         * Date Revised: 4/24/22
+         * Desc: Tenth test, reates new course and inserts into Course table
+         * Pre: need access to database and a course profile to insert in the database
+         * Post: prints to console whether or not the test passed or failed
+         * Error/Exceptions: throws an exception if encounters an error when inserting to the course table
+        */
         public void Create_Course() //Test 10
         {
             //Create profile with new course information to insert into the course table
@@ -528,6 +537,14 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Update_Course() Method
+         * Programmer: Maggie Swartz
+         * Date Created: 4/24/22
+         * Date Revised: 4/24/22
+         * Desc: Eleventh test, updates existing course information and updates Course table
+         * Pre: need access to database and a course profile w/ slightly altered course information
+         * Post: prints to console whether or not the test passed or failed
+        */
         public void Update_Course() //Test 11
         {
             //Create course profile w/ slightly altered information from existing profile
@@ -565,6 +582,16 @@ namespace MyTests
                 }
             }
         }
+
+        /* Code Artifact: Delete_Course() Method
+         * Programmer: Maggie Swartz
+         * Date Created: 4/24/22
+         * Date Revised: 4/24/22
+         * Desc: Twelfth test, deletes existing course and removes from Course table
+         * Pre: need access to database and a course profile to delete from the course table
+         * Post: prints to console whether or not the test passed or failed
+         * Error/Exceptions: throws an exception if encounters an error when deleting from the course table
+        */
         public void Delete_Course() //Test 12
         {
             //Record information for course you want to delete from the Course table
