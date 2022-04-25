@@ -190,7 +190,10 @@ namespace SRMS
         private void editAcctInfoBtn_Click(object sender, EventArgs e)
         {
             editInfo(facultyId);
+            loginPageLoadName();
             displayAcctInfo();
+            displayClasses();
+            loadCourseSelect();
         }
         /* @pre: Course info in database
          * @post: Course list available in combobox
@@ -212,6 +215,7 @@ namespace SRMS
                 var courses = conn.Query<Course>(sql);
                 courses = courses.ToArray();
                 coursesTaught = new List<int>();
+                CourseCboBox.Items.Clear();
                 foreach (Course c in courses)
                 {
                     coursesTaught.Add(c.Id);
@@ -308,6 +312,9 @@ namespace SRMS
             {
                 var courseId = coursesTaught.ElementAt(CourseCboBox.SelectedIndex);
                 editCourse(courseId);
+                loginPageLoadName();
+                displayAcctInfo();
+                displayClasses();
             }
         }
         /* @pre: edit course button event handler made
