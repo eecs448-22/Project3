@@ -12,18 +12,11 @@
  */
 
 using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
 using Helper;
-using System.Linq;  
+using System;
+using System.Configuration;
+using System.Data.SQLite;
+using System.Windows.Forms;
 
 
 namespace SRMS
@@ -42,14 +35,7 @@ namespace SRMS
         */
         private void button_logOut_Click(object sender, EventArgs e)
         {
-            this.Close();
-            // Close the form here; otherwise, the app won't exit, which prevents us from rebuilding app.
-            // https://stackoverflow.com/questions/50469473/switch-between-forms-from-main-program
-
-            //Hide the current window and switch to the login window, found from https://www.youtube.com/watch?v=NBOaMrigrRw&t=4s
-            //this.Hide();
-            //LoginUI logOut = new LoginUI();
-            //logOut.Show();
+            this.Close(); // Close the form here; 
         }
 
         /* @pre: none
@@ -187,10 +173,6 @@ namespace SRMS
             //listBox1.SetSelected(tabControl_studentInfo.SelectedIndex, true);
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         /* @pre: a given student record exists that can be updated
          * @post user can update accout info
@@ -228,10 +210,6 @@ namespace SRMS
             }
         }
 
-        private void tabPage_accInfo_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /* @pre: Valid student account info exists that can be updated. 
          * @post StudentForm is shown and updated
@@ -249,25 +227,6 @@ namespace SRMS
             return DialogResult.OK == retval;
         }
 
-        private void textBox_firstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void StudentUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage_welcome_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvClasses_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         /* @pre: Combobox index has been changed
          * @post Enrollment table is updated according to the selected semester from the combo box.
@@ -299,7 +258,7 @@ namespace SRMS
         private void enrollAddBtn_Click(object sender, EventArgs e)
         {
         //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
-        https://stackoverflow.com/questions/15536223/how-do-i-avoid-object-reference-not-set-to-an-instance-of-an-object
+        //https://stackoverflow.com/questions/15536223/how-do-i-avoid-object-reference-not-set-to-an-instance-of-an-object
             int rowCount = dgvEnrollment.Rows.Count; // Obtains the row count for the enrollment dgv
             //Ensures that there are entries in the dgv
             if(rowCount > 0)
@@ -327,10 +286,6 @@ namespace SRMS
             else MessageBox.Show("Error - No course is selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void calender_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
 
         /* @pre: Drop button for enrollment is clicked
          * @post Enrollment selection is removed the courses table in the DB
@@ -342,7 +297,7 @@ namespace SRMS
         private void dropEnrollBtn_Click(object sender, EventArgs e)
         {
         //https://stackoverflow.com/questions/3578144/index-of-currently-selected-row-in-datagridview
-        https://stackoverflow.com/questions/15536223/how-do-i-avoid-object-reference-not-set-to-an-instance-of-an-object
+        //https://stackoverflow.com/questions/15536223/how-do-i-avoid-object-reference-not-set-to-an-instance-of-an-object
             int rowCount = dgvClasses.Rows.Count; // Obtains the row count for the enrollment dgv
             //Ensures that there are entries in the dgv
             if (rowCount > 0)
@@ -374,19 +329,6 @@ namespace SRMS
             }
         }
 
-        private void labelName_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void dgvEnrollment_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tabPage_enrollment_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

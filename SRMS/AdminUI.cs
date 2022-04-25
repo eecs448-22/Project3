@@ -81,16 +81,16 @@ namespace SRMS
         }
 
         /* Update Button
-      * Programmer: Alice Kuang
-      * Date Created: 4/10/22
-      * Date Revised: 4/14/22 (Revisor: Alice Kuang)
-      * Desc: Updates an existing Record
-      * Pre: Buttonclick event received
-      * Post: Returns the Updated record into its table. 
-      * side-effects: none
-      * invariants: the record will be updated in the database
-      * faults: none known
-      */
+       * Programmer: Alice Kuang
+       * Date Created: 4/10/22
+       * Date Revised: 4/14/22 (Revisor: Alice Kuang)
+       * Desc: Updates an existing Record
+       * Pre: Buttonclick event received
+       * Post: Returns the Updated record into its table. 
+       * side-effects: none
+       * invariants: the record will be updated in the database
+       * faults: none known
+       */
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             int idx = tabControlAdmin.SelectedIndex;
@@ -176,7 +176,6 @@ namespace SRMS
         * invariants: none
         * faults: none known
         */
-        //
         private bool updateInsert(int idx, int id = 0)
         {
             var retval = DialogResult.Cancel;

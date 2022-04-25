@@ -111,8 +111,6 @@
             this.tabPage_welcome.TabIndex = 2;
             this.tabPage_welcome.Text = "Welcome";
             this.tabPage_welcome.UseVisualStyleBackColor = true;
-            this.tabPage_welcome.Click += new System.EventHandler(this.tabPage_welcome_Click);
-            // 
             // label_enrollment
             // 
             this.label_enrollment.AutoSize = true;
@@ -165,7 +163,6 @@
             this.labelName.Size = new System.Drawing.Size(327, 62);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "{placeHolder}";
-            this.labelName.Click += new System.EventHandler(this.labelName_Click);
             // 
             // label_welcome
             // 
@@ -204,7 +201,6 @@
             this.tabPage_accInfo.TabIndex = 0;
             this.tabPage_accInfo.Text = "Account Information";
             this.tabPage_accInfo.UseVisualStyleBackColor = true;
-            this.tabPage_accInfo.Click += new System.EventHandler(this.tabPage_accInfo_Click);
             // 
             // showPW
             // 
@@ -351,7 +347,6 @@
             this.textBox_firstName.ReadOnly = true;
             this.textBox_firstName.Size = new System.Drawing.Size(230, 30);
             this.textBox_firstName.TabIndex = 3;
-            this.textBox_firstName.TextChanged += new System.EventHandler(this.textBox_firstName_TextChanged);
             // 
             // label_id
             // 
@@ -430,7 +425,6 @@
             this.dgvClasses.RowTemplate.Height = 24;
             this.dgvClasses.Size = new System.Drawing.Size(571, 196);
             this.dgvClasses.TabIndex = 0;
-            this.dgvClasses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClasses_CellContentClick);
             // 
             // tabPage_enrollment
             // 
@@ -449,7 +443,6 @@
             this.tabPage_enrollment.Tag = "Maggie";
             this.tabPage_enrollment.Text = "Enrollment";
             this.tabPage_enrollment.UseVisualStyleBackColor = true;
-            this.tabPage_enrollment.Click += new System.EventHandler(this.tabPage_enrollment_Click);
             // 
             // enrollAddBtn
             // 
@@ -480,8 +473,7 @@
             this.dgvEnrollment.RowHeadersWidth = 51;
             this.dgvEnrollment.Size = new System.Drawing.Size(613, 187);
             this.dgvEnrollment.TabIndex = 15;
-            this.dgvEnrollment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEnrollment_CellContentClick);
-            // 
+           // 
             // label_selectSemester
             // 
             this.label_selectSemester.AutoSize = true;
@@ -572,7 +564,6 @@
             this.calender.Location = new System.Drawing.Point(12, 351);
             this.calender.Name = "calender";
             this.calender.TabIndex = 18;
-            this.calender.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calender_DateChanged);
             // 
             // StudentUI
             // 
@@ -589,7 +580,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "StudentUI";
             this.Text = "Student";
-            this.Load += new System.EventHandler(this.StudentUI_Load);
             this.tabControl_studentInfo.ResumeLayout(false);
             this.tabPage_welcome.ResumeLayout(false);
             this.tabPage_welcome.PerformLayout();
