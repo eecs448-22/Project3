@@ -630,6 +630,15 @@ namespace MyTests
                 MessageBox.Show(ex.Message, "Exception caught when deleting from Course table");
             }
         }
+
+        /* Code Artifact: Assign_Student_Course() Method
+        * Programmer: Maggie Swartz
+        * Date Created: 4/24/22
+        * Date Revised: 4/24/22
+        * Desc: Thirteenth test, enrolls an existing student into a new course
+        * Pre: need access to database and a student profile + new course to enroll that student into
+        * Post: prints to console whether or not the test passed or failed
+       */
         public void Assign_Student_Course() //Test 13
         {
             //** added student id as first array element**
@@ -657,6 +666,14 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Drop_Student_Course() Method
+        * Programmer: Maggie Swartz
+        * Date Created: 4/24/22
+        * Date Revised: 4/24/22
+        * Desc: Fourteenth test, drops a student from a course they are enrolled in
+        * Pre: need access to database and a student profile + course info they want to drop
+        * Post: prints to console whether or not the test passed or failed
+       */
         public void Drop_Student_Course() //Test 14
         {
             //Create profile with pertinent information for student and course you want to drop in Enrollment table
@@ -683,6 +700,14 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Assign_Faculty_Course() Method
+        * Programmer: Maggie Swartz
+        * Date Created: 4/24/22
+        * Date Revised: 4/24/22
+        * Desc: Fifteenth test, assigns a faculty member a new course to teach
+        * Pre: need access to database and a faculty profile + new course for them to teach
+        * Post: prints to console whether or not the test passed or failed
+       */
         public void Assign_Faculty_Course() //Test 15
         {
             //Create profile with the faculty info and course info needed to update Teaching table
@@ -710,6 +735,14 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Remove_Faculty_Course() Method
+        * Programmer: Maggie Swartz
+        * Date Created: 4/24/22
+        * Date Revised: 4/24/22
+        * Desc: Sixteenth test, removes a faculty member from teaching one of the courses they are assigned
+        * Pre: need access to database and a faculty profile + the info for the course they want to remove
+        * Post: prints to console whether or not the test passed or failed
+       */
         public void Remove_Faculty_Course() //Test 16
         {
             //Create profile with info for the course assignment you want to remove for the faculty member
@@ -736,6 +769,14 @@ namespace MyTests
             }
         }
 
+        /* Code Artifact: Update_Student_Grade() Method
+        * Programmer: Maggie Swartz
+        * Date Created: 4/24/22
+        * Date Revised: 4/24/22
+        * Desc: Seventeenth test, updates final grade in a course for a student
+        * Pre: need access to database and a student profile + course info + grade you want to update
+        * Post: prints to console whether or not the test passed or failed
+       */
         public void Update_Student_Grade() //Test 17
         {
             //Create profile with student info and the grade you want to add
