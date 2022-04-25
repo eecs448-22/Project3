@@ -484,6 +484,7 @@ namespace MyTests
 
         public void Create_Course() //Test 10
         {
+            //Create profile with new course information to insert into the course table
             string[] test_course = { "HA", "101", "Introduction to Art History", "3", "SMA 211", "Summer2022" };
             int level_int = Convert.ToInt32(test_course[1]);
             int hours_int = Convert.ToInt32(test_course[3]);
@@ -498,13 +499,14 @@ namespace MyTests
             };
             try
             {
-                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establish connection to database
                 {
-                    conn.Insert(c);
+                    conn.Insert(c); //Insert new course profile into the table
                     var sql = $"SELECT MAX(Id) FROM Course";
                     idUser = conn.ExecuteScalar<int>(sql);
-                    sql = $"SELECT * From Course Where Id = {idUser}";
+                    sql = $"SELECT * From Course Where Id = {idUser}"; //Search the table for the recently created course
                     var course = conn.QuerySingleOrDefault<Course>(sql);
+                    //If all fields match, then course was inserted successfully, return PASS, otherwise return FAIL
                     if (course.Subject == c.Subject
                         && course.Level == c.Level
                         && course.Title == c.Title
@@ -528,6 +530,7 @@ namespace MyTests
 
         public void Update_Course() //Test 11
         {
+            //Create course profile w/ slightly altered information from existing profile
             string[] test_course = { "HA", "101", "Introduction to Art History", "4", "SMA 200", "Summer2022" };
             int level_int = Convert.ToInt32(test_course[1]);
             int hours_int = Convert.ToInt32(test_course[3]);
@@ -541,11 +544,12 @@ namespace MyTests
                 Room = test_course[4],
                 Semester = test_course[5],
             };
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establish connection to database
             {
-                conn.Update<Course>(c);
+                conn.Update<Course>(c); //Update the existing course profile in the Course table
                 var sql = $"SELECT * FROM Course WHERE Id = {idUser}";
-                var course = conn.QuerySingleOrDefault<Course>(sql);
+                var course = conn.QuerySingleOrDefault<Course>(sql); //Search database for updated profiile
+                //If all fields match, then profile was updated, return PASS, otherwise return FAIL
                 if (course.Subject == c.Subject
                         && course.Level == c.Level
                         && course.Title == c.Title
@@ -563,6 +567,7 @@ namespace MyTests
         }
         public void Delete_Course() //Test 12
         {
+            //Record information for course you want to delete from the Course table
             string[] test_course = { "HA", "101", "Introduction to Art History", "4", "SMA 200", "Summer2022" };
             int level_int = Convert.ToInt32(test_course[1]);
             int hours_int = Convert.ToInt32(test_course[3]);
@@ -578,12 +583,12 @@ namespace MyTests
             };
             try
             {
-                using (var conn = new SQLiteConnection(Utils.defaultConn))
+                using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establish connection to database
                 {
-                    conn.Delete(c);
+                    conn.Delete(c); //Delete the profile from the Course table
                     var sql = $"SELECT * FROM Course WHERE Id = {idUser}";
-                    var course = conn.QuerySingleOrDefault<Course>(sql);
-                    if (course == null)
+                    var course = conn.QuerySingleOrDefault<Course>(sql); //Search database for recently deleted course
+                    if (course == null) //If course is null (meaning it couldnt' be found), deletion worked return PASS, else return FAIL
                     {
                         Console.WriteLine("Test 12: Course successfully deleted: PASS");
                     }
@@ -603,14 +608,15 @@ namespace MyTests
             //** added student id as first array element**
             string[] test_enrollment = { "30006", "1010", "94" };
             //int course_int = Convert.ToInt32(test_enrollment[0]);
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establish connection to database
             {
+                //Add the desired enrollment info (i.e. which course) into the Enrollment database
                 var sql = $"INSERT INTO Enrollment (StudentId, CourseId, Grade) VALUES ('{test_enrollment[0]}', '{test_enrollment[1]}', '{test_enrollment[2]}')";
                 conn.Query(sql);
-
+                //Search the database to see if the new course is present for the given student
                 sql = $"SELECT * FROM Enrollment WHERE StudentId = {test_enrollment[0]} AND CourseId = {test_enrollment[1]}";
                 var enrollment = conn.QuerySingleOrDefault<Enrollment>(sql);
-
+                //if all fields match, the student was enrolled in the course, return PASS, else return FALSE
                 if (test_enrollment[0] == enrollment.StudentId.ToString() /*converted StudentId toString because it was stored as an int in database (ref: data_schema.sql)*/
                 && test_enrollment[1] == enrollment.CourseId.ToString()
                 && test_enrollment[2] == enrollment.Grade.ToString())
@@ -626,15 +632,19 @@ namespace MyTests
 
         public void Drop_Student_Course() //Test 14
         {
+            //Create profile with pertinent information for student and course you want to drop in Enrollment table
             string[] test_enrollment = { "30006", "1010", "94" };
 
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establis connection to database
             {
+                //Delete from enrollment database the course for the corresponding student
                 var sql = $"DELETE FROM Enrollment WHERE StudentId = '{test_enrollment[0]}'AND CourseId = '{test_enrollment[1]}' And Grade ='{test_enrollment[2]}'";
                 conn.Query(sql);
 
+                //Search the database to see if the dropped course is still present for the student
                 sql = $"SELECT * FROM Enrollment WHERE StudentId = {test_enrollment[0]} AND CourseId = {test_enrollment[1]}";
                 var enrollment = conn.QuerySingleOrDefault<Enrollment>(sql);
+                //If no course is found, then the course was dropped, return PASS, otherwise return FAIL
                 if (enrollment == null)
                 {
                     Console.WriteLine("Test 14: Student successfully dropped course: PASS");
@@ -648,17 +658,19 @@ namespace MyTests
 
         public void Assign_Faculty_Course() //Test 15
         {
+            //Create profile with the faculty info and course info needed to update Teaching table
             string[] test_teaching = { "1014", "10003" };
             int course_int = Convert.ToInt32(test_teaching[0]);
 
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establish connection to database
             {
+                //Insert into the teaching table the info showing which course the faculty member will now teach
                 var sql = $"INSERT INTO Teaching (FacultyId, CourseId) VALUES ('{10003}', '{course_int}')";
                 conn.Query(sql);
-
+                //Search the table to see if the recently added information exists
                 sql = $"SELECT * FROM Teaching WHERE FacultyId = {10003} AND CourseId = {test_teaching[0]}";
                 var teaching = conn.QuerySingleOrDefault<Teaching>(sql);
-
+                //If the fields all match, then assignment was successful, return PASS, otherwise return FAIL
                 if (test_teaching[0] == teaching.CourseId.ToString() /*converted StudentId toString because it was stored as an int in database (ref: data_schema.sql)*/
                 && test_teaching[1] == teaching.FacultyId.ToString())
                 {
@@ -673,17 +685,19 @@ namespace MyTests
 
         public void Remove_Faculty_Course() //Test 16
         {
+            //Create profile with info for the course assignment you want to remove for the faculty member
             string[] test_teaching = { "1014", "10003" };
             int course_int = Convert.ToInt32(test_teaching[0]);
 
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establish connection to database
             {
+                //Delete from the Teaching table the necessary info
                 var sql = $"DELETE FROM Teaching WHERE FacultyId = '{10003}' AND CourseId = '{course_int}'";
                 conn.Query(sql);
-
+                //Search the Teaching table to see if you can find the deleted information
                 sql = $"SELECT * FROM Teaching WHERE FacultyId = {10003} AND CourseId = {test_teaching[0]}";
                 var teaching = conn.QuerySingleOrDefault<Teaching>(sql);
-
+                //If comes back null, then the assignment was successfully deleted, return PASS, else return FAIL
                 if (teaching == null)
                 {
                     Console.WriteLine("Test 16: Faculty successfully removed as course instructor: PASS");
@@ -697,17 +711,19 @@ namespace MyTests
 
         public void Update_Student_Grade() //Test 17
         {
+            //Create profile with student info and the grade you want to add
             string[] test_updategrade = { "30006", "1003", "90" };
             int course_int = Convert.ToInt32(test_updategrade[0]);
 
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
+            using (var conn = new SQLiteConnection(Utils.defaultConn)) //Establish connection to database
             {
+                //Update the right profile with the expected grade information
                 var sql = $@"UPDATE Enrollment SET Grade = {test_updategrade[1]} WHERE StudentId = {30006} AND CourseId = {course_int};";
                 conn.Execute(sql);
-
+                //Search the database for the updated profile to confirm it was completed
                 sql = $"SELECT * FROM Enrollment WHERE StudentId = {test_updategrade[0]} AND CourseId = {test_updategrade[1]}";
                 var updategrade = conn.QuerySingleOrDefault<Enrollment>(sql);
-
+                //Profile was found with new grade, return PASS
                 Console.WriteLine("Test 17: Student grade successfully updated: PASS");
             }
         }
