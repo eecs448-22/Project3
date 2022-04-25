@@ -512,33 +512,19 @@ namespace MyTests
             //** added student id as first array element**
             string[] test_enrollment = { "30006", "1010", "94" };
             //int course_int = Convert.ToInt32(test_enrollment[0]);
-            // **Not using a student object, no need to declare**
-            //var e = new Enrollment
-            //{
-            //    StudentId = 30006,
-            //    CourseId = course_int,
-            //    Grade = test_enrollment[1],
-            //};
             using (var conn = new SQLiteConnection(Utils.defaultConn))
             {
-
-                //(INSERT INTO Enrollment (StudentId, CourseId) VALUES ('{30006}', '{course_int}')"; 
-                //                                                         ^no needs for {} around 30006, pass in a string instead of course int**
                 var sql = $"INSERT INTO Enrollment (StudentId, CourseId, Grade) VALUES ('{test_enrollment[0]}', '{test_enrollment[1]}', '{test_enrollment[2]}')";
                 conn.Query(sql);
 
-                //sql = $"SELECT * FROM Enrollment WHERE Id = {30006}";
-
                 sql = $"SELECT * FROM Enrollment WHERE StudentId = {test_enrollment[0]} AND CourseId = {test_enrollment[1]}";
                 var enrollment = conn.QuerySingleOrDefault<Enrollment>(sql);
-                //if ( sql.CourseId == e.CourseId
-                //        && enrollment.Grade == e.Grade)
-                //{
-                if(test_enrollment[0] == enrollment.StudentId.ToString()  /*converted StudentId toString because it was stored as an int in database (ref: data_schema.sql)*/
-                    && test_enrollment[1] == enrollment.CourseId.ToString()
-                    && test_enrollment[2] == enrollment.Grade.ToString())
-                { 
-                Console.WriteLine("Test 13: Student successfully enrolled in course: PASS");
+
+                if (test_enrollment[0] == enrollment.StudentId.ToString() /*converted StudentId toString because it was stored as an int in database (ref: data_schema.sql)*/
+                && test_enrollment[1] == enrollment.CourseId.ToString()
+                && test_enrollment[2] == enrollment.Grade.ToString())
+                {
+                    Console.WriteLine("Test 13: Student successfully enrolled in course: PASS");
                 }
                 else
                 {
@@ -549,20 +535,10 @@ namespace MyTests
 
         public void Drop_Student_Course()
         {
-            //string[] test_enrollment = { "1010", "94" };
-            //int course_int = Convert.ToInt32(test_enrollment[0]);
-            //var e = new Enrollment
-            //{
-            //    StudentId = 30006,
-            //    CourseId = course_int,
-            //    Grade = test_enrollment[1],
-            //};
-
             string[] test_enrollment = { "30006", "1010", "94" };
 
             using (var conn = new SQLiteConnection(Utils.defaultConn))
             {
-                //var sql = $"DELETE FROM Enrollment WHERE StudentId = '{30006}' AND CourseId = '{course_int}'";
                 var sql = $"DELETE FROM Enrollment WHERE StudentId = '{test_enrollment[0]}'AND CourseId = '{test_enrollment[1]}' And Grade ='{test_enrollment[2]}'";
                 conn.Query(sql);
 
@@ -573,111 +549,75 @@ namespace MyTests
                     Console.WriteLine("Test 14: Student successfully dropped course: PASS");
                 }
                 else
-                {
+
                     Console.WriteLine("Test 14: Student successfully dropped course: FAIL");
-                }
+
             }
         }
 
         public void Assign_Faculty_Course()
         {
-            string[] test_teaching = { "1014" };
+            string[] test_teaching = { "1014", "10003" };
             int course_int = Convert.ToInt32(test_teaching[0]);
-            var t = new Teaching
-            {
-                FacultyId = 10003,
-                CourseId = course_int,
-            };
+
             using (var conn = new SQLiteConnection(Utils.defaultConn))
             {
                 var sql = $"INSERT INTO Teaching (FacultyId, CourseId) VALUES ('{10003}', '{course_int}')";
                 conn.Query(sql);
 
-                //if (?????)
-                //{
-                Console.WriteLine("Test 15: Faculty successfully enrolled in course: PASS");
-                //}
-                //else
-                //{
-                //    Console.WriteLine("Test 15: Faculty successfully enrolled in course: FAIL");
-                //}
+                sql = $"SELECT * FROM Teaching WHERE FacultyId = {10003} AND CourseId = {test_teaching[0]}";
+                var teaching = conn.QuerySingleOrDefault<Teaching>(sql);
+
+                if (test_teaching[0] == teaching.CourseId.ToString() /*converted StudentId toString because it was stored as an int in database (ref: data_schema.sql)*/
+                && test_teaching[1] == teaching.FacultyId.ToString())
+                {
+                    Console.WriteLine("Test 15: Faculty successfully enrolled as course instructor: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 15: Faculty successfully enrolled as course instructor: FAIL");
+                }
             }
         }
 
         public void Remove_Faculty_Course()
         {
-            string[] test_teaching = { "1014" };
+            string[] test_teaching = { "1014", "10003" };
             int course_int = Convert.ToInt32(test_teaching[0]);
-            var t = new Teaching
-            {
-                FacultyId = 10003,
-                CourseId = course_int,
-            };
+
             using (var conn = new SQLiteConnection(Utils.defaultConn))
             {
                 var sql = $"DELETE FROM Teaching WHERE FacultyId = '{10003}' AND CourseId = '{course_int}'";
                 conn.Query(sql);
 
-                //if (?????)
-                //{
-                Console.WriteLine("Test 16: Faculty successfully removed from course: PASS");
-                //}
-                //else
-                //{
-                //    Console.WriteLine("Test 16: Faculty successfully removed from course: FAIL");
-                //}
+                sql = $"SELECT * FROM Teaching WHERE FacultyId = {10003} AND CourseId = {test_teaching[0]}";
+                var teaching = conn.QuerySingleOrDefault<Teaching>(sql);
+
+                if (teaching == null)
+                {
+                    Console.WriteLine("Test 16: Faculty successfully removed as course instructor: PASS");
+                }
+                else
+                {
+                    Console.WriteLine("Test 16: Faculty successfully removed as course instructor: FAIL");
+                }
             }
         }
 
         public void Update_Student_Grade()
         {
-            string[] test_updategrade = { "1003", "90" };
+            string[] test_updategrade = { "30006", "1003", "90" };
             int course_int = Convert.ToInt32(test_updategrade[0]);
-            var e = new Enrollment
-            {
-                StudentId = 30006,
-                CourseId = course_int,
-                Grade = test_updategrade[1],
-            };
+
             using (var conn = new SQLiteConnection(Utils.defaultConn))
             {
                 var sql = $@"UPDATE Enrollment SET Grade = {test_updategrade[1]} WHERE StudentId = {30006} AND CourseId = {course_int};";
                 conn.Execute(sql);
 
-                //if (?????)
-                //{
+                sql = $"SELECT * FROM Enrollment WHERE StudentId = {test_updategrade[0]} AND CourseId = {test_updategrade[1]}";
+                var updategrade = conn.QuerySingleOrDefault<Enrollment>(sql);
+
                 Console.WriteLine("Test 17: Student grade successfully updated: PASS");
-                //}
-                //else
-                //{
-                //    Console.WriteLine("Test 17: Student grade successfully updated: FAIL");
-                //}
-            }
-        }
-
-        public void Revert_Student_Grade()
-        {
-            string[] test_updategrade = { "1003", "80" };
-            int course_int = Convert.ToInt32(test_updategrade[0]);
-            var e = new Enrollment
-            {
-                StudentId = 30006,
-                CourseId = course_int,
-                Grade = test_updategrade[1],
-            };
-            using (var conn = new SQLiteConnection(Utils.defaultConn))
-            {
-                var sql = $@"UPDATE Enrollment SET Grade = {test_updategrade[1]} WHERE StudentId = {30006} AND CourseId = {course_int};";
-                conn.Execute(sql);
-
-                //if (?????)
-                //{
-                Console.WriteLine("Test 18: Student grade successfully restored to original: PASS");
-                //}
-                //else
-                //{
-                //    Console.WriteLine("Test 18: Student grade successfully restored to original: FAIL");
-                //}
             }
         }
     }

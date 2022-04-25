@@ -118,27 +118,26 @@ namespace SRMS
             AllocConsole();
 
             Console.WriteLine("Test suite: ");
-            
-            //call the test suite functions, which
+
+            //Calls the test suite functions, which:
             TestClass t1 = new TestClass();
-            t1.Admin_CreateUser(); //1
-            t1.Admin_UpdateUser(); //2
-            t1.Admin_DeleteUser(); //3
-            t1.Create_Student(); //4
-            t1.Update_Student(); //5
-            t1.Delete_Student(); //6
-            t1.Create_Faculty(); //7
-            t1.Update_Faculty(); //8
-            t1.Delete_Faculty(); //9
-            t1.Create_Course(); //10
-            t1.Update_Course(); //11
-            t1.Delete_Course(); //12
-            t1.Assign_Student_Course(); //13
-            t1.Drop_Student_Course(); //14
-            t1.Assign_Faculty_Course(); //15
-            t1.Remove_Faculty_Course(); //16
-            t1.Update_Student_Grade(); //17
-            t1.Revert_Student_Grade(); //18
+            t1.Admin_CreateUser(); //Test 1:
+            t1.Admin_UpdateUser(); //Test 2:
+            t1.Admin_DeleteUser(); //Test 3:
+            t1.Create_Student(); //Test 4:
+            t1.Update_Student(); //Test 5:
+            t1.Delete_Student(); //Test 6:
+            t1.Create_Faculty(); //Test 7:
+            t1.Update_Faculty(); //Test 8:
+            t1.Delete_Faculty(); //Test 9:
+            t1.Create_Course(); //Test 10:
+            t1.Update_Course(); //Test 11:
+            t1.Delete_Course(); //Test 12:
+            t1.Assign_Student_Course(); //Test 13:
+            t1.Drop_Student_Course(); //Test 14:
+            t1.Assign_Faculty_Course(); //Test 15:
+            t1.Remove_Faculty_Course(); //Test 16:
+            t1.Update_Student_Grade(); //Test 17:
         }
     }
 }
